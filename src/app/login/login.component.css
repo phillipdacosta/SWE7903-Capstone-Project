@@ -1,0 +1,40 @@
+
+  .jumbrotron{
+
+    min-height: 10px;
+
+  }
+
+
+  button {
+    margin:0 auto;
+    display:block;
+    border: 5px;
+    height: 8vh;
+}
+
+.btn-block{
+
+    width: 25%;
+    border: 5px;
+}
+
+.grey-background {background-color:rgb(8, 157, 226)}
+.white {color:#ffffff;}
+
+
+::-webkit-input-placeholder {
+    text-align: center;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    text-align: center;  
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;  
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: center; 
+ }
