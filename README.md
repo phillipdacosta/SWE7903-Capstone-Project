@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GasSouth
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
@@ -25,3 +26,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# SWE7903-Capstone-Project
+Repo for our Capstone Project
+
+Roster:
+1. Chloe Lincoln (Leader)
+2. Raghuram Bandi
+3. Phillip DaCosta
+4. Shamira Bright
+5. Young Chung
+>>>>>>> fa382a4593ffbc3d7ccc293c4f27bcb6e0153e5a
