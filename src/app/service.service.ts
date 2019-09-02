@@ -8,8 +8,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 export class ServiceService {
 
 
-  //uri = "https://api.apixu.com/v1/forecast.json?key=6afffc9185b74f8b95e02918192103&q=Atlanta&days=7";
-  uri = " https://api.github.com/users/phillipdacosta"
+  //uri = "http://localhost:8079/#/projects"
+  uri = "https://api.github.com/users/phillipdacosta"
   endpoint = "";
   data_received : any;
   serviceData : any;

@@ -1,0 +1,37 @@
+.btn-block{
+
+    width: 70%;
+    border-radius: 18px;
+
+}
+
+.btn-default {
+
+    margin:0 auto;
+    height: 12vh;
+}
+
+
+.btn-default {
+
+    background-color: rgb(202, 200, 200);
+    color: white
+
+
+}
+
+h3{
+
+    color :rgb(97, 96, 96)
+}
+
+li.list-group-item{
+
+    color:grey
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}

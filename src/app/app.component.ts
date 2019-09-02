@@ -29,6 +29,11 @@ export class AppComponent {
     this.router.navigateByUrl("/active-projects")
   }
 
+  masterCalendarPage(){
+
+    this.router.navigateByUrl("/master-calendar")
+  }
+
 
 
 
