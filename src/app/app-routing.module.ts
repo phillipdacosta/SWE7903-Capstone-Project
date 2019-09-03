@@ -10,6 +10,7 @@ const routes: Routes = [
 
   { path: 'login', component : LoginComponent },
 
+
   { path: 'completed-projects', component : CompletedProjectsComponent },
 
   { path: 'active-projects', component : ActiveProjectsComponent},

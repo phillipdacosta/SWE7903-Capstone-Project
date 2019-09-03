@@ -9,6 +9,7 @@ import { CompletedProjectsComponent } from './completed-projects/completed-proje
 import { ActiveProjectsComponent } from './active-projects/active-projects.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MasterCalendarComponent } from './master-calendar/master-calendar.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MasterCalendarComponent } from './master-calendar/master-calendar.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FullCalendarModule
+    FullCalendarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
