@@ -10,6 +10,7 @@ import { ActiveProjectsComponent } from './active-projects/active-projects.compo
 import { HttpClientModule } from '@angular/common/http';
 import { MasterCalendarComponent } from './master-calendar/master-calendar.component';
 import { FormsModule }   from '@angular/forms';
+import { GuestComponent } from './guest/guest.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule }   from '@angular/forms';
     CompletedProjectsComponent,
     ActiveProjectsComponent,
     MasterCalendarComponent,
+    GuestComponent,
   ],
   imports: [
     BrowserModule,

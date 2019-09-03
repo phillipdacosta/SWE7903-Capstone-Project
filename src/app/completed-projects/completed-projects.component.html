@@ -1,83 +1,181 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
+ 
+
 <head>
+
   <title>Bootstrap Example</title>
+
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
+
+ 
 
 <body>
 
+ 
+
   <div class="col text-center">
+
+ 
 
     <h3>Completed Projects</h3>
 
+ 
+
     <br>
 
+ 
 
     <button type="button" class="btn btn-warning btn-lg" style="color: white;" (click)="save()">Save Progress</button>
-    <br>
-    <br>
-    <br>
+
     <br>
 
+    <br>
+
+    <br>
+
+    <br>
+
+ 
 
     <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear"
+
       aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+
       Project 1
+
     </button>
+
     <br>
+
+ 
 
     <div class="collapse" id="footwear">
+
       <div class="card" style="width: 60vw; color: grey">
+
         <ul class="list-group list-group-flush">
-          <input type="text" placeholder="enter something" [(ngModel)]="test" class="form-control">
-          
-          <li class="list-group-item">test</li>
-          <li class="list-group-item">test</li>
-          <li class="list-group-item">Team members</li>
-        </ul>
+
+          <li class="list-group-item" >Release 1 Start 08/24/19 - 08/29/19</li>
+
+          <li class="list-group-item">Release 2 Start 09/28/19 - 10/19/19</li>
+
+          <div class="col text-left" >
+
+            <div class = "list-group-item" style = "color: rgb(117, 115, 115)">
+
+ 
+
+            <h3 class = "col text-center">Team members: </h3>
+
+            <p> Project Manager:<input class="form-control" type="text" [(ngModel)] = "test">{{this.data_received}} </p>
+
+              <p> Business Analyst: <input class="form-control" type="text" >{{this.data_received}} </p>
+
+             <p> QA: <input class="form-control" type="text">{{this.data_received}} </p> 
+
+              <p> Product Owner: <input class="form-control"type="text" >{{this.data_received}} </p>
+
+           
+
+         <p class = "list-group-item">Test Environment:<input class="form-control" type="text" placeholder="" >{{this.data_received}} </p>
+
+<br>
+
+ 
+
+        </div>
+
       </div>
+
+        </ul>
+
+      </div>
+
     </div>
+
     <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear2"
+
       aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+
       Project 2
+
     </button>
+
     <br>
+
+ 
 
     <div class="collapse" id="footwear2">
+
       <div class="card" style="width: 60vw; color: grey">
+
         <ul class="list-group list-group-flush">
+
           <li class="list-group-item">test</li>
+
           <li class="list-group-item">test</li>
+
           <li class="list-group-item">test</li>
+
           <li class="list-group-item">Team members</li>
+
         </ul>
+
       </div>
+
     </div>
+
     <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear3"
+
       aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+
       Project 3
+
     </button>
+
     <br>
 
+ 
+
     <div class="collapse" id="footwear3">
+
       <div class="card" style="width: 60vw; color: grey">
+
         <ul class="list-group list-group-flush">
+
           <li class="list-group-item">test</li>
+
           <li class="list-group-item">test</li>
+
           <li class="list-group-item">test</li>
+
           <li class="list-group-item">Team members</li>
+
         </ul>
+
       </div>
+
     </div>
 
+ 
 
   </div>
+
 </body>
+
+ 
 
 </html>

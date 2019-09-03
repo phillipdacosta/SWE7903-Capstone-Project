@@ -30,7 +30,6 @@ export class AppComponent {
     
     console.log('fetching data from DB...')
     this.service.fetching();
-    this.loginPage();
     this.router.navigateByUrl("/completed-projects")
   }
 
@@ -47,9 +46,6 @@ export class AppComponent {
     this.service.fetching();
 
   }
-
- 
-
 
 
 }
