@@ -47,5 +47,12 @@ export class AppComponent {
 
   }
 
+  yourProjectPage(){
+
+    this.router.navigateByUrl("/yourproject")
+    this.service.fetching();
+
+  }
+
 
 }

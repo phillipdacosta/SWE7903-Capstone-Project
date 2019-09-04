@@ -5,6 +5,7 @@ import { CompletedProjectsComponent } from './completed-projects/completed-proje
 import { ActiveProjectsComponent } from './active-projects/active-projects.component';
 import { MasterCalendarComponent } from './master-calendar/master-calendar.component';
 import { GuestComponent } from './guest/guest.component';
+import { YourProjectComponent } from './your-project/your-project.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,9 @@ const routes: Routes = [
   { path: 'login', component : LoginComponent },
 
   { path: 'guest', component : GuestComponent },
+
+  { path: 'yourproject', component : YourProjectComponent },
+
 
   { path: 'completed-projects', component : CompletedProjectsComponent },
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Team } from './team.model';
 
 
 @Injectable({
@@ -16,21 +17,28 @@ export class ServiceService {
   data_received : any;
   data_sent : any;
   serviceData : any;
-
+  teamlist: Array<Team>;
+  project_manager : any;
+  business_analyst : any;
+  QA : any;
+  product_owner : any;
+  counter : any;
 
   constructor(private https: HttpClient) { 
     
+    this.teamlist = new Array<Team>();
 
   }
 
-  fromCompletedProjects(test : string){
+  fromCompletedProjects(test : Array<Team>){
 
+    console.log(test)
     console.log("first")
     this.https.post(this.uri + '/test', {test})
     .subscribe((response: any) => {
       console.log("second")
 
-     this.data_sent = response.new_message
+     this.data_sent = response.message_user
      console.log(this.data_sent)
 
       })
@@ -45,7 +53,9 @@ export class ServiceService {
       console.log("third")
 
      this.data_received = response.new_user_message
-     console.log(this.data_received)
+     //this.product_owner = response.Product_manager
+     console.log(this.data_received.Project_manager)
+     console.log(this.product_owner)
      //localStorage.setItem('message' , this.data_received)
 
       })
@@ -68,6 +78,11 @@ export class ServiceService {
  */
 
 
+  }
+
+  getArrayCount(){
+
+    return this.teamlist.length
   }
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { HttpClient } from '@angular/common/http';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { Team } from '../team.model';
 
 @Component({
   selector: 'app-completed-projects',
@@ -18,7 +19,7 @@ export class CompletedProjectsComponent implements OnInit {
 
   ngOnInit() {
 
-   this.test = this.service.data_received;
+   this.service.fetching();
    
 
 
@@ -26,21 +27,8 @@ export class CompletedProjectsComponent implements OnInit {
 
   save(){
 
-
     this.service.fromCompletedProjects(this.test)
 
-
-/*
-    let obs = this.service.apiCall()
-    obs.subscribe(returned_data => {
-
-      this.display_data = returned_data;
-      console.log(this.display_data)
-
-      console.log(returned_data)
-
-    })
-*/
 }
 
 display(){
@@ -49,6 +37,9 @@ display(){
   console.log(this.test)
  // this.display_data = localStorage.getItem('message')
 }
+
+
+
 
 
 

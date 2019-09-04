@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+ 
+
+<head>
+
+  <title>Bootstrap Example</title>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+ 
+
+<body>
+
+ 
+
+  <div class="col text-center">
+
+ 
+
+    <h3>Your Project</h3>
+
+ <br>
+    <button type="button" class="btn btn-success btn-lg" (click)="newProject()">Add a new project</button>
+
+    <br>
+    <br>
+
+    <br>
+
+    <br>
+    <br>
+
+
+    <div *ngFor="let team of service.teamlist">
+      <app-project [teamlist]="team"></app-project>
+    </div>
+<!-- 
+    <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear2"
+
+      aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+
+      Project 2
+
+    </button>
+
+    <br>
+
+ 
+
+    <div class="collapse" id="footwear2">
+
+      <div class="card" style="width: 60vw; color: grey">
+
+        <ul class="list-group list-group-flush">
+
+          <li class="list-group-item">test</li>
+
+          <li class="list-group-item">test</li>
+
+          <li class="list-group-item">test</li>
+
+          <li class="list-group-item">Team members</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear3"
+
+      aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+
+      Project 3
+
+    </button>
+
+    <br>
+
+ 
+
+    <div class="collapse" id="footwear3">
+
+      <div class="card" style="width: 60vw; color: grey">
+
+        <ul class="list-group list-group-flush">
+
+          <li class="list-group-item">test</li>
+
+          <li class="list-group-item">test</li>
+
+          <li class="list-group-item">test</li>
+
+          <li class="list-group-item">Team members</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  -->
+
+ 
+
+  </div>
+
+
+</body>
+
+ 
+
+</html>

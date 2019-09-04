@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CompletedProjectsComponent } from './completed-projects/completed-projects.component';
 import { ActiveProjectsComponent } from './active-projects/active-projects.component';
-import { HttpClientModule } from '@angular/common/http';
 import { MasterCalendarComponent } from './master-calendar/master-calendar.component';
 import { FormsModule }   from '@angular/forms';
 import { GuestComponent } from './guest/guest.component';
+import { ProjectComponent } from './project/project.component';
+import { YourProjectComponent } from './your-project/your-project.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,16 @@ import { GuestComponent } from './guest/guest.component';
     ActiveProjectsComponent,
     MasterCalendarComponent,
     GuestComponent,
+    ProjectComponent,
+    YourProjectComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FullCalendarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
