@@ -4,6 +4,8 @@ import { EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGrigPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction'; // for dateClick
+import { ServiceService } from '../service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-master-calendar',
@@ -11,6 +13,11 @@ import interactionPlugin from '@fullcalendar/interaction'; // for dateClick
   styleUrls: ['./master-calendar.component.css']
 })
 export class MasterCalendarComponent {
+
+  constructor(private service : ServiceService, private router : Router){
+
+
+  }
 
   @ViewChild('calendar', {static: false}) calendarComponent: FullCalendarComponent; // the #calendar in the template
 
@@ -51,6 +58,12 @@ export class MasterCalendarComponent {
         allDay: arg.allDay
       })
     }
+  }
+
+  ngOnInit() { 
+
+ 
+    
   }
 
 }

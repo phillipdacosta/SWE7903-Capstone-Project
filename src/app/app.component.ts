@@ -16,14 +16,26 @@ export class AppComponent {
   username = "capstone"
   password = "capstone"
   title = 'gas-south';
+  flag : boolean ;
 
   loginPage(){
 
     this.router.navigateByUrl("/login")
-    this.service.fetching();
-
+ 
 
   }
+
+  logout(){
+
+    this.service.logout();
+
+  }
+
+  createUserPage(){
+
+    this.router.navigateByUrl("/create-user")
+  }
+
 
   completedProjectsPage(){
     
@@ -43,7 +55,10 @@ export class AppComponent {
   masterCalendarPage(){
 
     this.router.navigateByUrl("/master-calendar")
+    
     this.service.fetching();
+
+    
 
   }
 
@@ -52,6 +67,11 @@ export class AppComponent {
     this.router.navigateByUrl("/yourproject")
     this.service.fetching();
 
+  }
+
+  ngOnInit() { 
+
+    
   }
 
 

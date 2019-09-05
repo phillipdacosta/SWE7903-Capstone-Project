@@ -39,12 +39,11 @@ li {
     border: solid 1px rgb(105, 105, 105);
 
     border-left: 20;
+    border-radius: 7px;
 
  
 
 }
-
- 
 
 .btn-default {
 

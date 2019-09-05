@@ -13,36 +13,40 @@
 <body>
 
 
-    <h3 class="text-center" style="color: rgb(73, 73, 73)">Login</h3>
+    <div class="col-md-4 col-md-offset-4">
 
-    <br>
-    <div class="col text-center">
+        <div class="col text-center">
 
-        <form>
-            <div class="form-group">
+            <h3>Login</h3>
+            <br>
+        </div>
+        <div class="" style="color: white; margin: auto">
 
-                <div class="col-md-4 col-md-offset-4">
-                    <input type="text" placeholder="username" class="form-control">
+            <br>
+            <input type="text" placeholder="Email" [(ngModel)]="email" class="form-control">
+
+            <br>
+            <input type="password" placeholder="password" [(ngModel)]="password" class="form-control" />
+            <br>
+            <br>
+
+            <div class="buttons">
+
+                <div class="spacer">
                     <br>
-                    <input type="password" placeholder="password" class="form-control">
+
+                    <button type="submit" (click)="Login()" class="btn btn-primary btn-lg btn btn-block">Login</button>
 
                 </div>
+                <br>
 
             </div>
-
-        </form>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button type="button" class="btn btn-default btn-md btn-block grey-background" style="color: white;" (click) = "goToAuthenticatedPage()">Login</button>
-        <br>
-        <button type="button" class="btn btn-link">Forgot password</button>
-
+            <br>
+         
+  
+            <button type="button" class="btn btn-link">Forgot password</button>
+        </div>
     </div>
-
 
 </body>
 

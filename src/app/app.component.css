@@ -21,6 +21,7 @@ border: solid, white
 }
 
 
+
 .gas_south_img{
 
     max-width:180px;
@@ -41,7 +42,9 @@ border: solid, white
 }
 
 li:hover {
-    background-color: rgb(218, 89, 3);
+    /*
+   background-color: rgb(218, 89, 3);
+   */
   }
 
 .container{

@@ -16,12 +16,22 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <ul class="nav navbar-nav navbar-right">
+      
         <li><button class="btn btn-link"(click)="masterCalendarPage()">Master Calendar</button></li>
         <li><button class="btn btn-link"(click)="activeProjectsPage()" >Active Projects</button> </li>
         <li><button class="btn btn-link"(click)="completedProjectsPage()">Completed Projects</button></li>
-        <li><button class="btn btn-link"(click)="yourProjectPage()">Your Projects</button></li>
+        <li> 
+        <div *ngIf = "service.flag ">
+           <li style = "float : right"> <button class="btn btn-link" (click)="logout()">Logout</button></li> 
+            <li style = "float : right"><button class="btn btn-link"(click)="yourProjectPage()">Your Projects</button></li>
+            <li style = "float : right"><button class="btn btn-link"(click)="createUserPage()">Create User</button></li>
 
-        <li><button class="btn btn-link"(click)="loginPage()">Login</button></li>
+        </div>
+        <div *ngIf = "!service.flag">
+            <button class="btn btn-link"(click)="loginPage()">Login</button>
+        </div>
+      </li>
+
       </ul>
       <ul class="nav navbar-nav navbar-left">
         <img src="assets/logo-gas-south.png" class="gas_south_img">Home

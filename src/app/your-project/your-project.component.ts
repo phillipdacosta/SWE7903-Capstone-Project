@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class YourProjectComponent implements OnInit {
 
   test : any = '';
-  display_data : any;
+  display_data : Array <Team>;
   count : any;
 
   constructor(private service : ServiceService, public http: HttpClient) { }
@@ -21,9 +21,9 @@ export class YourProjectComponent implements OnInit {
   ngOnInit() {
 
    this.test = this.service.data_received;
-   
 
-  }
+   }
+   
 
   save(){
 
@@ -45,7 +45,9 @@ newProject(){
   this.service.teamlist.push(team)
   console.log(this.service.teamlist)
   this.count = this.service.teamlist.length
-  this.service.counter = this.count
+  this.service.counter = this.count;
+  window.scrollTo({ top: 20000, behavior: 'smooth' })
+
 
 }
 

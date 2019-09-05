@@ -13,6 +13,7 @@ import { GuestComponent } from './guest/guest.component';
 import { ProjectComponent } from './project/project.component';
 import { YourProjectComponent } from './your-project/your-project.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateuserComponent } from './createuser/createuser.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     GuestComponent,
     ProjectComponent,
     YourProjectComponent,
+    CreateuserComponent,
   ],
   imports: [
     BrowserModule,

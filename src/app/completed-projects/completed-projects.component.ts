@@ -15,6 +15,7 @@ export class CompletedProjectsComponent implements OnInit {
   display_data : any;
   calendarPlugins = [dayGridPlugin]; 
 
+
   constructor(private service : ServiceService, public http: HttpClient) { }
 
   ngOnInit() {
