@@ -28,10 +28,6 @@ export class LoginComponent implements OnInit {
   }
 
   this.service.login(this.email, this.password)
-  
-  if(this.service.canActivate()){
-    
-  }
 
 
 

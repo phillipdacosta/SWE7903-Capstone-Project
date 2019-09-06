@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-active-projects',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActiveProjectsComponent implements OnInit {
 
-  constructor() { }
+  time : any;
+
+  constructor(private service : ServiceService) { }
 
   ngOnInit() {
+
+    this.time = this.service.time;
+     console.log( this.time)
   }
 
 }

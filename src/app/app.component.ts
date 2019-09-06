@@ -54,6 +54,7 @@ export class AppComponent {
 
   masterCalendarPage(){
 
+    
     this.router.navigateByUrl("/master-calendar")
     
     this.service.fetching();

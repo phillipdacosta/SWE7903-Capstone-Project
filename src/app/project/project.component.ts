@@ -26,6 +26,13 @@ export class ProjectComponent implements OnInit {
   sendToService(){
 
     this.service.fromCompletedProjects(this.teamlist);
+    let proj_time = Date();
+    proj_time.toString();
+    console.log(proj_time.toString())
+    proj_time.toString() == this.service.time;
+
+  
+
   }
 
 

@@ -1,0 +1,90 @@
+.btn-block{
+
+ 
+
+    width: 70%;
+
+    border-radius: 18px;
+
+ 
+
+}
+
+ 
+
+li {
+
+    border-bottom: 1;
+
+}
+
+ 
+
+.btn-default {
+
+ 
+
+    margin:0 auto;
+
+    height: 12vh;
+
+}
+
+.list-group-item{
+
+ 
+
+    background-color: rgb(224, 223, 223);
+
+    border: solid 1px rgb(105, 105, 105);
+
+    border-left: 20;
+    border-radius: 7px;
+
+ 
+
+}
+
+.btn-default {
+
+ 
+
+    background-color: rgb(202, 200, 200);
+
+    color: white
+
+ 
+
+}
+
+ 
+
+h3{
+
+ 
+
+    color :rgb(97, 96, 96)
+
+}
+
+ 
+
+li.list-group-item{
+
+ 
+
+    color:grey
+
+}
+
+ 
+
+.card {
+
+    margin: 0 auto; /* Added */
+
+    float: none; /* Added */
+
+    margin-bottom: 10px; /* Added */
+
+}

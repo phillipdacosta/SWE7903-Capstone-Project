@@ -28,6 +28,7 @@ export class YourProjectComponent implements OnInit {
   save(){
 
     this.service.fromCompletedProjects(this.test)
+ 
 
 
 }

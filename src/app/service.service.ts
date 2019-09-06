@@ -25,7 +25,7 @@ export class ServiceService {
   QA : any;
   product_owner : any;
   counter : any;
-
+  time : any;
   user_logged_in : any;
   user : any;
   get_user : any;
@@ -57,7 +57,7 @@ export class ServiceService {
     this.https.post(this.uri + '/authenticate', {email: email,password: password})
     .subscribe((response: any) => {
 
-       
+
           localStorage.setItem('auth_token', response.token);
           localStorage.setItem('user', response.return_name);
           this.get_user = localStorage.getItem('user');
@@ -67,8 +67,8 @@ export class ServiceService {
           console.log('Check password is: ' + this.check_password)
 
           console.log(this.cred_already_exist)
-          this.router.navigate(['master-calendar']);
-          console.log("is Auth is: " + this.isAuthenticated())
+        //  this.router.navigate(['master-calendar']);
+         console.log("is Auth is: " + this.isAuthenticated())
 
       })
      
@@ -157,7 +157,9 @@ export class ServiceService {
     if(this.jwtHelper.isTokenExpired(token)){
       this.flag = false;
     } else {
-      this.flag = true;
+
+     this.flag = true;
+     this.router.navigateByUrl("/master-calendar")
     }
     console.log('token expired? : ' + this.jwtHelper.isTokenExpired(token))
     return !this.jwtHelper.isTokenExpired(token);
@@ -172,12 +174,11 @@ export class ServiceService {
       console.log('User not authenticated')
      
       this.router.navigate(['login']);
-      this.router.navigateByUrl('/master-calendar');
+    //  this.router.navigateByUrl('/master-calendar');
 
-      return false;
     } else {
 
-     // this.router.navigate(['master-calendar']);
+      this.router.navigate(['master-calendar']);
       return true;
     }
   

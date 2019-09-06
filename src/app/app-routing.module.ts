@@ -7,6 +7,10 @@ import { MasterCalendarComponent } from './master-calendar/master-calendar.compo
 import { GuestComponent } from './guest/guest.component';
 import { YourProjectComponent } from './your-project/your-project.component';
 import { CreateuserComponent } from './createuser/createuser.component';
+import { 
+  ServiceService as AuthGuard 
+} from './service.service';
+
 
 
 const routes: Routes = [
@@ -15,14 +19,14 @@ const routes: Routes = [
 
   { path: 'guest', component : GuestComponent },
 
-  { path: 'yourproject', component : YourProjectComponent },
+  { path: 'yourproject', component : YourProjectComponent , canActivate: [AuthGuard]},
 
-  { path: 'create-user', component : CreateuserComponent },
+  { path: 'create-user', component : CreateuserComponent , canActivate: [AuthGuard]},
 
 
-  { path: 'completed-projects', component : CompletedProjectsComponent },
+  { path: 'completed-projects', component : CompletedProjectsComponent},
 
-  { path: 'active-projects', component : ActiveProjectsComponent},
+  { path: 'active-projects', component : ActiveProjectsComponent },
 
   { path: 'master-calendar', component : MasterCalendarComponent},
 
