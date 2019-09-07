@@ -10,19 +10,24 @@ import { CreateuserComponent } from './createuser/createuser.component';
 import { 
   ServiceService as AuthGuard 
 } from './service.service';
-
-
+import { AuthorizationGuard } from './authorization.guard';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 const routes: Routes = [
-
+  {
+    path: '',
+    canActivateChild: [AuthorizationGuard],
+    children: [
+  
   { path: 'login', component : LoginComponent },
 
   { path: 'guest', component : GuestComponent },
 
-  { path: 'yourproject', component : YourProjectComponent , canActivate: [AuthGuard]},
+  { path: 'yourproject', component : YourProjectComponent , data: {  allowedRoles: ['admin', 'user'] }},
 
-  { path: 'create-user', component : CreateuserComponent , canActivate: [AuthGuard]},
+  { path: 'create-user', component : CreateuserComponent , data: {  allowedRoles: [ 'admin'] }},
 
+  { path: 'manage-user', component : ManageUsersComponent , data: {  allowedRoles: [ 'admin'] }},
 
   { path: 'completed-projects', component : CompletedProjectsComponent},
 
@@ -32,9 +37,10 @@ const routes: Routes = [
 
 
   {path: '**', component: LoginComponent}
-
-
+    ]
+  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

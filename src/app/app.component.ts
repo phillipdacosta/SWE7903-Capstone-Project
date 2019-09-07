@@ -31,11 +31,17 @@ export class AppComponent {
 
   }
 
-  createUserPage(){
+  manageUserPage(){
 
-    this.router.navigateByUrl("/create-user")
+    this.router.navigateByUrl("/manage-user")
   }
 
+  createUserPage(){
+
+      this.service.fetching();
+      this.router.navigateByUrl("/create-user")
+
+  }
 
   completedProjectsPage(){
     
@@ -54,7 +60,7 @@ export class AppComponent {
 
   masterCalendarPage(){
 
-    
+
     this.router.navigateByUrl("/master-calendar")
     
     this.service.fetching();
@@ -72,7 +78,7 @@ export class AppComponent {
 
   ngOnInit() { 
 
-    
+
   }
 
 

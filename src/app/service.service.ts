@@ -40,6 +40,8 @@ export class ServiceService {
   check_password : any;
   flag : boolean ;
   initial_message : any;
+  priviledge : boolean = false;
+  userRole : any;
 
   public jwtHelper = new JwtHelperService();
 
@@ -65,6 +67,8 @@ export class ServiceService {
           this.check_password = response.return_password;
           this.new_user_message = response.return_message;
           console.log('Check password is: ' + this.check_password)
+          this.userRole = response.return_user_role;
+          console.log(this.userRole)
 
           console.log(this.cred_already_exist)
         //  this.router.navigate(['master-calendar']);
@@ -86,6 +90,7 @@ export class ServiceService {
  
         console.log('User subscribed successfully!')
         localStorage.setItem('auth_token', response.token);
+
         console.log('cred_exists is + ' + this.cred_already_exist)
         this.cred_already_exist = response.cred_error;
         console.log('cred_exists is + ' + this.cred_already_exist)
@@ -155,17 +160,20 @@ export class ServiceService {
 
     const token = localStorage.getItem('auth_token');
     if(this.jwtHelper.isTokenExpired(token)){
+
       this.flag = false;
+
     } else {
 
      this.flag = true;
+     this.priviledge = true;
      this.router.navigateByUrl("/master-calendar")
     }
     console.log('token expired? : ' + this.jwtHelper.isTokenExpired(token))
     return !this.jwtHelper.isTokenExpired(token);
   }
 
-
+/*
   canActivate(): boolean {
 
 
@@ -174,7 +182,6 @@ export class ServiceService {
       console.log('User not authenticated')
      
       this.router.navigate(['login']);
-    //  this.router.navigateByUrl('/master-calendar');
 
     } else {
 
@@ -182,6 +189,29 @@ export class ServiceService {
       return true;
     }
   
+  }
+  */
+
+  isAuthorized(allowedRoles: string[]): boolean {
+    // check if the list of allowed roles is empty, if empty, authorize the user to access the page
+    if (allowedRoles == null || allowedRoles.length === 0) {
+      return true;
+    }
+  
+    // get token from local storage or state management
+   const token = localStorage.getItem('auth_token');
+  
+      // decode token to read the payload details
+    const decodeToken = this.jwtHelper.decodeToken(token);
+    console.log("decode token: " + JSON.stringify(decodeToken))
+  // check if it was decoded successfully, if not the token is not valid, deny access
+    if (!decodeToken) {
+      console.log('Invalid token');
+      return false;
+    }
+  
+  // check if the user roles is in the list of allowed roles, return true if allowed and false if not allowed
+    return allowedRoles.includes(decodeToken['role']);
   }
 
 
