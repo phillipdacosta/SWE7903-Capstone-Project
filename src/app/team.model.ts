@@ -1,9 +1,15 @@
-export class Team {
+import { TeamMemberModel } from './team-member.model';
 
-    Project_manager : any = '';
-    Business_analyst : any = '';
-    QA : any = '';
-    Product_owner : any = '';
+export class Team {
+    members: Array<TeamMemberModel>;
+
+    constructor(){
+        this.members = []
+    }
+
+    addMember(fName: string = "", lName: string="", id: string=""){
+        this.members.push(new TeamMemberModel(fName, lName, id));
+    }
 
 
 }

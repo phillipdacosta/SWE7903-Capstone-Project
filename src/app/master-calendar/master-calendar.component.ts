@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
 })
 export class MasterCalendarComponent {
 
+  get_token : any;
+  show_expiration_flag : Boolean = false;
+
   constructor(private service : ServiceService, private router : Router){
 
 
@@ -62,7 +65,12 @@ export class MasterCalendarComponent {
 
   ngOnInit() { 
 
- 
+    this.get_token = localStorage.getItem("auth_token")
+    if(this.service.jwtHelper.isTokenExpired(this.get_token)){
+
+      this.show_expiration_flag = true;
+    }
+
     
   }
 

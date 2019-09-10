@@ -76,3 +76,36 @@ li:hover {
     }
 
 
+    .modal-title{
+
+        text-align: center;
+        font-size: 20px;
+    
+      }
+
+      button { 
+          
+        margin: 7px 7px 7px 7px;
+       
+    
+    } 
+
+
+
+      .modal-dialog {
+        width: 50vw;
+        margin: 50px auto;
+        height : 50vh;
+      }
+      .modal-dialog,
+      .modal-content {
+          /* 60% of window height */
+          height: 60%;
+      }
+      
+      .modal-body {
+          /* 100% = dialog height, 120px = header + footer */
+          max-height: calc(100% - 120px);
+          overflow-y: scroll;
+      }
+ 

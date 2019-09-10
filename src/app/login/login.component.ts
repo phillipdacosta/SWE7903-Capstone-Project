@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service.service';
+import { UserModel } from '../user.model';
  
  
 @Component({
@@ -26,10 +27,10 @@ export class LoginComponent implements OnInit {
 
     alert("Please enter a username and password")
   }
-
-  this.service.login(this.email, this.password)
-
-
+  const user = new UserModel()
+  user.email = this.email;
+  user.password = this.password
+  this.service.login(user)
 
   }
 

@@ -2,7 +2,7 @@
 
 <html lang="en">
 
- 
+
 
 <head>
 
@@ -18,64 +18,65 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
-  <body>
+<body>
 
 
-<button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear"
+  <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]="'#' + index "
+    aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
 
-aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+    Project {{index + 1}}
+    <button type="button" class="btn btn-danger btn-md" style="color: white; float : right">Edit</button>
 
-Project 1
-<button type="button" class="btn btn-danger btn-md" style="color: white; float : right" >Edit</button>
+  </button>
 
-</button>
+  <br>
 
-<br>
+  <div class="collapse" id={{index}}>
 
-<div class="collapse" id="footwear">
+    <div class="card" style="width: 60vw; color: grey">
 
-<div class="card" style="width: 60vw; color: grey">
+      <ul class="list-group list-group-flush">
 
-  <ul class="list-group list-group-flush">
+        <li class="list-group-item">Release 1 Start 08/24/19 - 08/29/19</li>
 
-    <li class="list-group-item" >Release 1 Start 08/24/19 - 08/29/19</li>
+        <li class="list-group-item">Release 2 Start 09/28/19 - 10/19/19</li>
 
-    <li class="list-group-item">Release 2 Start 09/28/19 - 10/19/19</li>
+        <div class="col text-left">
 
-    <div class="col text-left" >
+          <div class="list-group-item" style="color: rgb(117, 115, 115)">
 
-      <div class = "list-group-item" style = "color: rgb(117, 115, 115)">
-
-        <button type="button" class="btn btn-danger btn-sm" style="color: white; float : right" (click)="sendToService()">Save</button>
-
-
-      <h3 class = "col text-center">Team members: </h3>
-
-      <p> Project Manager:<input class="form-control" type="text" [(ngModel)] = "teamlist.Project_manager">{{this.data_received}} </p>
-
-        <p> Business Analyst: <input class="form-control" type="text" [(ngModel)] = "teamlist.Business_analyst" type="text" >{{this.data_received}} </p>
-
-       <p> QA: <input class="form-control" type="text" type="text" [(ngModel)] = "teamlist.QA">{{this.data_received}} </p> 
-
-        <p> Product Owner: <input class="form-control"type="text" type="text" [(ngModel)] = "teamlist.Product_owner">{{this.data_received}} </p>
+            <button type="button" class="btn btn-danger btn-sm" style="color: white; float : right" (click)="sendToService()">Save</button>
 
 
-   <p class = "list-group-item">Test Environment:<input class="form-control" type="text" placeholder="" >{{this.data_received}} </p>
+            <h3 class="col text-center">Team members: </h3>
 
-<br>
+            <button class="add" (click)="project.team.addMember()">Add Team Member</button>
+
+            <div *ngFor="let member of project.team.members">
+                <p> 
+                    <select name="memberName" id="memberName" [(ngModel)]="member.name">
+                      <option *ngFor="let user of service.users" value="user.id">{{user.name}}</option>
+                    </select>
+                    <select name="memberRole" id="memberRole" [(ngModel)]="member.projectRole">
+                        <option *ngFor="let role of service.projectRoles" value="role.id">{{role.name}}</option>
+                    </select>
+                </p>
+            </div>
+
+            <br>
 
 
+
+          </div>
+
+        </div>
+
+      </ul>
+
+    </div>
 
   </div>
 
-</div>
-
-  </ul>
-
-</div>
-
-</div>
-
 </body>
 
-  </html>
+</html>

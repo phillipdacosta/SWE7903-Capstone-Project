@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from '../user.model';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-createuser',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateuserComponent implements OnInit {
 
-  constructor() { }
+  user: UserModel
+  roles: Array<string>;
+  show_expiration_flag : Boolean = false;
+  get_token : any;
+
+  constructor(private service : ServiceService) {
+    this.user = new UserModel();
+    this.roles = ["user", "admin"]
+   }
 
   ngOnInit() {
+    this.get_token = localStorage.getItem("auth_token")
+    if(this.service.jwtHelper.isTokenExpired(this.get_token)){
+ 
+      this.show_expiration_flag = true;
+    }
+  }
+
+  onSubmit(){
+    console.error("USER", JSON.stringify(this.user))
+    this.service.subscribe(this.user);
   }
 
 }

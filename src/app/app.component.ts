@@ -17,11 +17,14 @@ export class AppComponent {
   password = "capstone"
   title = 'gas-south';
   flag : boolean ;
-
+  get_user_name : any;
+  hide_welcome : boolean = false;
+  show_expiration_flag : Boolean = false;
+  get_token : any;
   loginPage(){
 
     this.router.navigateByUrl("/login")
- 
+
 
   }
 
@@ -78,8 +81,19 @@ export class AppComponent {
 
   ngOnInit() { 
 
+    this.service.get_user = localStorage.getItem('username') 
+
+    setTimeout(() => {
+    this.hide_welcome = false;
+    }, 5);
+
+    this.get_token = localStorage.getItem("auth_token")
+    if(this.service.jwtHelper.isTokenExpired(this.get_token)){
+
+      this.show_expiration_flag = true;
+    }
 
   }
 
-
+ 
 }

@@ -3,6 +3,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Team } from './team.model';
 import { Router, CanActivate } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { UserModel } from './user.model';
+import { Project } from './project.model';
+import { TeamMemberModel } from './team-member.model';
+import { ProjectRoleModel } from './project-role.model';
+import { verifyHostBindings } from '@angular/compiler';
 
 
 @Injectable({
@@ -11,9 +16,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class ServiceService {
 
 
-  //uri = "http://localhost:8079/#/projects"
+ // uri = "http://localhost:5000"
 
-  uri = "https://pacific-thicket-17424.herokuapp.com"
+ uri = "https://pacific-thicket-17424.herokuapp.com"
 
   endpoint = "";
   data_received : any;
@@ -42,6 +47,14 @@ export class ServiceService {
   initial_message : any;
   priviledge : boolean = false;
   userRole : any;
+  return_users : any;
+  user_firstname : any;
+  user_lastname : any;
+  user_email : any;
+  get_all_users : any;
+  users: Array<TeamMemberModel>;
+  projectRoles: Array<ProjectRoleModel>
+  set_user_name: any;
 
   public jwtHelper = new JwtHelperService();
 
@@ -51,12 +64,11 @@ export class ServiceService {
 
   }
 
-  login(email: string, password: string) {
+  login(user: UserModel) {
 
-    console.log(email)
-    console.log(password)
-
-    this.https.post(this.uri + '/authenticate', {email: email,password: password})
+  
+    console.log(user)
+    this.https.post(this.uri + '/authenticate', {user})
     .subscribe((response: any) => {
 
 
@@ -64,11 +76,11 @@ export class ServiceService {
           localStorage.setItem('user', response.return_name);
           this.get_user = localStorage.getItem('user');
           this.check_email = response.return_name;
-          this.check_password = response.return_password;
-          this.new_user_message = response.return_message;
-          console.log('Check password is: ' + this.check_password)
+          this.set_user_name = localStorage.setItem('username',response.return_user_first_name);
+          this.get_user = localStorage.getItem('username')
+        console.log(this.set_user_name)
           this.userRole = response.return_user_role;
-          console.log(this.userRole)
+          console.log(response.return_user_first_name)
 
           console.log(this.cred_already_exist)
         //  this.router.navigate(['master-calendar']);
@@ -78,13 +90,11 @@ export class ServiceService {
      
     }
 
-    subscribe(email: string, password: string, role : any) {
+    subscribe(user: UserModel) {
 
-      console.log(email)
-      console.log(password)
-  
+      console.log(user)
       console.error(this.uri)
-      this.https.post(this.uri + '/subscribe', {email: email,password: password, role : role})
+      this.https.post(this.uri + '/subscribe', {user})
       .subscribe((response: any) => {
        
  
@@ -103,7 +113,7 @@ export class ServiceService {
       }
 
 
-  fromCompletedProjects(test : Array<Team>){
+  fromCompletedProjects(test : Project){
 
     console.log(test)
     console.log("first")
@@ -121,13 +131,17 @@ export class ServiceService {
   fetching(){
 
    console.log('code ran')
-    this.https.get(this.uri + '/other')
+    this.https.get(this.uri + '/yourprojects')
     .subscribe((response: any) => {
       console.log("third")
+     this.user_firstname =  response.get_user_name;
+     this.user_lastname =  response.get_user_password;
+      this.get_all_users =response.get_all_users;
+      console.log(this.get_all_users)
 
-     this.data_received = response.new_user_message
-     console.log(this.data_received.Project_manager)
-     console.log(this.product_owner)
+      //change below
+    //  this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
+      console.log(this.get_all_users)
 
       })
   }
@@ -173,26 +187,8 @@ export class ServiceService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
-/*
-  canActivate(): boolean {
-
-
-    if (!this.isAuthenticated()) {
-
-      console.log('User not authenticated')
-     
-      this.router.navigate(['login']);
-
-    } else {
-
-      this.router.navigate(['master-calendar']);
-      return true;
-    }
-  
-  }
-  */
-
   isAuthorized(allowedRoles: string[]): boolean {
+
     // check if the list of allowed roles is empty, if empty, authorize the user to access the page
     if (allowedRoles == null || allowedRoles.length === 0) {
       return true;
@@ -212,6 +208,31 @@ export class ServiceService {
   
   // check if the user roles is in the list of allowed roles, return true if allowed and false if not allowed
     return allowedRoles.includes(decodeToken['role']);
+  }
+
+  getUsers(){
+
+   this.return_users
+    this.https.get(this.uri + '/users')
+    .subscribe((response: any) => {
+
+      this.return_users = response.get_user_name;
+      console.log(this.return_users)
+
+      this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
+      this.users.push(this.get_all_users)
+      console.log(this.get_all_users)
+      })
+
+
+    // get all users from db
+
+    // for each user retrieved from db
+
+    // create new TeamMemberModel with the user first last name and id
+    // new TeamMemberModel()
+
+    // push team member model to this.users
   }
 
 

@@ -23,7 +23,7 @@ const routes: Routes = [
 
   { path: 'guest', component : GuestComponent },
 
-  { path: 'yourproject', component : YourProjectComponent , data: {  allowedRoles: ['admin', 'user'] }},
+  { path: 'yourproject', component : YourProjectComponent , data: {  allowedRoles: ['admin'] }},
 
   { path: 'create-user', component : CreateuserComponent , data: {  allowedRoles: [ 'admin'] }},
 

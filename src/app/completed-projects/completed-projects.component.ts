@@ -14,7 +14,8 @@ export class CompletedProjectsComponent implements OnInit {
   test : any = '';
   display_data : any;
   calendarPlugins = [dayGridPlugin]; 
-
+  get_token : any;
+  show_expiration_flag : Boolean = false;
 
   constructor(private service : ServiceService, public http: HttpClient) { }
 
@@ -22,7 +23,11 @@ export class CompletedProjectsComponent implements OnInit {
 
    this.service.fetching();
    
+   this.get_token = localStorage.getItem("auth_token")
+   if(this.service.jwtHelper.isTokenExpired(this.get_token)){
 
+     this.show_expiration_flag = true;
+   }
 
   }
 

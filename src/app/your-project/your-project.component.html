@@ -2,7 +2,7 @@
 
 <html lang="en">
 
- 
+
 
 <head>
 
@@ -20,35 +20,35 @@
 
 </head>
 
- 
-
 <body>
 
- 
 
-  <div class="col text-center">
-
- 
-
+    <div class="col text-center">
+        <div *ngIf = "this.show_expiration_flag">
+            <br>
+            <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
+      </div>
+      <br>
+      <br>
     <h3>Your Project</h3>
-
- <br>
+    <div *ngIf = "!this.show_expiration_flag">
+   
+    <br>
     <button type="button" class="btn btn-success btn-lg" (click)="newProject()">Add new project</button>
 
     <br>
     <br>
     <br>
     <br>
-
-
-    <div *ngFor="let team of service.teamlist">
-      <app-project [teamlist]="team"></app-project>
+    <!--
+    <div *ngFor="let team of service.teamlist; let i = index">
+      <app-project [index]="i" [teamlist]="team"></app-project>
     </div>
-
+     -->
     <li *ngFor="let t of display_data">
-       {{t}}
+      {{t}}
     </li>
-<!-- 
+    <!-- 
     <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear2"
 
       aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
@@ -114,13 +114,13 @@
     </div>
   -->
 
- 
+
 
   </div>
-
+</div>
 
 </body>
 
- 
+
 
 </html>

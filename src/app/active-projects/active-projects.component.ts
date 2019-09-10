@@ -9,13 +9,19 @@ import { ServiceService } from '../service.service';
 export class ActiveProjectsComponent implements OnInit {
 
   time : any;
-
+  show_expiration_flag : Boolean = false;
+  get_token : any;
   constructor(private service : ServiceService) { }
 
   ngOnInit() {
 
     this.time = this.service.time;
      console.log( this.time)
-  }
+     this.get_token = localStorage.getItem("auth_token")
+     if(this.service.jwtHelper.isTokenExpired(this.get_token)){
+ 
+       this.show_expiration_flag = true;
+     }
+    }
 
 }

@@ -15,13 +15,19 @@ export class YourProjectComponent implements OnInit {
   test : any = '';
   display_data : Array <Team>;
   count : any;
-
+  show_expiration_flag : Boolean = false;
+  get_token : any;
   constructor(private service : ServiceService, public http: HttpClient) { }
 
   ngOnInit() {
 
    this.test = this.service.data_received;
+   this.service.fetching();
+   this.get_token = localStorage.getItem("auth_token")
+   if(this.service.jwtHelper.isTokenExpired(this.get_token)){
 
+     this.show_expiration_flag = true;
+   }
    }
    
 
@@ -45,8 +51,6 @@ newProject(){
   let team = new Team();
   this.service.teamlist.push(team)
   console.log(this.service.teamlist)
-  this.count = this.service.teamlist.length
-  this.service.counter = this.count;
   window.scrollTo({ top: 20000, behavior: 'smooth' })
 
 

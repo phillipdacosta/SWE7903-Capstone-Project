@@ -1,3 +1,48 @@
+<div *ngIf="service.userRole != 'user'">
+
+<div class="container">
+    <div *ngIf = "!hide_welcome">
+    <div class="jumbotron ">
+      <div class="row">
+        <div class="col-xs-12">
+          <br>
+         
+              <h3 class="text-center" style="color: rgb(122, 122, 122)">Welcome back, {{service.get_user}}! </h3>
+            <div *ngIf = "this.show_expiration_flag">
+              <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div *ngIf="service.userRole == 'user'">
+
+  <div class="container">
+      <div *ngIf = "!hide_welcome">
+      <div class="jumbotron ">
+        <div class="row">
+          <div class="col-xs-12">
+            <br>
+                <h3 class="text-center" style="color: rgb(122, 122, 122)">Welcome, {{service.get_user}}! </h3>
+              <div *ngIf = "this.show_expiration_flag">
+                <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+  <br>
+  <div *ngIf = "!this.show_expiration_flag">
+      <br>
+
 <div class='app-calendar' *ngIf="calendarVisible">
     <full-calendar
       #calendar
@@ -12,3 +57,4 @@
       [events]="calendarEvents"
       (dateClick)="handleDateClick($event)"
     ></full-calendar>
+  </div>

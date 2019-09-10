@@ -18,13 +18,15 @@
       <div class="container">
         <ul class="nav navbar-nav navbar-right">
 
-          <li><button class="btn btn-link" (click)="masterCalendarPage()">Master Calendar</button></li>
+          <li style = ""><button class="btn btn-link" (click)="masterCalendarPage()">Master Calendar</button></li>
           <li><button class="btn btn-link" (click)="activeProjectsPage()">Active Projects</button> </li>
           <li><button class="btn btn-link" (click)="completedProjectsPage()">Completed Projects</button></li>
           <li>
             <div *ngIf="service.flag ">
-          <li style="float : right"> <button class="btn btn-link" (click)="logout()">Logout</button></li>
-          <li style="float : right"><button class="btn btn-link" (click)="yourProjectPage()">Your Projects</button></li>
+              
+
+                <button type="button" class="btn btn-link" style = "float:right" data-toggle="modal" data-target="#myModal">Logout</button>
+                <li style="float : right"><button class="btn btn-link" (click)="yourProjectPage()">Your Projects</button></li>
           <li style="float : right"><button class="btn btn-link" (click)="createUserPage()">Create User</button></li>
 
       </div>
@@ -42,17 +44,6 @@
   </div>
   </nav>
 
-  <div class="container">
-    <div class="jumbotron">
-      <div class="row">
-        <div class="col-xs-12">
-          <br>
-          <h3 class="text-center" style="color: rgb(122, 122, 122)">Welcome Back</h3>
-        </div>
-      </div>
-    </div>
-
-  </div>
   </div>
 
 
@@ -67,7 +58,7 @@
           <li><button class="btn btn-link" (click)="completedProjectsPage()">Completed Projects</button></li>
           <li>
             <div *ngIf="service.flag ">
-          <li style="float : right"> <button class="btn btn-link" (click)="logout()">Logout</button></li>
+                <button type="button" class="btn btn-link" style = "float:right" data-toggle="modal" data-target="#myModal">Logout</button>
 
       </div>
       <div *ngIf="!service.flag">
@@ -84,18 +75,38 @@
   </div>
   </nav>
 
-  <div class="container">
-    <div class="jumbotron">
-      <div class="row">
-        <div class="col-xs-12">
-          <br>
-          <h3 class="text-center" style="color: rgb(122, 122, 122)">Welcome Back</h3>
+  </div>
+
+
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Are you sure you want to logout?</h4>
         </div>
+        <div class="modal-body">
+            <br>
+            <br>
+            <br>
+            <div class="second">
+                <div class="col-md-12 text-center">
+                      <form>
+                           <button  class="btn btn-danger btn-lg" type="submit" (click) = "logout()" data-dismiss="modal"> Yes </button>
+                           <button class="btn btn-primary btn-lg" data-dismiss="modal" type="submit" >Cancel </button>
+                       </form>
+                 </div>
+           </div>
+          </div>
+       
+     
       </div>
+  
     </div>
-
   </div>
-  </div>
-
+=  <br>
 
   <router-outlet></router-outlet>
