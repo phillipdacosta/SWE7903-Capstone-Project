@@ -34,7 +34,7 @@ export class AppComponent {
 
   }
 
-  manageUserPage(){
+  manageUsersPage(){
 
     this.router.navigateByUrl("/manage-user")
   }
