@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { Team } from '../team.model';
 import { ServiceService } from '../service.service';
 import { HttpClient } from '@angular/common/http';
+import { TeamMemberModel } from '../team-member.model';
 
 
 
@@ -17,10 +18,13 @@ export class YourProjectComponent implements OnInit {
   count : any;
   show_expiration_flag : Boolean = false;
   get_token : any;
+  members: Array<TeamMemberModel>;
+
+
   constructor(private service : ServiceService, public http: HttpClient) { }
 
   ngOnInit() {
-
+   this.members = [];
    this.test = this.service.data_received;
    this.service.fetching();
    this.get_token = localStorage.getItem("auth_token")
@@ -34,10 +38,10 @@ export class YourProjectComponent implements OnInit {
   save(){
 
     this.service.fromCompletedProjects(this.test)
- 
-
 
 }
+
+
 
 display(){
 
@@ -49,11 +53,15 @@ display(){
 newProject(){
 
   let team = new Team();
-  this.service.teamlist.push(team)
+  //this.service.teamlist.push(team)
   console.log(this.service.teamlist)
   window.scrollTo({ top: 20000, behavior: 'smooth' })
 
 
+}
+
+addMember(){
+  this.members.push(new TeamMemberModel);
 }
 
 

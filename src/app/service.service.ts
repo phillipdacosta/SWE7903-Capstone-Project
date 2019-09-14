@@ -47,7 +47,7 @@ export class ServiceService {
   initial_message : any;
   priviledge : boolean = false;
   userRole : any;
-  return_users : any;
+  return_users : Array<TeamMemberModel>;
   user_firstname : any;
   user_lastname : any;
   user_email : any;
@@ -55,12 +55,19 @@ export class ServiceService {
   users: Array<TeamMemberModel>;
   projectRoles: Array<ProjectRoleModel>
   set_user_name: any;
+  roles : any;
 
   public jwtHelper = new JwtHelperService();
 
   constructor(private https: HttpClient, private router : Router) { 
     
     this.teamlist = new Array<Team>();
+    this.return_users = [];
+    this.roles = [];
+    console.error("init", this.return_users);
+
+
+
 
   }
 
@@ -82,7 +89,6 @@ export class ServiceService {
           this.userRole = response.return_user_role;
           console.log(response.return_user_first_name)
 
-          console.log(this.cred_already_exist)
         //  this.router.navigate(['master-calendar']);
          console.log("is Auth is: " + this.isAuthenticated())
 
@@ -99,7 +105,7 @@ export class ServiceService {
        
  
         console.log('User subscribed successfully!')
-        localStorage.setItem('auth_token', response.token);
+       // localStorage.setItem('auth_token', response.token);
 
         console.log('cred_exists is + ' + this.cred_already_exist)
         this.cred_already_exist = response.cred_error;
@@ -137,13 +143,55 @@ export class ServiceService {
      this.user_firstname =  response.get_user_name;
      this.user_lastname =  response.get_user_password;
       this.get_all_users =response.get_all_users;
+      console.error("response", response);
       console.log(this.get_all_users)
+      
+      this.return_users = []      
+
+      console.error("users:", this.return_users)
+
+      this.get_all_users.forEach(user => {
+        const teamModel = new TeamMemberModel(user.user._firstName, user.user._lastName, user._id);
+        this.return_users.push(teamModel);
+        console.log("loop")
+      });
+
+      console.error("users:", this.return_users);
+    })
+
+      //change below
+    //  this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
+      console.log(this.get_all_users)
+      this.fetchRoles();
+
+      
+/*
+      let xml = this.https.get('https://gassouth.innotas.com/services/MainService?wsdl').subscribe(data =>{
+
+        console.log(data)
+      })
+
+      console.log(xml)
+  */
+  }
+
+
+
+  fetchRoles(){
+
+    this.https.get(this.uri + '/roles')
+    .subscribe((response: any) => {
+  
+      this.roles = response.result
+      console.log(this.roles)
+      console.error("roles:", this.roles);
+    })
 
       //change below
     //  this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
       console.log(this.get_all_users)
 
-      })
+
   }
 
 
@@ -210,30 +258,6 @@ export class ServiceService {
     return allowedRoles.includes(decodeToken['role']);
   }
 
-  getUsers(){
-
-   this.return_users
-    this.https.get(this.uri + '/users')
-    .subscribe((response: any) => {
-
-      this.return_users = response.get_user_name;
-      console.log(this.return_users)
-
-      this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
-      this.users.push(this.get_all_users)
-      console.log(this.get_all_users)
-      })
-
-
-    // get all users from db
-
-    // for each user retrieved from db
-
-    // create new TeamMemberModel with the user first last name and id
-    // new TeamMemberModel()
-
-    // push team member model to this.users
-  }
 
 
 }

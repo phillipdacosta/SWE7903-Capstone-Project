@@ -16,11 +16,19 @@ export class UserModel {
     }
 
     set firstName(name: string){
-        this._firstName = name
+        this._firstName = name;
     }
 
     set lastName(name: string){
-        this._lastName = name
+        this._lastName = name;
+    }
+
+    get firstName(){
+        return this._firstName;
+    }
+
+    get lastName(){
+        return this._lastName;
     }
 
     set password(pass: string){

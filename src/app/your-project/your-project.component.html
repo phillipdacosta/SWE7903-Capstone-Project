@@ -34,89 +34,62 @@
     <div *ngIf = "!this.show_expiration_flag">
    
     <br>
-    <button type="button" class="btn btn-success btn-lg" (click)="newProject()">Add new project</button>
 
     <br>
     <br>
     <br>
     <br>
-    <!--
+
     <div *ngFor="let team of service.teamlist; let i = index">
       <app-project [index]="i" [teamlist]="team"></app-project>
     </div>
-     -->
+
     <li *ngFor="let t of display_data">
       {{t}}
     </li>
+    
     <!-- 
-    <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear2"
+    <button type="button" class="btn btn-link"  data-toggle="modal" data-target="#addProject"></button>
+-->
+<button type="button" class="btn btn-success btn-lg" data-toggle="modal"  data-target="#addProject">Add new project</button>
 
-      aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+      <!-- Modal -->
+  <div id="addProject" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style = "color: rgb(97, 2, 2); font-size: 18pt">Enter team for project</h4>
+<br>
+            <button type="submit" (click)="addMember()"  class="btn btn-primary btn-md">Add</button>
 
-      Project 2
+            <app-projectteam [members]=members></app-projectteam>
+          </div>
+          <div class="modal-body">
+              <br>
+    
+              <div class="second">
+                  <div class="col-md-12 text-center">
+                        <form>
 
-    </button>
-
-    <br>
-
- 
-
-    <div class="collapse" id="footwear2">
-
-      <div class="card" style="width: 60vw; color: grey">
-
-        <ul class="list-group list-group-flush">
-
-          <li class="list-group-item">test</li>
-
-          <li class="list-group-item">test</li>
-
-          <li class="list-group-item">test</li>
-
-          <li class="list-group-item">Team members</li>
-
-        </ul>
-
+              
+                         </form>
+                   </div>
+             </div>
+            </div>
+         
+       
+        </div>
+    
       </div>
-
     </div>
-
-    <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear3"
-
-      aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
-
-      Project 3
-
-    </button>
-
-    <br>
-
- 
-
-    <div class="collapse" id="footwear3">
-
-      <div class="card" style="width: 60vw; color: grey">
-
-        <ul class="list-group list-group-flush">
-
-          <li class="list-group-item">test</li>
-
-          <li class="list-group-item">test</li>
-
-          <li class="list-group-item">test</li>
-
-          <li class="list-group-item">Team members</li>
-
-        </ul>
-
-      </div>
-
-    </div>
-  -->
 
 
 
   </div>
+
 </div>
 
 </body>

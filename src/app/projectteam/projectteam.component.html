@@ -1,0 +1,19 @@
+<form>
+        <div *ngFor="let member of members" class="team">
+                <select (change)="selectUser($event.target.value, member)" class="form-control"   name="member"  required>
+                        <option selected value="undefined" class="default">Select a User</option>
+                        <option *ngFor="let user of service.return_users" value={{user.id}}>{{user.name}}</option>
+                    </select>
+            
+                    <select (change)="selectRole($event.target.value, member)" class="form-control"   name="role"  required>
+                            <option selected value="undefined" class="default">Select a Role</option>
+                            <option *ngFor="let role of service.roles" value={{role._id}}>{{role.name}}</option>
+                    </select>
+                    <hr>
+
+        </div>
+        <button type="submit" (click)="addMember()"  class="btn btn-success btn-sm">Save</button>
+
+
+    </form>
+

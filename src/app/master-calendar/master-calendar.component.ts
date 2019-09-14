@@ -7,6 +7,7 @@ import interactionPlugin from '@fullcalendar/interaction'; // for dateClick
 import { ServiceService } from '../service.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-master-calendar',
   templateUrl: './master-calendar.component.html',
@@ -34,6 +35,8 @@ export class MasterCalendarComponent {
   toggleVisible() {
     this.calendarVisible = !this.calendarVisible;
   }
+
+  
 
   toggleWeekends() {
     this.calendarWeekends = !this.calendarWeekends;

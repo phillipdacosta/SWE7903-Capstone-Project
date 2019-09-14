@@ -12,10 +12,11 @@ export class ProjectComponent implements OnInit {
 
   @Input() index: number;
 
+  @Input() teamlist: Team;
+
   indexID: string;
   project: Project;
   show_expiration_flag : Boolean = false;
-
 
 
   constructor(private service : ServiceService) { 

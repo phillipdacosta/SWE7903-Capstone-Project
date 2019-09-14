@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { AdminComponent } from './admin/admin.component';
+import { ProjectteamComponent } from './projectteam/projectteam.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AdminComponent } from './admin/admin.component';
     CreateuserComponent,
     ManageUsersComponent,
     AdminComponent,
+    ProjectteamComponent,
   ],
   imports: [
     BrowserModule,
