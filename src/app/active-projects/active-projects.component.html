@@ -20,146 +20,136 @@
 
 </head>
 
-
-
 <body>
 
-
-
-        <div class="col text-center">
-                <div *ngIf = "this.show_expiration_flag">
-                    <br>
-                    <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
-              </div>
-              <br>
-              <br>
+    <div class="col text-center">
+        <div *ngIf="this.show_expiration_flag">
+            <br>
+            <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
+        </div>
+        <br>
+        <br>
         <h3>Active Projects</h3>
 
         <br>
         <br>
 
         <br>
-  
-        <div *ngIf = "!this.show_expiration_flag">
 
-        <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear"
-            aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+        <div *ngIf="!this.show_expiration_flag">
 
-            Project 1 - Last Updated: {{time}}
+            <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear"
+                aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
 
-        </button>
+                Project 1 - Last Updated: {{time}}
 
-        <br>
+            </button>
 
+            <br>
 
+            <div class="collapse" id="footwear">
 
-        <div class="collapse" id="footwear">
+                <div class="card" style="width: 60vw; color: grey">
 
-            <div class="card" style="width: 60vw; color: grey">
+                    <ul class="list-group list-group-flush">
 
-                <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Release 1 Start 08/24/19 - 08/29/19</li>
 
-                    <li class="list-group-item">Release 1 Start 08/24/19 - 08/29/19</li>
+                        <li class="list-group-item">Release 2 Start 09/28/19 - 10/19/19</li>
 
-                    <li class="list-group-item">Release 2 Start 09/28/19 - 10/19/19</li>
+                        <div class="col text-left">
 
-                    <div class="col text-left">
+                            <div class="list-group-item" style="color: rgb(117, 115, 115)">
 
-                        <div class="list-group-item" style="color: rgb(117, 115, 115)">
+                                <h3 class="col text-center">Team members: </h3>
 
-                            <h3 class="col text-center">Team members: </h3>
+                                Project Manager:<p class="form-control" type="text" disabled="disabled">{{display}} </p>
 
-                            Project Manager:<p class="form-control" type="text" disabled="disabled">{{service.data_received?.Project_manager}} </p>
+                                Business Analyst: <p class="form-control" type="text" disabled="disabled">{{service.data_received?.Business_analyst}}
+                                </p>
 
-                            Business Analyst: <p class="form-control" type="text" disabled="disabled">{{service.data_received?.Business_analyst}} </p>
+                                QA: <p class="form-control" type="text" disabled="disabled">{{service.data_received?.QA}}
+                                </p>
 
-                            QA: <p class="form-control" type="text" disabled="disabled">{{service.data_received?.QA}} </p>
+                                Product Owner: <p class="form-control" type="text" disabled="disabled">{{service.data_received?.Product_owner}}
+                                </p>
 
-                            Product Owner: <p class="form-control" type="text" disabled="disabled">{{service.data_received?.Product_owner}} </p>
+                                <p class="">Test Environment:<p class="form-control" type="text" placeholder="">{{this.data_received}}
+                                    </p>
 
-                            <p class="">Test Environment:<p class="form-control" type="text"
-                                    placeholder="">{{this.data_received}} </p>
-
-                            <br>
-
-
-
+                                    <br>
+                            </div>
                         </div>
+                    </ul>
+                </div>
+            </div>
 
-                    </div>
+            <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear2"
+                aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
 
-                </ul>
+                Project 2
+
+            </button>
+
+            <br>
+
+
+
+            <div class="collapse" id="footwear2">
+
+                <div class="card" style="width: 60vw; color: grey">
+
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">test</li>
+
+                        <li class="list-group-item">test</li>
+
+                        <li class="list-group-item">test</li>
+
+                        <li class="list-group-item">Team members</li>
+
+                    </ul>
+
+                </div>
 
             </div>
 
-        </div>
+            <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear3"
+                aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
 
-        <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear2"
-            aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+                Project 3
 
-            Project 2
+            </button>
 
-        </button>
-
-        <br>
+            <br>
 
 
 
-        <div class="collapse" id="footwear2">
+            <div class="collapse" id="footwear3">
 
-            <div class="card" style="width: 60vw; color: grey">
+                <div class="card" style="width: 60vw; color: grey">
 
-                <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush">
 
-                    <li class="list-group-item">test</li>
+                        <li class="list-group-item">test</li>
 
-                    <li class="list-group-item">test</li>
+                        <li class="list-group-item">test</li>
 
-                    <li class="list-group-item">test</li>
+                        <li class="list-group-item">test</li>
 
-                    <li class="list-group-item">Team members</li>
+                        <li class="list-group-item">Team members</li>
 
-                </ul>
+                    </ul>
 
-            </div>
-
-        </div>
-
-        <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear3"
-            aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
-
-            Project 3
-
-        </button>
-
-        <br>
-
-
-
-        <div class="collapse" id="footwear3">
-
-            <div class="card" style="width: 60vw; color: grey">
-
-                <ul class="list-group list-group-flush">
-
-                    <li class="list-group-item">test</li>
-
-                    <li class="list-group-item">test</li>
-
-                    <li class="list-group-item">test</li>
-
-                    <li class="list-group-item">Team members</li>
-
-                </ul>
+                </div>
 
             </div>
 
+
+
         </div>
-
-
-
     </div>
-</div>
 
 </body>
 

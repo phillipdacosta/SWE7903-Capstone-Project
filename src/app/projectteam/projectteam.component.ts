@@ -43,4 +43,9 @@ export class ProjectteamComponent implements OnInit {
     console.error("selectrole: ", this.members)
   }
 
+  save(){
+
+    this.service.saveRoles(this.members);
+  }
+
 }

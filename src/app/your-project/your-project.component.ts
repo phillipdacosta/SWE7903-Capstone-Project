@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Input } from '@angular/core';
 import { Team } from '../team.model';
 import { ServiceService } from '../service.service';
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +11,9 @@ import { TeamMemberModel } from '../team-member.model';
   templateUrl: './your-project.component.html',
   styleUrls: ['./your-project.component.css']
 })
+
 export class YourProjectComponent implements OnInit {
+  @Input() index: number;
 
   test : any = '';
   display_data : Array <Team>;
@@ -19,7 +21,7 @@ export class YourProjectComponent implements OnInit {
   show_expiration_flag : Boolean = false;
   get_token : any;
   members: Array<TeamMemberModel>;
-
+  indexID: string;
 
   constructor(private service : ServiceService, public http: HttpClient) { }
 
@@ -32,7 +34,14 @@ export class YourProjectComponent implements OnInit {
 
      this.show_expiration_flag = true;
    }
+
+   this.indexID = this.idFromIndex();
+
    }
+   idFromIndex(){
+    return "#" + this.index
+  }
+
    
 
   save(){

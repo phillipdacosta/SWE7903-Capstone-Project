@@ -22,16 +22,17 @@ export class CompletedProjectsComponent implements OnInit {
   ngOnInit() {
 
    this.service.fetching();
-   
+   /*
    this.get_token = localStorage.getItem("auth_token")
    if(this.service.jwtHelper.isTokenExpired(this.get_token)){
 
      this.show_expiration_flag = true;
    }
+   */
 
   }
 
-  save(){
+  save(){ 
 
     this.service.fromCompletedProjects(this.test)
 

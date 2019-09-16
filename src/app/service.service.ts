@@ -56,6 +56,8 @@ export class ServiceService {
   projectRoles: Array<ProjectRoleModel>
   set_user_name: any;
   roles : any;
+  project_team : any;
+  project : any;
 
   public jwtHelper = new JwtHelperService();
 
@@ -163,8 +165,8 @@ export class ServiceService {
     //  this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
       console.log(this.get_all_users)
       this.fetchRoles();
+      this.getProjects();
 
-      
 /*
       let xml = this.https.get('https://gassouth.innotas.com/services/MainService?wsdl').subscribe(data =>{
 
@@ -192,6 +194,42 @@ export class ServiceService {
       console.log(this.get_all_users)
 
 
+  }
+
+
+
+  getProjects(){
+
+    this.https.get(this.uri + '/getprojects')
+    .subscribe((response: any) => {
+  
+      this.project = response.project;
+
+      console.log( this.project)
+      console.error("roles:",  this.project.projectteam[0]._firstName);
+      console.error("roles:",  this.project.projectteam[2]._firstName);
+
+    })
+
+      //change below
+    //  this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
+      console.log(this.get_all_users)
+
+  }
+
+
+
+  saveRoles(projectteam){
+
+    console.error(this.uri)
+    this.https.post(this.uri + '/projects', {projectteam})
+    .subscribe((response: any) => {
+     
+      this.project_team = response.project_team
+
+ 
+      console.log(this.project_team)
+      })
   }
 
 
