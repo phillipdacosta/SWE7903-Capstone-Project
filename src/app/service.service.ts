@@ -58,6 +58,7 @@ export class ServiceService {
   roles : any;
   project_team : any;
   project : any;
+  check : boolean = false;
 
   public jwtHelper = new JwtHelperService();
 
@@ -90,6 +91,8 @@ export class ServiceService {
         console.log(this.set_user_name)
           this.userRole = response.return_user_role;
           console.log(response.return_user_first_name)
+          this.check = true;
+
 
         //  this.router.navigate(['master-calendar']);
          console.log("is Auth is: " + this.isAuthenticated())

@@ -67,13 +67,12 @@ export class MasterCalendarComponent {
   }
 
   ngOnInit() { 
-/*
-    this.get_token = localStorage.getItem("auth_token")
-    if(this.service.jwtHelper.isTokenExpired(this.get_token)){
 
-      this.show_expiration_flag = true;
-    }
-*/
+    this.get_token = localStorage.getItem("auth_token")
+   // if(this.service.jwtHelper.isTokenExpired(this.get_token)){
+
+     console.log('WL' + this.service.jwtHelper.isTokenExpired(this.get_token));
+   // console.log(this.service.check);
     
   }
 
