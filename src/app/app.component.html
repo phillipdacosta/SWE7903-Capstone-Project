@@ -21,7 +21,7 @@
           <li style = ""><button class="btn btn-link" (click)="masterCalendarPage()">Master Calendar</button></li>
           <li><button class="btn btn-link" (click)="activeProjectsPage()">Active Projects</button> </li>
           <li><button class="btn btn-link" (click)="completedProjectsPage()">Completed Projects</button></li>
-          <li>
+     <div style="float: right">
             <div *ngIf="service.flag ">
               
                 <button type="button" class="btn btn-link" style = "float:right" data-toggle="modal" data-target="#myModal">Logout</button>
@@ -29,12 +29,14 @@
           <li style="float : right"><button class="btn btn-link" (click)="createUserPage()">Create User</button></li>
           <li style="float : right" ><button class="btn btn-link" (click)="manageUsersPage()">Manager Users</button></li>
 
-
       </div>
-      <div *ngIf="!service.flag">
+    </div>
+    <div style = "float: right"> 
+     <div *ngIf="!service.flag">
         <button class="btn btn-link" (click)="loginPage()">Login</button>
       </div>
-      </li>
+    
+    </div>
 
       </ul>
 
