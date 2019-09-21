@@ -11,10 +11,12 @@ export class ProjectteamComponent implements OnInit {
 
   @Input() members: Array<TeamMemberModel>
 
+
   constructor(private service: ServiceService) {
    }
 
   ngOnInit() {
+    this.service.show_spinner  = false;
 
   }
 
@@ -45,7 +47,13 @@ export class ProjectteamComponent implements OnInit {
 
   save(){
 
-    this.service.saveRoles(this.members);
+    this.service.saveRoles(this.members, this.service.return_user_id);
+    this.service.show_spinner  = true;
+    this.service.fetching();
+    this.service.getProjects();
+
+
+
   }
 
 }

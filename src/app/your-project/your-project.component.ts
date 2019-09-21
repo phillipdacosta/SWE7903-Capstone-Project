@@ -22,6 +22,7 @@ export class YourProjectComponent implements OnInit {
   get_token : any;
   members: Array<TeamMemberModel>;
   indexID: string;
+  show_spinner : boolean = false;
 
   constructor(private service : ServiceService, public http: HttpClient) { }
 
@@ -51,13 +52,6 @@ export class YourProjectComponent implements OnInit {
 }
 
 
-
-display(){
-
- // this.test = this.service.data_received;
-  console.log(this.test)
- // this.display_data = localStorage.getItem('message')
-}
 
 newProject(){
 

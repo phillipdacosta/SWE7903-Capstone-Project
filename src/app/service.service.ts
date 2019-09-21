@@ -59,7 +59,19 @@ export class ServiceService {
   project_team : any;
   project : any;
   check : boolean = false;
+  return_user_id : any;
+  project_id_created_by_user : any;
+  created_user_id : any;
+  number_of_projects : any;
+  array_of_projects : any;
+  array_of_projects_role : any;
+  show_spinner : boolean = false;
+  array_of_projects_firstname : any;
+  user_team : Array <UserModel>;
+  return_project_team : Array<TeamMemberModel>;
 
+
+  
   public jwtHelper = new JwtHelperService();
 
   constructor(private https: HttpClient, private router : Router) { 
@@ -67,7 +79,12 @@ export class ServiceService {
     this.teamlist = new Array<Team>();
     this.return_users = [];
     this.roles = [];
+    this.created_user_id = [];
+    this.number_of_projects = new Array();
+    this.array_of_projects = new Array ();
     console.error("init", this.return_users);
+    this.return_project_team = [];
+
 
 
 
@@ -88,17 +105,19 @@ export class ServiceService {
           this.check_email = response.return_name;
           this.set_user_name = localStorage.setItem('username',response.return_user_first_name);
           this.get_user = localStorage.getItem('username')
-        console.log(this.set_user_name)
+           console.log(this.set_user_name)
           this.userRole = response.return_user_role;
           console.log(response.return_user_first_name)
           this.check = true;
+          this.return_user_id = response.return_user_id;
+          console.log('user ID ' + this.return_user_id)
 
 
         //  this.router.navigate(['master-calendar']);
          console.log("is Auth is: " + this.isAuthenticated())
 
       })
-     
+   
     }
 
     subscribe(user: UserModel) {
@@ -140,20 +159,22 @@ export class ServiceService {
 
 
   fetching(){
-
+   
+    this.getProjects();
+    console.log(this.show_spinner)
    console.log('code ran')
     this.https.get(this.uri + '/yourprojects')
     .subscribe((response: any) => {
       console.log("third")
-     this.user_firstname =  response.get_user_name;
-     this.user_lastname =  response.get_user_password;
-      this.get_all_users =response.get_all_users;
-      console.error("response", response);
+     this.user_firstname = response.get_user_name;
+     this.user_lastname = response.get_user_password;
+      this.get_all_users = response.get_all_users;
+     // console.error("response", response);
       console.log(this.get_all_users)
       
       this.return_users = []      
 
-      console.error("users:", this.return_users)
+     // console.error("users:", this.return_users)
 
       this.get_all_users.forEach(user => {
         const teamModel = new TeamMemberModel(user.user._firstName, user.user._lastName, user._id);
@@ -161,26 +182,16 @@ export class ServiceService {
         console.log("loop")
       });
 
-      console.error("users:", this.return_users);
+     // console.error("users:", this.return_users);
     })
 
-      //change below
-    //  this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
-      console.log(this.get_all_users)
-      this.fetchRoles();
+    console.log('this code ran in Save Roles')
+     
       this.getProjects();
+      this.fetchRoles();
+   
 
-/*
-      let xml = this.https.get('https://gassouth.innotas.com/services/MainService?wsdl').subscribe(data =>{
-
-        console.log(data)
-      })
-
-      console.log(xml)
-  */
   }
-
-
 
   fetchRoles(){
 
@@ -188,13 +199,12 @@ export class ServiceService {
     .subscribe((response: any) => {
   
       this.roles = response.result
-      console.log(this.roles)
-      console.error("roles:", this.roles);
+    //  console.log(this.roles)
+     // console.error("roles:", this.roles);
     })
 
       //change below
     //  this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
-      console.log(this.get_all_users)
 
 
   }
@@ -203,29 +213,63 @@ export class ServiceService {
 
   getProjects(){
 
+
     this.https.get(this.uri + '/getprojects')
     .subscribe((response: any) => {
   
-      this.project = response.project;
+      this.created_user_id = response.result
+      console.log(this.created_user_id)
 
-      console.log( this.project)
-      console.error("roles:",  this.project.projectteam[0]._firstName);
-      console.error("roles:",  this.project.projectteam[2]._firstName);
+      let v;
+      let array_of_projects = [];
+    
+      for (v = 0 ; v < this.created_user_id.length ; v++){
+
+        if (this.created_user_id[v].created_by_user == this.return_user_id){
+
+           array_of_projects.push(this.created_user_id[v]);
+          console.log(this.created_user_id[v]);
+
+        
+            
+          console.log(array_of_projects)
+          this.show_spinner = false;
+        }
+
+      }
+      this.array_of_projects = array_of_projects;
+
+      this.array_of_projects_role = array_of_projects[0].projectteam[0]._firstName;
+      console.log('ARRAY OF PROJECTS ' + JSON.stringify(this.array_of_projects))
+      
+      this.array_of_projects_firstname = array_of_projects[0].projectteam[0].projectRole;
+
+      console.log(this.array_of_projects_role)
+
+
+      console.log(this.array_of_projects.length)
+
+      this.array_of_projects.forEach(team => {
+        const teamModel = new TeamMemberModel(team.projectteam[0]._firstName);
+        this.return_project_team.push(teamModel);
+        console.log("PROJECT TEAM" + this.return_project_team[0].firstName)
+      });
+  
 
     })
 
-      //change below
-    //  this.get_all_users =  new TeamMemberModel(response.get_user_name, response.get_user_password, "id20")
-      console.log(this.get_all_users)
+    
 
   }
 
 
 
-  saveRoles(projectteam){
+  saveRoles(projectteam, created_by_user){
+
+    this.return_user_id = created_by_user
 
     console.error(this.uri)
-    this.https.post(this.uri + '/projects', {projectteam})
+    this.https.post(this.uri + '/projects', {projectteam, created_by_user})
     .subscribe((response: any) => {
      
       this.project_team = response.project_team
@@ -233,6 +277,8 @@ export class ServiceService {
  
       console.log(this.project_team)
       })
+
+
   }
 
 

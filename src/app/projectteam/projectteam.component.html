@@ -1,19 +1,24 @@
+<br>
+<br>
+
 <form>
         <div *ngFor="let member of members" class="team">
-                <select (change)="selectUser($event.target.value, member)" class="form-control"   name="member"  required>
-                        <option selected value="undefined" class="default">Select a User</option>
+                <select (change)="selectUser($event.target.value, member)" class="form-control" name="member" required>
+                        <option selected value="undefined" class="default">Select a user</option>
                         <option *ngFor="let user of service.return_users" value={{user.id}}>{{user.name}}</option>
-                    </select>
-            
-                    <select (change)="selectRole($event.target.value, member)" class="form-control"   name="role"  required>
-                            <option selected value="undefined" class="default">Select a Role</option>
-                            <option *ngFor="let role of service.roles" value={{role._id}}>{{role.name}}</option>
-                    </select>
-                    <hr>
+                </select>
+
+                <select (change)="selectRole($event.target.value, member)" class="form-control" name="role" required>
+                        <option selected value="undefined" class="default">Select a role</option>
+                        <option *ngFor="let role of service.roles" value={{role._id}}>{{role.name}}</option>
+                </select>
+                <hr>
 
         </div>
-        <button type="submit" (click)="save()"  data-dismiss="modal" class="btn btn-success btn-sm">Save</button>
 
+        <div *ngIf="members.length != 0">
 
-    </form>
+                <button type="submit" (click)="save()" data-dismiss="modal" class="btn btn-success btn-lg">Save</button>
+        </div>
 
+</form>

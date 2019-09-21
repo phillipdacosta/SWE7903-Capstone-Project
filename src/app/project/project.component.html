@@ -21,6 +21,87 @@
 <body>
 
 
+
+      
+
+
+    <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear"
+    aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+
+    Project 
+
+</button>
+
+<br>
+
+<div class="collapse" id="footwear">
+
+    <div class="card" style="width: 60vw; color: grey">
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">Release 1 Start 08/24/19 - 08/29/19</li>
+
+            <li class="list-group-item">Release 2 Start 09/28/19 - 10/19/19</li>
+
+            <div class="col text-left">
+
+                <div class="list-group-item" style="color: rgb(117, 115, 115)">
+
+                    <h3 class="col text-center">Team members: </h3>
+
+                    <div class="col text-center" *ngFor = "let projects of service.array_of_projects"> 
+
+                    <div *ngFor = "let team of service.return_project_team">
+                     <!-- {{team.firstName}}  --> 
+                    </div>
+                      {{projects.projectteam[0].projectRole}} : {{projects.projectteam[0]._firstName}} 
+                      <br>
+                      {{projects.projectteam[1].projectRole}} : {{projects.projectteam[1]._firstName}} 
+                      <br>
+              
+
+                     <!--{{service.array_of_projects_role}}  : {{service.array_of_projects_firstname}}   -->   
+
+                </div>
+                  <!-- 
+                    Project Manager:<p class="form-control" type="text" disabled="disabled">{{service.data_received?.Project_manager}} </p>
+
+                    Business Analyst: <p class="form-control" type="text" disabled="disabled">{{service.array_of_projects_role}} </p>
+
+                    QA: <p class="form-control" type="text" disabled="disabled">{{service.data_received?.QA}} </p>
+
+                    Product Owner: <p class="form-control" type="text" disabled="disabled">{{service.data_received?.Product_owner}} </p>
+
+                    <p class="">Test Environment:<p class="form-control" type="text"
+                            placeholder="">{{this.data_received}} </p>
+-->
+                    <br>
+
+
+
+                </div>
+
+            </div>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
   <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]="'#' + index "
     aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
 
@@ -76,7 +157,7 @@
     </div>
 
   </div>
-
+-->
 </body>
 
 </html>

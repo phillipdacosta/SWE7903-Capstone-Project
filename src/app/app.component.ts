@@ -21,6 +21,8 @@ export class AppComponent {
   hide_welcome : boolean = false;
   show_expiration_flag : Boolean = false;
   get_token : any;
+
+  
   loginPage(){
 
     this.router.navigateByUrl("/login")
@@ -56,8 +58,8 @@ export class AppComponent {
 
   activeProjectsPage(){
 
-    this.router.navigateByUrl("/active-projects")
     this.service.fetching();
+    this.router.navigateByUrl("/active-projects")
 
   }
 
@@ -93,6 +95,7 @@ export class AppComponent {
 
       this.show_expiration_flag = true;
     }
+
 
   }
 
