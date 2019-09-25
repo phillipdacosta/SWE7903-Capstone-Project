@@ -12,6 +12,7 @@ import {
 } from './service.service';
 import { AuthorizationGuard } from './authorization.guard';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,9 @@ const routes: Routes = [
   { path: 'create-user', component : CreateuserComponent , data: {  allowedRoles: [ 'admin'] }},
 
   { path: 'manage-user', component : ManageUsersComponent , data: {  allowedRoles: [ 'admin'] }},
+
+  { path: 'profile', component : ProfileComponent , data: {  allowedRoles: ['admin', 'user'] }},
+
 
   { path: 'completed-projects', component : CompletedProjectsComponent},
 

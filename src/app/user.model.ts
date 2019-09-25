@@ -1,10 +1,10 @@
 export class UserModel {
 
 
-    private _firstName: string;
-    private _lastName: string;
-    private _password: string;
-    private _email: string
+    public _firstName: string;
+    public _lastName: string;
+    public _password: string;
+    public _email: string
     private _role: string;
 
     constructor(fname="", lname="", pass="", email="",role=""){

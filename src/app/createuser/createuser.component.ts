@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserModel } from '../user.model';
 import { ServiceService } from '../service.service';
-import { userInfo } from 'os';
 
 @Component({
   selector: 'app-createuser',
@@ -31,13 +30,9 @@ export class CreateuserComponent implements OnInit {
  
       this.show_expiration_flag = true;
     }
-
-    if(this.user.email.length  == 0 && this.user.firstName.length  == 0  && this.user.lastName.length  == 0  && this.user.password.length  == 0 ){
-
-      this.hide_create_user_button = true;
-    }
     
   }
+
 
   onSubmit(){
     console.error("USER", JSON.stringify(this.user))

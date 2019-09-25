@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+  <div class="col text-center">
+      <div *ngIf = "this.show_expiration_flag">
+          <br>
+          <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
+    </div>
+    <br>
+    <br>
+    <h3>Your Profile</h3> 
+        <br> 
+    <br>
+    <div *ngIf = "!this.show_expiration_flag">
+
+    <div class="container"> 
+
+        <div class="col-md-8 col-md-offset-2">
+<div class="jumbotron text-center">
+
+        <form #heroForm="ngForm" >
+          <div class="form-group">  
+
+           <p>First name</p><input placeholder = "first name" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._firstName" name="firstName"  required > 
+            <br>
+            <p>Last name</p><input placeholder = "last name"style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._lastName" name="lastName"  required>
+            <br>
+            <p>Email address</p><input placeholder = "email" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._email" name="email"  required>
+            <br>
+            <button type="submit" style = "background-color: rgb(218, 89, 3); " class="btn btn-md" (click) = "openPasswordChange()">Change password</button>
+            <br>
+
+            <br>
+            <div style = "border: solid rgb(146, 145, 145) ; "*ngIf = "confirm_password == true">
+              <br>
+              
+              <p>Enter current password</p> <input placeholder = "current password" style="text-align:center;" type="password" class="form-control" [(ngModel)]="enter_password_confirmation" name="password"  required><br>
+                <br>
+                <div *ngIf = "this.display_password_fields == false">
+                <button type="submit" class="btn btn-primary" (click) = "submit()">Enter</button>
+              </div>
+
+                <div *ngIf = "this.display_password_fields == true">
+                    <button type="submit" class="btn btn-primary" (click) = "closeSubmit()">Close</button>
+
+                </div>
+
+                <br>
+                <br>
+                <div *ngIf = "display_password_fields">
+
+               
+                <div *ngIf = "this.no_match == true">
+                    <p style = "color: red"> Passwords do not match!</p> 
+                 </div>
+       {{passwordMatch()}}
+       <p>Enter new password</p><input placeholder = " New password" style="text-align:center;" type="password" class="form-control" [(ngModel)]="user._password" name="password"  required>
+
+                <br>
+                <p>Re-enter new password</p><input placeholder = "Re-enter new password" style="text-align:center;" type="password" class="form-control" [(ngModel)]="retype_password" name="password"  required>
+                <br>
+
+            </div>
+     
+          </div>
+          </div>
+          <div *ngIf = "hide_save_button">
+
+          <button type="submit" class="btn btn-success" (click)="save()" data-toggle="modal" data-target="#myModal1">Save</button>
+        </div>
+        </form>
+              </div>
+
+      </div>
+ </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content" >
+        <div class="modal-header">
+            <div class="col-md-12 text-center">
+          <button type="button" class="close" data-dismiss="modal1">&times;</button>
+          <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">Your profile has been updated!</h4>
+        </div>
+        <div class="modal-body">
+            <br>
+            <br>
+            <br>
+            <div class="second">
+                <div class="col-md-12 text-center">
+                      <form>
+                           <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit" >Close </button>
+                       </form>
+                 </div>
+           </div>
+          </div>
+        </div>
+     
+      </div>
+  
+    </div>
+  </div>
+
+</body>
+</html>

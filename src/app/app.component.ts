@@ -48,6 +48,13 @@ export class AppComponent {
 
   }
 
+  profilePage(){
+
+    this.service.fetching();
+    this.router.navigateByUrl("/profile")
+
+}
+
   completedProjectsPage(){
     
     
@@ -55,6 +62,8 @@ export class AppComponent {
     this.service.fetching();
     this.router.navigateByUrl("/completed-projects")
   }
+
+
 
   activeProjectsPage(){
 

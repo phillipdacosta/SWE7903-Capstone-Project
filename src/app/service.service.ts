@@ -69,9 +69,18 @@ export class ServiceService {
   array_of_projects_firstname : any;
   user_team : Array <UserModel>;
   return_project_team : Array<TeamMemberModel>;
+  get_user_email : any;
+  user_password : any;
+  user_role : any;
+  set_user_lastname : any;
+  set_user_firstname: any;
+  user_id : any;
+  updated_firstname : any;
+  updated_lastname : any;
+  updated_email : any;
+  user_profile : UserModel;
 
 
-  
   public jwtHelper = new JwtHelperService();
 
   constructor(private https: HttpClient, private router : Router) { 
@@ -102,17 +111,32 @@ export class ServiceService {
           localStorage.setItem('auth_token', response.token);
           localStorage.setItem('user', response.return_name);
           this.get_user = localStorage.getItem('user');
-          this.check_email = response.return_name;
+          this.check_email = response.return_email;
           this.set_user_name = localStorage.setItem('username',response.return_user_first_name);
+          console.log(this.set_user_name)
           this.get_user = localStorage.getItem('username')
-           console.log(this.set_user_name)
           this.userRole = response.return_user_role;
-          console.log(response.return_user_first_name)
           this.check = true;
           this.return_user_id = response.return_user_id;
-          console.log('user ID ' + this.return_user_id)
+          this.user_password = response.return_password;
+          this.user_role = response.get_user_role;
+          this.set_user_name = response.return_user_first_name;
+          this.set_user_lastname = response.return_user_lastname;
+          this.get_user_email = response.return_email
+          this.user_id = response.return_user_id;
+          console.log(this.user_id)
+          console.log(this.get_user_email)
+          console.log( this.set_user_lastname)
 
+         console.log(this.set_user_name)
 
+/*
+
+       email: get_user_email,
+            password: get_user_password,
+            role: get_user_role,
+            return_user_lastname: return_user_last_name,
+*/
         //  this.router.navigate(['master-calendar']);
          console.log("is Auth is: " + this.isAuthenticated())
 
@@ -143,6 +167,24 @@ export class ServiceService {
       }
 
 
+      updateProfile(firstname, lastname, email, password, id){
+
+         console.error(this.uri)
+         this.https.post(this.uri + '/profile', {firstname,lastname, email, password, id})
+         .subscribe((response: any) => {
+      
+          this.updated_firstname = response.updated_firstname;
+          this.updated_lastname = response.updated_lastname;
+          this.updated_email = response.updated_email;
+
+          this.user_profile = new UserModel(this.updated_firstname,this.updated_lastname, this.updated_email)
+          console.log('USSER PROFILE IN SERVICE: ' + this.user_profile._firstName)
+           
+           })
+         
+         }
+
+
   fromCompletedProjects(test : Project){
 
     console.log(test)
@@ -167,6 +209,7 @@ export class ServiceService {
     .subscribe((response: any) => {
       console.log("third")
      this.user_firstname = response.get_user_name;
+     console.log('From fetching:' + this.user_firstname)
      this.user_lastname = response.get_user_password;
       this.get_all_users = response.get_all_users;
      // console.error("response", response);

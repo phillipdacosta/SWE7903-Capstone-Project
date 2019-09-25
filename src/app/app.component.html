@@ -18,34 +18,35 @@
       <div class="container">
         <ul class="nav navbar-nav navbar-right">
 
-          <li style = ""><button class="btn btn-link" (click)="masterCalendarPage()">Master Calendar</button></li>
+          <li style=""><button class="btn btn-link" (click)="masterCalendarPage()">Master Calendar</button></li>
           <li><button class="btn btn-link" (click)="activeProjectsPage()">Active Projects</button> </li>
           <li><button class="btn btn-link" (click)="completedProjectsPage()">Completed Projects</button></li>
-     <div style="float: right">
+          <div style="float: right">
             <div *ngIf="service.flag ">
-              
-                <button type="button" class="btn btn-link" style = "float:right" data-toggle="modal" data-target="#myModal">Logout</button>
-                <li style="float : right"><button class="btn btn-link" (click)="yourProjectPage()">Your Projects</button></li>
-          <li style="float : right"><button class="btn btn-link" (click)="createUserPage()">Create User</button></li>
-          <li style="float : right" ><button class="btn btn-link" (click)="manageUsersPage()">Manager Users</button></li>
 
+              <button type="button" class="btn btn-link" style="float:right" data-toggle="modal" data-target="#myModal">Logout</button>
+              <li style="float : right"><button class="btn btn-link" (click)="profilePage()">Profile</button></li>
+              <li style="float : right"><button class="btn btn-link" (click)="yourProjectPage()">Your Projects</button></li>
+              <li style="float : right"><button class="btn btn-link" (click)="createUserPage()">Create User</button></li>
+              <li style="float : right"><button class="btn btn-link" (click)="manageUsersPage()">Manager Users</button></li>
+
+            </div>
+          </div>
+          <div style="float: right">
+            <div *ngIf="!service.flag">
+              <button class="btn btn-link" (click)="loginPage()">Login</button>
+            </div>
+
+          </div>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-left">
+          <img src="assets/logo-gas-south.png" class="gas_south_img">Home
+
+        </ul>
       </div>
-    </div>
-    <div style = "float: right"> 
-     <div *ngIf="!service.flag">
-        <button class="btn btn-link"(click)="loginPage()">Login</button>
-      </div>
-    
-    </div>
-
-      </ul>
-
-      <ul class="nav navbar-nav navbar-left">
-        <img src="assets/logo-gas-south.png" class="gas_south_img">Home
-
-      </ul>
-  </div>
-  </nav>
+    </nav>
 
   </div>
 
@@ -58,62 +59,64 @@
 
           <li><button class="btn btn-link" (click)="masterCalendarPage()">Master Calendar</button></li>
           <li><button class="btn btn-link" (click)="activeProjectsPage()">Active Projects</button> </li>
-          <li ><button class="btn btn-link" (click)="yourProjectPage()">Your Projects</button></li>
+          <li><button class="btn btn-link" (click)="yourProjectPage()">Your Projects</button></li>
           <li><button class="btn btn-link" (click)="completedProjectsPage()">Completed Projects</button></li>
 
           <li>
             <div *ngIf="service.flag ">
-                <button type="button" class="btn btn-link" style = "float:right" data-toggle="modal" data-target="#myModal">Logout</button>
+              <button type="button" class="btn btn-link" style="float:right" data-toggle="modal" data-target="#myModal">Logout</button>
 
+            </div>
+            <div *ngIf="!service.flag">
+              <button class="btn btn-link" (click)="loginPage()">Login</button>
+            </div>
+          </li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-left">
+
+          <img src="assets/logo-gas-south.png" class="gas_south_img">Home
+
+        </ul>
       </div>
-      <div *ngIf="!service.flag">
-        <button class="btn btn-link" (click)="loginPage()">Login</button>
-      </div>
-      </li>
-
-      </ul>
-
-      <ul class="nav navbar-nav navbar-left">
-        <img src="assets/logo-gas-south.png" class="gas_south_img">Home
-
-      </ul>
-  </div>
-  </nav>
+    </nav>
 
   </div>
 
-  
 
-  
+
+
 
   <!-- Modal -->
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-  
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" style = "color: rgb(151, 3, 3); font-size: 18pt">Are you sure you want to logout?</h4>
+          <h4 class="modal-title" style="color: rgb(151, 3, 3); font-size: 18pt">Are you sure you want to logout?</h4>
         </div>
         <div class="modal-body">
-            <br>
-  
-            <div class="second">
-                <div class="col-md-12 text-center">
-                      <form>
-                           <button  class="btn btn-danger btn-lg" type="submit" (click) = "logout()" data-dismiss="modal"> Yes </button>
-                           <button class="btn btn-primary btn-lg" data-dismiss="modal" type="submit" >Cancel </button>
-                       </form>
-                 </div>
-           </div>
+          <br>
+
+          <div class="second">
+            <div class="col-md-12 text-center">
+              <form>
+                <button class="btn btn-danger btn-lg" type="submit" (click)="logout()" data-dismiss="modal"> Yes
+                </button>
+                <button class="btn btn-primary btn-lg" data-dismiss="modal" type="submit">Cancel </button>
+              </form>
+            </div>
           </div>
-       
-     
+        </div>
+
+
       </div>
-  
+
     </div>
   </div>
-=  <br>
+  = <br>
 
   <router-outlet></router-outlet>
