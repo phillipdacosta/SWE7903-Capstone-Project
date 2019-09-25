@@ -32,14 +32,14 @@
         <form #heroForm="ngForm" >
           <div class="form-group">
 
-            <input placeholder = "first name" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._firstName" name="firstName"  required>
+          <p>First name</p> <input placeholder = "first name" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._firstName" name="firstName"  required>
             <br>
-            <input placeholder = "last name"style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._lastName" name="lastName"  required>
+            <p>Last name</p> <input placeholder = "last name"style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._lastName" name="lastName"  required>
             <br>
-            <input placeholder = "email" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._email" name="email"  required>
+            <p>User email address</p><input placeholder = "email" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._email" name="email"  required>
             <br>
-            <input placeholder = "set user password" style="text-align:center;" type="password" class="form-control" [(ngModel)]="user._password" name="password"  required>
-          <h5>Role</h5>
+            <p>Set user password</p> <input placeholder = "set user password" style="text-align:center;" type="password" class="form-control" [(ngModel)]="user._password" name="password"  required>
+          <p>Role</p>
          <select placeholder = "Role" class="form-control" [(ngModel)]="user._role"  name="role"  required>
            <option *ngFor="let role of roles" value="{{role}}">{{role}}</option>
           </select>
