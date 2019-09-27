@@ -46,10 +46,10 @@ export class ManageUserViewComponent implements OnInit {
 
           member._firstName = this.service.return_users[i].firstName 
           member._lastName = this.service.return_users[i].lastName 
-          member.password = this.service.return_users[i].password 
-          member._email = this.service.return_users[i].email 
+          member._password = this.service.return_users[i]._password
+          member._email = this.service.return_users[i]._email 
           member.id = this.service.return_users[i].id 
-          console.log(this.service.return_users[i])
+          console.log(this.service.return_users[i]._email)
 
 
         }
@@ -61,8 +61,8 @@ export class ManageUserViewComponent implements OnInit {
 
     this.update_firstName = member._firstName
     this.update_lastName = member._lastName
-    this.update_email = member.email
-    this.update_password = member.password
+    this.update_email = member._email
+    this.update_password = member._password
     this.get_user_id = member.id
 
   }
