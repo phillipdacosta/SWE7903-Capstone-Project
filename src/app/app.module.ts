@@ -19,6 +19,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ProjectteamComponent } from './projectteam/projectteam.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ManageUserViewComponent } from './manage-user-view/manage-user-view.component';
+import { ManagerUserEditsComponent } from './manager-user-edits/manager-user-edits.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ManageUserViewComponent } from './manage-user-view/manage-user-view.com
     ProjectteamComponent,
     ProfileComponent,
     ManageUserViewComponent,
+    ManagerUserEditsComponent,
 
   ],
   imports: [
@@ -46,7 +48,7 @@ import { ManageUserViewComponent } from './manage-user-view/manage-user-view.com
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ManageUserViewComponent, AppComponent, ManagerUserEditsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

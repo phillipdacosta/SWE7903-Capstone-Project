@@ -88,3 +88,9 @@ li.list-group-item{
     margin-bottom: 10px; /* Added */
 
 }
+
+.text-center{
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+    Helvetica, Arial, "Lucida Grande", sans-serif, bold;
+}

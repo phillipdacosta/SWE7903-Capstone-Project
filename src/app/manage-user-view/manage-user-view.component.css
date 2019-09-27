@@ -77,7 +77,7 @@ li.list-group-item{
 
 }
 
- 
+
 
 .card {
 
@@ -94,3 +94,15 @@ select.form-control {
      -webkit-appearance: none;
      appearance: none;
   }
+
+  .card{
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+    Helvetica, Arial, "Lucida Grande", sans-serif, bold;
+  }
+
+  .text-center{
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+    Helvetica, Arial, "Lucida Grande", sans-serif, bold;
+}

@@ -84,6 +84,14 @@ export class ServiceService {
   user_profile: UserModel;
   all_users: any;
 
+  edit_manage_firstName : string;
+  edit_manage_lastName: string;
+  edit_manage_password : string;
+  edit_manage_role : string;
+  edit_manage_email: string;
+  edit_manage_id: string;
+
+
   public jwtHelper = new JwtHelperService();
 
   constructor(private https: HttpClient, private router: Router) {
@@ -187,6 +195,37 @@ export class ServiceService {
 
   }
 
+  updateUserProfile(firstname, lastname, email, password, id) {
+
+    console.error(this.uri)
+    this.https.post(this.uri + '/profileuserprofile', { firstname, lastname, email, password, id })
+      .subscribe((response: any) => {
+
+        this.updated_firstname = response.edited_updated_firstname;
+        this.updated_lastname = response.edited_updated_lastname;
+        this.updated_email = response.edited_updated_email;
+
+        this.user_profile = new UserModel(this.updated_firstname, this.updated_lastname, this.updated_email)
+        console.log('USSER PROFILE IN SERVICE: ' + this.user_profile._firstName)
+
+      })
+
+  }
+
+  deleteUserProfile(id) {
+
+    console.error(this.uri)
+    this.https.post(this.uri + '/deleteuserprofile', { id })
+      .subscribe((response: any) => {
+
+        console.log("user deleted")
+
+
+      })
+
+  }
+
+
 
   fromCompletedProjects(test: Project) {
 
@@ -226,10 +265,10 @@ export class ServiceService {
 
         this.get_all_users.forEach(user => {
 
-          const teamModel = new TeamMemberModel(user.user._firstName, user.user._lastName, user._id, user.user._password , user.user._email);
+          const teamModel = new TeamMemberModel(user.user._firstName, user.user._lastName, user._id, user.user._password , user.user._email, user.user._role);
           this.return_users.push(teamModel);
           // this.return_users.sort();
-
+          console.log(user.user._role)
           this.return_users.sort((a, b) => a._firstName.localeCompare(b._lastName));
 
         })
@@ -311,7 +350,7 @@ export class ServiceService {
         this.array_of_projects.forEach(team => {
          // const teamModel = new TeamMemberModel(team.projectteam[0]._firstName);
          //    this.return_project_team.push(teamModel);
-          console.log("PROJECT TEAM" + this.return_project_team[0].firstName)
+        //  console.log("PROJECT TEAM" + this.return_project_team[0].firstName)
         });
 
 

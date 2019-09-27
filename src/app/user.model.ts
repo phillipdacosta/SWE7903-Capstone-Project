@@ -5,7 +5,7 @@ export class UserModel {
     public _lastName: string;
     public _password: string;
     public _email: string
-    private _role: string;
+    public _role: string;
 
     constructor(fname="", lname="", pass="", email="",role=""){
         this.firstName = fname;

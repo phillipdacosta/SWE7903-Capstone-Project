@@ -1,8 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject, Injectable } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { UserModel } from '../user.model';
 import { TeamMemberModel } from '../team-member.model';
+import { ManagerUserEditsComponent } from '../manager-user-edits/manager-user-edits.component';
+import { AppComponent } from '../app.component';
 
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-manage-user-view',
@@ -17,10 +23,11 @@ export class ManageUserViewComponent implements OnInit {
   update_lastName : string;
   update_email : string;
   update_password : string;
+  update_role : string;
   get_user_id : any;
 
 
-  constructor(private service: ServiceService) {
+  constructor(private service: ServiceService,  private app : AppComponent, private manager_edits : ManagerUserEditsComponent) {
     this.user = new UserModel();
 
    }
@@ -28,6 +35,7 @@ export class ManageUserViewComponent implements OnInit {
   ngOnInit() {
     this.service.show_spinner  = false;
     this.service.fetching();
+
     
 
   }
@@ -37,7 +45,7 @@ export class ManageUserViewComponent implements OnInit {
     console.log(member);
     
     member.id = event
-    console.log(member.id)
+    console.log(member)
     console.log(this.service.return_user_id)
 
       for (let i = 0 ; i < this.service.return_users.length ; i++){
@@ -49,7 +57,8 @@ export class ManageUserViewComponent implements OnInit {
           member._password = this.service.return_users[i]._password
           member._email = this.service.return_users[i]._email 
           member.id = this.service.return_users[i].id 
-          console.log(this.service.return_users[i]._email)
+          member._role = this.service.return_users[i]._role
+          console.log(this.service.return_users[i]._role)
 
 
         }
@@ -64,27 +73,18 @@ export class ManageUserViewComponent implements OnInit {
     this.update_email = member._email
     this.update_password = member._password
     this.get_user_id = member.id
+    this.update_role = member._role
 
+    this.service.edit_manage_firstName  = this.update_firstName
+    this.service.edit_manage_lastName = this.update_lastName
+    this.service.edit_manage_password  = this.update_password
+    this.service.edit_manage_role  = this.update_role 
+    this.service.edit_manage_email = this.update_email 
+    this.service.edit_manage_id = this.get_user_id 
+    this.app.manageUsersEditsPage();
+   
   }
 
-
-  getUserProfile(event, member: TeamMemberModel){
-
-    member.id = event
-
-    this.service.return_users.forEach((member) => {
-      if(member.id == this.service.user_id){
-
-          console.log(member.id)
-          console.log(this.service.user_id)
-
-        this.user._firstName = this.service.set_user_name;
-        this.user._lastName = this.service.set_user_lastname;
-        this.user._email = this.service.get_user_email;
-      }
-    });
-
-  }
 
   selectRole(event, member: TeamMemberModel){
     member.projectRoleId = event

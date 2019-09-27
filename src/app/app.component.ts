@@ -42,6 +42,12 @@ export class AppComponent {
     this.router.navigateByUrl("/manage-user")
   }
 
+
+  manageUsersEditsPage(){
+    
+    this.service.fetching();
+    this.router.navigateByUrl("/manage-user-edits")
+  }
   createUserPage(){
 
       this.service.fetching();

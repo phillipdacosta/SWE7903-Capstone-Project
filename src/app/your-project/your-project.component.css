@@ -130,3 +130,9 @@ li.list-group-item{
 .glyphicon {
     font-size: 50px;
 }
+
+.text-center{
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+    Helvetica, Arial, "Lucida Grande", sans-serif, bold;
+}

@@ -1,12 +1,13 @@
 .btn-block{
 
- 
-
     width: 70%;
 
     border-radius: 18px;
+}
 
- 
+.jumbotron{
+
+    box-shadow: 0 8px 16px -6px black;
 
 }
 
@@ -22,6 +23,11 @@ li {
 
     border-bottom: 1;
 
+}
+.text-center{
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+    Helvetica, Arial, "Lucida Grande", sans-serif, bold;
 }
 
  

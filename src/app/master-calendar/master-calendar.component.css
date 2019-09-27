@@ -73,6 +73,8 @@ li:hover {
 .jumbotron{
 
     background-image: linear-gradient(white, rgb(233, 230, 230));
+    box-shadow: 0 2px 16px -6px black;
+
 }
 
 
@@ -88,6 +90,12 @@ li:hover {
       background-color: transparent;
       text-decoration: none;
 
+    }
+
+    .text-center{
+
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+        Helvetica, Arial, "Lucida Grande", sans-serif, bold;
     }
 
 

@@ -1,13 +1,18 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Injectable } from '@angular/core';
 import { UserModel } from '../user.model';
 import { ServiceService } from '../service.service';
+import { ManageUserViewComponent } from '../manage-user-view/manage-user-view.component';
+import { Router } from '@angular/router';
+import { TeamMemberModel } from '../team-member.model';
+
+
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-manager-user-edits',
+  templateUrl: './manager-user-edits.component.html',
+  styleUrls: ['./manager-user-edits.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ManagerUserEditsComponent implements OnInit {
 
   user: UserModel ;
   roles: Array<string>;
@@ -21,12 +26,15 @@ export class ProfileComponent implements OnInit {
   enter_password_confirmation: string;
   display_password_fields: boolean = false;
   hide_save_button: boolean = true;
+  edit_firstname : any;
+  user_id_edit : any;
 
 
   @ViewChild('myForm', { static: true }) formValues;
 
 
-  constructor(private service: ServiceService) {
+  constructor(private service: ServiceService, private router : Router) {
+
     this.user = new UserModel();
 
 
@@ -34,12 +42,24 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
 
-    this._id = this.service.return_user_id;
-    this.user._firstName = this.service.set_user_name;
-    this.user._lastName = this.service.set_user_lastname;
-    this.user._email = this.service.get_user_email;
-    this.user._password = this.service.user_password;
+    this.loadUserProfile();
 
+  }
+
+  backToManageUsersPage(){
+
+    this.router.navigateByUrl("/manage-user")
+  }
+
+  loadUserProfile(){
+
+    this.user._firstName = this.service.edit_manage_firstName
+    this.user._lastName = this.service.edit_manage_lastName
+    this.user._email = this.service.edit_manage_email
+    this.user._password = this.service.edit_manage_password
+    this.user._role = this.service.edit_manage_role
+    this.user_id_edit = this.service.edit_manage_id 
+    
   }
   
 
@@ -106,13 +126,19 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  save() {
+  saveNewUserProfile() {
 
 
-    this.service.updateProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this._id);
-    this.service.set_user_name = this.user._firstName;
-    this.service.set_user_lastname = this.user._lastName ;
-    this.service.get_user_email = this.user._email ;
+    this.service.updateUserProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this.user_id_edit);
+    this.service.edit_manage_firstName = this.user._firstName;
+    this.service.edit_manage_lastName = this.user._lastName ;
+    this.service.edit_manage_email = this.user._email;
+
+  }
+
+  deleteUserAccount(){
+ 
+    this.service.deleteUserProfile(this.user_id_edit);
 
   }
   

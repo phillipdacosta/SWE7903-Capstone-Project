@@ -4,8 +4,8 @@ export class TeamMemberModel extends UserModel{
     id: string;
     projectRole: string;
     projectRoleId: string;
-    constructor(fName: string = "", lName: string = "", id: string = "", password: string = "", email: string = ""){
-        super(fName, lName, password, email)
+    constructor(fName: string = "", lName: string = "", id: string = "", password: string = "", email: string = "", role : string = ""){
+        super(fName, lName, password, email, role)
         this.id = id;
     }
 
