@@ -49,6 +49,11 @@
                                 <br>
                                 <p>Email address</p><input placeholder="email" style="text-align:center;" type="text"
                                     class="form-control" [(ngModel)]="user._email" name="email" required>
+                                    <br>
+                                    <p>Current account type</p>
+                                    <select placeholder = "Role" class="form-control" [(ngModel)]="user._role"  name="role"  required>
+                                      <option style="text-align:center;" *ngFor="let role of roles" value="{{role}}">{{role}}</option>
+                                     </select>
                                     
                                 <br>
                                 <button type="submit" style="background-color: rgb(172, 172, 172); " class="btn btn-md"

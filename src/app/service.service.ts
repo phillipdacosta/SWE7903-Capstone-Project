@@ -195,10 +195,12 @@ export class ServiceService {
 
   }
 
-  updateUserProfile(firstname, lastname, email, password, id) {
+  updateUserProfile(firstname, lastname, email, password, id, role) {
+
+    console.log(role)
 
     console.error(this.uri)
-    this.https.post(this.uri + '/profileuserprofile', { firstname, lastname, email, password, id })
+    this.https.post(this.uri + '/profileuserprofile', { firstname, lastname, email, password, id , role})
       .subscribe((response: any) => {
 
         this.updated_firstname = response.edited_updated_firstname;

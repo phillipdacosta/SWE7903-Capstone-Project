@@ -36,7 +36,7 @@ export class ManagerUserEditsComponent implements OnInit {
   constructor(private service: ServiceService, private router : Router) {
 
     this.user = new UserModel();
-
+    this.roles = ["user", "admin"]
 
   }
 
@@ -129,10 +129,11 @@ export class ManagerUserEditsComponent implements OnInit {
   saveNewUserProfile() {
 
 
-    this.service.updateUserProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this.user_id_edit);
+    this.service.updateUserProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this.user_id_edit, this.user._role);
     this.service.edit_manage_firstName = this.user._firstName;
     this.service.edit_manage_lastName = this.user._lastName ;
     this.service.edit_manage_email = this.user._email;
+    this.service.edit_manage_role = this.user._role
 
   }
 
