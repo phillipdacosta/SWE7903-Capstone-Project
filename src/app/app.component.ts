@@ -37,7 +37,8 @@ export class AppComponent {
   }
 
   manageUsersPage(){
-
+    
+    this.service.fetching();
     this.router.navigateByUrl("/manage-user")
   }
 

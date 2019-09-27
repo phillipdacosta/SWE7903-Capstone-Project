@@ -2,6 +2,7 @@
 <br>
 
 <form>
+        
         <div *ngFor="let member of members" class="team">
                 <select (change)="selectUser($event.target.value, member)" class="form-control" name="member" required>
                         <option selected value="undefined" class="default">Select a user</option>

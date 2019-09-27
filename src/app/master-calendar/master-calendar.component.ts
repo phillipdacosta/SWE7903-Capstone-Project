@@ -29,7 +29,9 @@ export class MasterCalendarComponent {
   calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
   calendarWeekends = true;
   calendarEvents: EventInput[] = [
-    { title: 'Event Now', start: new Date() }
+    { title: 'Event Now', start: new Date() },
+
+
   ];
 
   toggleVisible() {

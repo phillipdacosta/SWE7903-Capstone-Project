@@ -18,6 +18,7 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { AdminComponent } from './admin/admin.component';
 import { ProjectteamComponent } from './projectteam/projectteam.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ManageUserViewComponent } from './manage-user-view/manage-user-view.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProfileComponent } from './profile/profile.component';
     AdminComponent,
     ProjectteamComponent,
     ProfileComponent,
+    ManageUserViewComponent,
 
   ],
   imports: [

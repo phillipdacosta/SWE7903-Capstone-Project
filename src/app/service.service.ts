@@ -48,10 +48,13 @@ export class ServiceService {
   priviledge : boolean = false;
   userRole : any;
   return_users : Array<TeamMemberModel>;
+  return_user_model : Array<UserModel>;
+
   user_firstname : any;
   user_lastname : any;
   user_email : any;
   get_all_users : any;
+  get_all_users_to_update_profile : any;
   users: Array<TeamMemberModel>;
   projectRoles: Array<ProjectRoleModel>
   set_user_name: any;
@@ -68,7 +71,7 @@ export class ServiceService {
   show_spinner : boolean = false;
   array_of_projects_firstname : any;
   user_team : Array <UserModel>;
-  return_project_team : Array<TeamMemberModel>;
+  return_project_team : Array<UserModel>;
   get_user_email : any;
   user_password : any;
   user_role : any;
@@ -79,7 +82,7 @@ export class ServiceService {
   updated_lastname : any;
   updated_email : any;
   user_profile : UserModel;
-
+  all_users : any;
 
   public jwtHelper = new JwtHelperService();
 
@@ -93,7 +96,7 @@ export class ServiceService {
     this.array_of_projects = new Array ();
     console.error("init", this.return_users);
     this.return_project_team = [];
-
+    this.return_user_model = []
 
 
 
@@ -208,31 +211,32 @@ export class ServiceService {
     this.https.get(this.uri + '/yourprojects')
     .subscribe((response: any) => {
       console.log("third")
-     this.user_firstname = response.get_user_name;
+     this.user_firstname = response.get_user_name
+     console.log(this.user_firstname)
      console.log('From fetching:' + this.user_firstname)
      this.user_lastname = response.get_user_password;
-      this.get_all_users = response.get_all_users;
-     // console.error("response", response);
+      this.get_all_users = response.get_all_users
       console.log(this.get_all_users)
       
-      this.return_users = []      
+      this.return_users = []    
 
-     // console.error("users:", this.return_users)
 
       this.get_all_users.forEach(user => {
+
         const teamModel = new TeamMemberModel(user.user._firstName, user.user._lastName, user._id);
         this.return_users.push(teamModel);
-        console.log("loop")
-      });
+       // this.return_users.sort();
 
-     // console.error("users:", this.return_users);
+       this.return_users.sort((a,b) => a._firstName.localeCompare(b._lastName));
+       console.log(this.return_users)
+
+            })
+
+
+    
+    
+    
     })
-
-    console.log('this code ran in Save Roles')
-     
-      this.getProjects();
-      this.fetchRoles();
-   
 
   }
 
@@ -242,7 +246,6 @@ export class ServiceService {
     .subscribe((response: any) => {
   
       this.roles = response.result
-    //  console.log(this.roles)
      // console.error("roles:", this.roles);
     })
 
@@ -304,7 +307,6 @@ export class ServiceService {
     
 
   }
-
 
 
   saveRoles(projectteam, created_by_user){

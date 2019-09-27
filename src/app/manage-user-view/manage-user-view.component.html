@@ -1,0 +1,136 @@
+
+        <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear"
+        aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+
+        Project 
+
+    </button>
+
+    <br>
+
+
+
+    <div class="collapse" id="footwear">
+
+        <div class="card" style="width: 60vw; color: grey">
+
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">Release 2 Start 09/28/19 - 10/19/19</li>
+
+                <div class="col text-center">
+
+                    <div class="list-group-item" style="color: rgb(117, 115, 115)">
+
+
+                            <br>
+                            <br>
+                            
+                            <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                    <li class="nav-item dropdown show">
+                                      <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
+                                            <div *ngFor="let member of service.return_users" class="team">
+                                                    <button (click)="selectUser($event.target.value, member)" class="form-control " style = "background-color: rgb(219, 217, 217); width: 50vw; font-size: 16px;" data-toggle="modal" data-target="#myModal1"> 
+                                                           <option  value={{member.id}}> {{member.firstName}} {{member.lastName}}</option> 
+
+                                                    </button>
+
+                                                </div>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                <!-- 
+                                    <div *ngFor="let member of service.return_users" class="team">
+                                        <select (change)="selectUser($event.target.value, member)" class="form-control" > 
+                                               <option  value={{member.id}}> {{member._firstName}} {{member._lastName}}</option> 
+                                        </select>
+                                            <hr>
+                            
+                                    </div>
+                            
+                            -->
+                            
+                        
+
+
+
+
+                        <!--   
+    
+                        <div *ngFor = "let users of service.return_users">
+
+                            <button type="submit" class="btn btn-success" (click)="openProfile()" data-toggle="modal" data-target="#myModal1"><p>  {{users._firstName}}  {{users.lastName}} </p> </button>
+
+                        </div>
+
+-->
+                
+                        <br>
+
+         
+
+
+
+        </div>
+
+    </div>
+
+ 
+    <div class="collapse" id="footwear3">
+
+        <div class="card" style="width: 60vw; color: grey">
+
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">test</li>
+
+                <li class="list-group-item">test</li>
+
+                <li class="list-group-item">test</li>
+
+                <li class="list-group-item">Team members</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content" >
+<div class="modal-header">
+    <div class="col-md-12 text-center">
+  <button type="button" class="close" data-dismiss="modal1">&times;</button>
+  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.update_firstName}}</h4>
+  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.update_lastName}}</h4>
+  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.update_email}}</h4>
+  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.update_password}}</h4>
+  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.get_user_id}}</h4>
+
+</div>
+<div class="modal-body">
+    <br>
+    <br>
+    <br>
+    <div class="second">
+        <div class="col-md-12 text-center">
+              <form>
+                   <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit" >Close </button>
+               </form>
+         </div>
+   </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
