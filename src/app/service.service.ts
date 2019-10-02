@@ -49,7 +49,8 @@ export class ServiceService {
   userRole: any;
   return_users: Array<TeamMemberModel>;
   return_user_model: Array<UserModel>;
-
+  manage_user_by_name: Array<TeamMemberModel>
+  display_user_array: Array<UserModel>;
   user_firstname: any;
   user_lastname: any;
   user_email: any;
@@ -84,12 +85,22 @@ export class ServiceService {
   user_profile: UserModel;
   all_users: any;
 
-  edit_manage_firstName : string;
+  edit_manage_firstName: string;
   edit_manage_lastName: string;
-  edit_manage_password : string;
-  edit_manage_role : string;
+  edit_manage_password: string;
+  edit_manage_role: string;
   edit_manage_email: string;
   edit_manage_id: string;
+  get_user_id : string;
+
+  index: number;
+  block_id: string;
+
+  alphabet = "a b c d e f g h i j k l m n o p q r s t u v w x y z".toUpperCase().split(' ');
+
+  alphabetized: Object;
+
+
 
 
   public jwtHelper = new JwtHelperService();
@@ -100,11 +111,12 @@ export class ServiceService {
     this.return_users = [];
     this.roles = [];
     this.created_user_id = [];
+    this.alphabetized = {};
     this.number_of_projects = new Array();
     this.array_of_projects = new Array();
     console.error("init", this.return_users);
     this.return_project_team = [];
-    this.return_user_model = []
+    this.manage_user_by_name = []
 
 
 
@@ -200,7 +212,7 @@ export class ServiceService {
     console.log(role)
 
     console.error(this.uri)
-    this.https.post(this.uri + '/profileuserprofile', { firstname, lastname, email, password, id , role})
+    this.https.post(this.uri + '/profileuserprofile', { firstname, lastname, email, password, id, role })
       .subscribe((response: any) => {
 
         this.updated_firstname = response.edited_updated_firstname;
@@ -248,49 +260,66 @@ export class ServiceService {
 
     this.getProjects();
     console.log(this.show_spinner)
-    console.log('code ran')
+   // console.log('code ran')
     this.https.get(this.uri + '/yourprojects')
       .subscribe((response: any) => {
         console.log("third")
         this.user_firstname = response.get_user_name
-        console.log(this.user_firstname)
+       // console.log(this.user_firstname)
         console.log('From fetching:' + this.user_firstname)
         this.user_lastname = response.get_user_password;
         this.get_all_users = response.get_all_users
         this.get_all_users_to_update_profile = response.get_all_users
 
         console.log(this.get_all_users)
-        console.log(this.get_all_users_to_update_profile)
+       // console.log(this.get_all_users_to_update_profile)
 
         this.return_users = []
-
+        this.manage_user_by_name = []
 
         this.get_all_users.forEach(user => {
 
-          const teamModel = new TeamMemberModel(user.user._firstName, user.user._lastName, user._id, user.user._password , user.user._email, user.user._role);
+          const teamModel = new TeamMemberModel(user.user._firstName, user.user._lastName, user._id, user.user._password, user.user._email, user.user._role);
           this.return_users.push(teamModel);
-          // this.return_users.sort();
-          console.log(user.user._role)
           this.return_users.sort((a, b) => a._firstName.localeCompare(b._lastName));
-
+          this.edit_manage_id = user._id
+          console.log(this.return_users)
+          console.log(this.edit_manage_id)
         })
-        console.log(this.return_users)  
 
-        this.return_user_model = []
 
-        this.get_all_users_to_update_profile.forEach(users => {
+        for (let z = 0; z < this.alphabet.length; z++) {
 
-          const userModel = new UserModel(users.user._firstName, users.user._lastName, users.user._email, users.user._id,);
-          this.return_user_model.push(userModel);
-          // this.return_users.sort();
+          this.block_id = this.alphabet[z].toString();
+          this.index = this.alphabet.indexOf(this.block_id)
 
-          this.return_user_model.sort((a, b) => a._firstName.localeCompare(b._lastName));
+          this.alphabetized[this.block_id] = [];
+         // console.log(this.alphabetized)
 
-        })
-        console.log(this.return_user_model)
+          this.return_users.forEach((user: TeamMemberModel) => {
+            if (user._firstName[0].toUpperCase() === this.block_id) {
+              
+              this.alphabetized[this.block_id].push(user);
+              console.log(this.alphabetized)
+              this.get_user_id = user.id
+              console.log(this.get_user_id)
+            }
+          });
+
+
+
+         // console.log(this.block_id)
+         // console.log(this.alphabetized)
+        }
+
+       // console.log(this.manage_user_by_name)
+
+
 
 
       })
+
+
 
   }
 
@@ -350,9 +379,9 @@ export class ServiceService {
         console.log(this.array_of_projects.length)
 
         this.array_of_projects.forEach(team => {
-         // const teamModel = new TeamMemberModel(team.projectteam[0]._firstName);
-         //    this.return_project_team.push(teamModel);
-        //  console.log("PROJECT TEAM" + this.return_project_team[0].firstName)
+          // const teamModel = new TeamMemberModel(team.projectteam[0]._firstName);
+          //    this.return_project_team.push(teamModel);
+          //  console.log("PROJECT TEAM" + this.return_project_team[0].firstName)
         });
 
 

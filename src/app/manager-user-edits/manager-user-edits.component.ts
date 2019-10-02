@@ -49,6 +49,7 @@ export class ManagerUserEditsComponent implements OnInit {
   backToManageUsersPage(){
 
     this.router.navigateByUrl("/manage-user")
+    
   }
 
   loadUserProfile(){
@@ -59,7 +60,9 @@ export class ManagerUserEditsComponent implements OnInit {
     this.user._password = this.service.edit_manage_password
     this.user._role = this.service.edit_manage_role
     this.user_id_edit = this.service.edit_manage_id 
-    
+    console.log(this.user_id_edit)
+    console.log(this.user_id_edit)
+
   }
   
 
@@ -137,8 +140,10 @@ export class ManagerUserEditsComponent implements OnInit {
 
   }
 
-  deleteUserAccount(){
+  deleteUserAccount(event, member){
  
+    console.log(event)
+    console.log(this.user_id_edit)
     this.service.deleteUserProfile(this.user_id_edit);
 
   }

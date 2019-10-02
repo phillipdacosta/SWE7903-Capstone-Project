@@ -27,14 +27,14 @@
 
 
     <div class="col text-center">
-            <div *ngIf = "this.show_expiration_flag">
-                    <br>
-                    <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
-              </div>
+        <div *ngIf="this.show_expiration_flag">
             <br>
-            <br>
-       
-         
+            <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
+        </div>
+        <br>
+        <br>
+
+
         <h3>Manage Users</h3>
 
         <br>
@@ -42,12 +42,34 @@
         <br>
 
         <br>
-       
-            <app-manage-user-view [members]=members></app-manage-user-view>
+
+
+
+        <br>
+
+        <div *ngFor="let name of service.alphabet; let i=index">
+
+            <br>
+            <app-manage-user-view index={{i}}></app-manage-user-view>
+
+            <br>
+
+        </div>
+
+
+
+        <!--             <div *ngFor = "let name of service.alphabet">
+
+                    <br>
+                        <app-manage-user-view [members]=members></app-manage-user-view>
+
+                </div>
+-->
 
     </div>
 
 </body>
+
 
 
 

@@ -1,15 +1,15 @@
 
-        <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear"
+        <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
         aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
 
-        Users 
+      <p style = "float: left; padding-left: 30px">{{service.alphabet[index]}} </p>  
+ 
 
     </button>
 
 
 
-
-    <div class="collapse" id="footwear">
+    <div class="collapse" id="{{index}}">
 
         <div class="card" style="width: 50vw; color: grey">
 
@@ -17,20 +17,18 @@
                 <div class="col text-center">
 
                         
-                            <ul class="nav nav-tabs">
-                                    <li class="nav-item">
                                     <li class="nav-item dropdown show">
-                                      <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
-                                            <div *ngFor="let member of service.return_users" class="team">
-                                                    <button (click)="selectUser($event.target.value, member) ; this.manager_edits.loadUserProfile(); " class="form-control " style = "background-color: rgb(219, 217, 217); width: 50vw; font-size: 16px;" > 
-                                                           <option  value={{member.id}}> {{member.firstName}} {{member.lastName}}</option> 
-
+                                      <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px);">
+                                            <div *ngFor="let member of service.alphabetized[service.alphabet[index]]" class="team">
+                                                <!-- <div *ngFor="let member of service.manage_user_by_name" class="team"> -->
+                                                    <button (click)="selectUser($event.target.value, member) ; this.manager_edits.loadUserProfile(); " class="form-control " style = "background-color: rgb(219, 217, 217); width: 60vw; font-size: 16px; " > 
+                                                           <option  style = "float: left; font-size: 14pt;" value={{member.id}}> {{member.firstName}} {{member.lastName}}</option> 
+                                                           <button style = "float: right" type="button" class="btn btn-danger btn-md">Edit</button>
                                                     </button>
-
+                                                    <br>
                                                 </div>
                                       </div>
                                     </li>
-                                  </ul>
                                 <!-- 
                                     <div *ngFor="let member of service.return_users" class="team">
                                         <select (change)="selectUser($event.target.value, member)" class="form-control" > 
@@ -58,11 +56,15 @@
 -->
                 
                         <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
 
-         
-
-
-
+                
         </div>
 
     </div>

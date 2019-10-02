@@ -17,8 +17,8 @@ import { AppComponent } from '../app.component';
 })
 export class ManageUserViewComponent implements OnInit {
 
+
   @Input() members: Array<TeamMemberModel>
-  user: UserModel ;
   update_firstName : string;
   update_lastName : string;
   update_email : string;
@@ -26,17 +26,20 @@ export class ManageUserViewComponent implements OnInit {
   update_role : string;
   get_user_id : any;
 
+  @Input() index : number;
+  indexID : string;
+
+
 
   constructor(private service: ServiceService,  private app : AppComponent, private manager_edits : ManagerUserEditsComponent) {
-    this.user = new UserModel();
 
    }
 
   ngOnInit() {
     this.service.show_spinner  = false;
-    this.service.fetching();
+    this.indexID = this.idFromIndex();
 
-    
+    this.service.fetching();
 
   }
 
@@ -45,7 +48,7 @@ export class ManageUserViewComponent implements OnInit {
     console.log(member);
     
     member.id = event
-    console.log(member)
+    console.log(member.id)
     console.log(this.service.return_user_id)
 
       for (let i = 0 ; i < this.service.return_users.length ; i++){
@@ -59,14 +62,13 @@ export class ManageUserViewComponent implements OnInit {
           member.id = this.service.return_users[i].id 
           member._role = this.service.return_users[i]._role
           console.log(this.service.return_users[i]._role)
-
-
+          console.log(member.id)
+         
         }
       }
 
  
-    console.error("selectUser: ", this.members)
-    console.log(member._firstName)
+  
 
     this.update_firstName = member._firstName
     this.update_lastName = member._lastName
@@ -74,14 +76,16 @@ export class ManageUserViewComponent implements OnInit {
     this.update_password = member._password
     this.get_user_id = member.id
     this.update_role = member._role
-
+      console.log(this.get_user_id)
     this.service.edit_manage_firstName  = this.update_firstName
     this.service.edit_manage_lastName = this.update_lastName
     this.service.edit_manage_password  = this.update_password
     this.service.edit_manage_role  = this.update_role 
     this.service.edit_manage_email = this.update_email 
-    this.service.edit_manage_id = this.get_user_id 
+    this.service.get_user_id = this.get_user_id 
     this.app.manageUsersEditsPage();
+
+
    
   }
 
@@ -107,6 +111,10 @@ export class ManageUserViewComponent implements OnInit {
 
 
 
+  }
+
+  idFromIndex(){
+    return "#" + this.index
   }
 
 }
