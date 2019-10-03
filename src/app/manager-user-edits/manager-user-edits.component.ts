@@ -30,6 +30,7 @@ export class ManagerUserEditsComponent implements OnInit {
   hide_save_button: boolean = true;
   edit_firstname : any;
   user_id_edit : any;
+  close_password_block : boolean = false;
 
 
   @ViewChild('myForm', { static: true }) formValues;
@@ -71,7 +72,7 @@ export class ManagerUserEditsComponent implements OnInit {
 
   openPasswordChange() {
 
-    this.confirm_password = !this.confirm_password;
+    this.confirm_password = !this.confirm_password
 
   }
 
@@ -139,7 +140,8 @@ export class ManagerUserEditsComponent implements OnInit {
     this.service.edit_manage_lastName = this.user._lastName;
     this.service.edit_manage_email = this.user._email;
     this.service.edit_manage_role = this.user._role
-    this.openPasswordChange();
+    this.close_password_block = true;
+    this.confirm_password = false;
 
   }
 
