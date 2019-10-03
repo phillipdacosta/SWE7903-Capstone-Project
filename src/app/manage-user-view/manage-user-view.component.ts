@@ -25,7 +25,7 @@ export class ManageUserViewComponent implements OnInit {
   update_password : string;
   update_role : string;
   get_user_id : any;
-
+  user_id_edit : any;
   @Input() index : number;
   indexID : string;
 
@@ -46,14 +46,12 @@ export class ManageUserViewComponent implements OnInit {
   selectUser(event, member: TeamMemberModel){
 
     console.log(member);
-    
-    member.id = event
+   
     console.log(member.id)
-    console.log(this.service.return_user_id)
 
       for (let i = 0 ; i < this.service.return_users.length ; i++){
 
-        if( member.id == this.service.return_users[i].id ){
+        if(member.id == this.service.return_users[i].id ){
 
           member._firstName = this.service.return_users[i].firstName 
           member._lastName = this.service.return_users[i].lastName 
@@ -62,8 +60,11 @@ export class ManageUserViewComponent implements OnInit {
           member.id = this.service.return_users[i].id 
           member._role = this.service.return_users[i]._role
           console.log(this.service.return_users[i]._role)
+          console.log(member._firstName)
+          console.log(member._lastName)
           console.log(member.id)
-         
+     
+
         }
       }
 
@@ -83,6 +84,7 @@ export class ManageUserViewComponent implements OnInit {
     this.service.edit_manage_role  = this.update_role 
     this.service.edit_manage_email = this.update_email 
     this.service.get_user_id = this.get_user_id 
+    console.log(this.service.get_user_id)
     this.app.manageUsersEditsPage();
 
 

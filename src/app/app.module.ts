@@ -48,7 +48,7 @@ import { ManagerUserEditsComponent } from './manager-user-edits/manager-user-edi
     FormsModule,
     HttpClientModule
   ],
-  providers: [ManageUserViewComponent, AppComponent, ManagerUserEditsComponent],
+  providers: [ManageUserViewComponent, AppComponent, ManagerUserEditsComponent, ProfileComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

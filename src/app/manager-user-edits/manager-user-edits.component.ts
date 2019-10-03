@@ -4,6 +4,8 @@ import { ServiceService } from '../service.service';
 import { ManageUserViewComponent } from '../manage-user-view/manage-user-view.component';
 import { Router } from '@angular/router';
 import { TeamMemberModel } from '../team-member.model';
+import { Profile } from 'selenium-webdriver/firefox';
+import { ProfileComponent } from '../profile/profile.component';
 
 
 
@@ -33,7 +35,7 @@ export class ManagerUserEditsComponent implements OnInit {
   @ViewChild('myForm', { static: true }) formValues;
 
 
-  constructor(private service: ServiceService, private router : Router) {
+  constructor(private service: ServiceService, private router : Router, private profile_page : ProfileComponent) {
 
     this.user = new UserModel();
     this.roles = ["user", "admin"]
@@ -59,9 +61,10 @@ export class ManagerUserEditsComponent implements OnInit {
     this.user._email = this.service.edit_manage_email
     this.user._password = this.service.edit_manage_password
     this.user._role = this.service.edit_manage_role
-    this.user_id_edit = this.service.edit_manage_id 
+    this.user_id_edit = this.service.get_user_id 
     console.log(this.user_id_edit)
-    console.log(this.user_id_edit)
+    console.log(this.user._firstName)
+    console.log(this.user._lastName)
 
   }
   
@@ -69,7 +72,6 @@ export class ManagerUserEditsComponent implements OnInit {
   openPasswordChange() {
 
     this.confirm_password = !this.confirm_password;
-
 
   }
 
@@ -134,17 +136,28 @@ export class ManagerUserEditsComponent implements OnInit {
 
     this.service.updateUserProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this.user_id_edit, this.user._role);
     this.service.edit_manage_firstName = this.user._firstName;
-    this.service.edit_manage_lastName = this.user._lastName ;
+    this.service.edit_manage_lastName = this.user._lastName;
     this.service.edit_manage_email = this.user._email;
     this.service.edit_manage_role = this.user._role
+    this.openPasswordChange();
 
   }
 
   deleteUserAccount(event, member){
  
     console.log(event)
+   
     console.log(this.user_id_edit)
     this.service.deleteUserProfile(this.user_id_edit);
+
+  }
+
+  updateProfile(){
+
+    this.service.set_user_name = this.user._firstName
+    this.service.set_user_lastname= this.user._lastName
+    this.service.get_user_email = this.user._email
+    this.service.user_password = this.user._password
 
   }
   

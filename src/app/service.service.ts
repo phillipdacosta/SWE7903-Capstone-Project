@@ -265,7 +265,7 @@ export class ServiceService {
       .subscribe((response: any) => {
         console.log("third")
         this.user_firstname = response.get_user_name
-       // console.log(this.user_firstname)
+        console.log(this.user_firstname)
         console.log('From fetching:' + this.user_firstname)
         this.user_lastname = response.get_user_password;
         this.get_all_users = response.get_all_users
@@ -294,13 +294,15 @@ export class ServiceService {
           this.index = this.alphabet.indexOf(this.block_id)
 
           this.alphabetized[this.block_id] = [];
-         // console.log(this.alphabetized)
+          console.log(this.alphabetized[this.block_id])
 
           this.return_users.forEach((user: TeamMemberModel) => {
             if (user._firstName[0].toUpperCase() === this.block_id) {
+
               
+              console.log(this.return_users)
               this.alphabetized[this.block_id].push(user);
-              console.log(this.alphabetized)
+              console.log(this.alphabetized[this.block_id])
               this.get_user_id = user.id
               console.log(this.get_user_id)
             }

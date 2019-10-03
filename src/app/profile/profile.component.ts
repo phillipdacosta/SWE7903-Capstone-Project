@@ -39,8 +39,16 @@ export class ProfileComponent implements OnInit {
     this.user._lastName = this.service.set_user_lastname;
     this.user._email = this.service.get_user_email;
     this.user._password = this.service.user_password;
+    this.updatedProfile();
 
   }
+
+  updatedProfile(){
+    
+    //this.user._firstName;
+   // console.log(this.user._firstName)
+  }
+
   
 
   openPasswordChange() {
