@@ -142,6 +142,7 @@ export class ManagerUserEditsComponent implements OnInit {
     this.service.edit_manage_role = this.user._role
     this.close_password_block = true;
     this.confirm_password = false;
+    this.updateProfile();
 
   }
 
@@ -158,6 +159,7 @@ export class ManagerUserEditsComponent implements OnInit {
 
     this.service.set_user_name = this.user._firstName
     this.service.set_user_lastname= this.user._lastName
+    console.log(this.service.set_user_lastname)
     this.service.get_user_email = this.user._email
     this.service.user_password = this.user._password
 
