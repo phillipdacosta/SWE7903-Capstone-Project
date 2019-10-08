@@ -91,15 +91,14 @@ export class ServiceService {
   edit_manage_role: string;
   edit_manage_email: string;
   edit_manage_id: string;
-  get_user_id : string;
-
+  get_user_id: string;
+  serviceData_india: any;
   index: number;
   block_id: string;
 
   alphabet = "a b c d e f g h i j k l m n o p q r s t u v w x y z".toUpperCase().split(' ');
 
   alphabetized: Object;
-
 
 
 
@@ -260,7 +259,7 @@ export class ServiceService {
 
     this.getProjects();
     console.log(this.show_spinner)
-   // console.log('code ran')
+    // console.log('code ran')
     this.https.get(this.uri + '/yourprojects')
       .subscribe((response: any) => {
         console.log("third")
@@ -272,7 +271,7 @@ export class ServiceService {
         this.get_all_users_to_update_profile = response.get_all_users
 
         console.log(this.get_all_users)
-       // console.log(this.get_all_users_to_update_profile)
+        // console.log(this.get_all_users_to_update_profile)
 
         this.return_users = []
         this.manage_user_by_name = []
@@ -296,12 +295,23 @@ export class ServiceService {
           this.alphabetized[this.block_id] = [];
           console.log(this.alphabetized[this.block_id])
 
-          this.return_users.forEach((user: TeamMemberModel) => {
-            if (user._firstName[0].toUpperCase() === this.block_id) {
 
-              
+          this.return_users.forEach((user: TeamMemberModel) => {
+            if (user._lastName[0].toUpperCase() === this.block_id) {
+
+
               console.log(this.return_users)
-              this.alphabetized[this.block_id].push(user);
+
+
+                this.alphabetized[this.block_id].push(user);
+
+              console.log(this.alphabetized)
+
+             var size = Object.keys(this.alphabetized[this.block_id])
+
+         
+              console.log(size)
+
               console.log(this.alphabetized[this.block_id])
               this.get_user_id = user.id
               console.log(this.get_user_id)
@@ -310,11 +320,11 @@ export class ServiceService {
 
 
 
-         // console.log(this.block_id)
-         // console.log(this.alphabetized)
+          // console.log(this.block_id)
+          // console.log(this.alphabetized)
         }
 
-       // console.log(this.manage_user_by_name)
+        // console.log(this.manage_user_by_name)
 
 
 
@@ -412,13 +422,33 @@ export class ServiceService {
   }
 
 
-  apiCall() {
+  apiCall(year) {
 
-    this.serviceData = this.https.get(this.uri);
+
+
+    let the_year = year
+    this.serviceData = this.https.get(`https://calendarific.com/api/v2/holidays?api_key=38fa84b459ed09740077aa5911ad3a762f195b50&country=US&year=${the_year}`);
+
     console.log(this.serviceData)
     return this.serviceData;
 
+
   }
+
+
+  apiCallIndian(year) {
+
+
+
+    let the_year = year
+    this.serviceData_india = this.https.get(`https://calendarific.com/api/v2/holidays?api_key=38fa84b459ed09740077aa5911ad3a762f195b50&country=IN&year=${the_year}`);
+
+    console.log(this.serviceData_india)
+    return this.serviceData_india;
+
+
+  }
+
 
   getArrayCount() {
 

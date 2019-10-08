@@ -54,7 +54,8 @@ export class ProfileComponent implements OnInit {
   openPasswordChange() {
 
     this.confirm_password = !this.confirm_password;
-
+    
+    this.enter_password_confirmation = "";
 
   }
 
@@ -71,6 +72,7 @@ export class ProfileComponent implements OnInit {
 
 
       this.display_password_fields = true;
+
     }
 
   }
@@ -121,6 +123,8 @@ export class ProfileComponent implements OnInit {
     this.service.set_user_name = this.user._firstName;
     this.service.set_user_lastname = this.user._lastName ;
     this.service.get_user_email = this.user._email ;
+    this.display_password_fields = false;
+    this.confirm_password = false;
 
   }
   
