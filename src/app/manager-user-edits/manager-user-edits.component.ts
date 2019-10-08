@@ -153,6 +153,7 @@ export class ManagerUserEditsComponent implements OnInit {
     console.log(this.user_id_edit)
     this.service.deleteUserProfile(this.user_id_edit);
 
+
   }
 
   updateProfile(){
