@@ -45,7 +45,7 @@
           </select>
 
           </div>
-          <button type="submit" class="btn btn-success" (click)="onSubmit(); heroForm.reset()" data-toggle="modal" data-target="#myModal1" [disabled] = !heroForm.form.valid >Create Account</button>
+          <button type="submit" class="btn btn-success" (click)="onSubmit()" data-toggle="modal" [disabled] = "!heroForm.form.valid" data-target="#myModal1">Create Account</button>
         </form>
               </div>
 
@@ -74,8 +74,7 @@
             <div class="second">
                 <div class="col-md-12 text-center">
                       <form>
-                           <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit" (click) = "service.fetching()"
-                           >Close </button>
+                           <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit" (click) = "reset()">Close </button>
                        </form>
                  </div>
            </div>

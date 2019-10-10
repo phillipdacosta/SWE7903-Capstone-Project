@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { CompletedProjectsComponent } from './completed-projects/completed-projects.component';
 import { ActiveProjectsComponent } from './active-projects/active-projects.component';
 import { MasterCalendarComponent } from './master-calendar/master-calendar.component';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { GuestComponent } from './guest/guest.component';
 import { ProjectComponent } from './project/project.component';
 import { YourProjectComponent } from './your-project/your-project.component';
@@ -46,7 +46,8 @@ import { ManagerUserEditsComponent } from './manager-user-edits/manager-user-edi
     HttpClientModule,
     FullCalendarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ManageUserViewComponent, AppComponent, ManagerUserEditsComponent, ProfileComponent],
   bootstrap: [AppComponent]
