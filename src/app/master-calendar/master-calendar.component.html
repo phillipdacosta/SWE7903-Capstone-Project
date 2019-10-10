@@ -52,18 +52,20 @@
   <br>
   <div *ngIf = "!this.show_expiration_flag">
       <br>
-<!-- 
-      <input type = "checkbox" style = "float: left" (click) = "showUSHolidays()"> <p style = "color: blue"> US Holidays </p>
+
+
+
+<div class='app-calendar' *ngIf="calendarVisible">
+
+
+    <input type = "checkbox" style = "float: left" (click) = "showUSHolidays()"> <p style = "color: blue"> US Holidays </p>
 
     
     <br>
     <input type = "checkbox" style = "float: left" (click) = "showIndianHolidays()"> <p style = "color: green">Indian Holidays </p>
 
-  -->
+
     <br>
-
-
-<div class='app-calendar' *ngIf="calendarVisible">
 
     <full-calendar
     

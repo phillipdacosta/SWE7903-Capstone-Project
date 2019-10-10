@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject, Injectable } from '@angular/core';
+import { Component, OnInit, Input, Inject, Injectable, ChangeDetectorRef } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { UserModel } from '../user.model';
 import { TeamMemberModel } from '../team-member.model';
@@ -19,57 +19,57 @@ export class ManageUserViewComponent implements OnInit {
 
 
   @Input() members: Array<TeamMemberModel>
-  update_firstName : string;
-  update_lastName : string;
-  update_email : string;
-  update_password : string;
-  update_role : string;
-  get_user_id : any;
-  user_id_edit : any;
-  @Input() index : number;
-  indexID : string;
+  update_firstName: string;
+  update_lastName: string;
+  update_email: string;
+  update_password: string;
+  update_role: string;
+  get_user_id: any;
+  user_id_edit: any;
+  @Input() index: number;
+  indexID: string;
 
 
 
-  constructor(private service: ServiceService,  private app : AppComponent, private manager_edits : ManagerUserEditsComponent) {
-
-   }
+  constructor(private ref: ChangeDetectorRef, private service: ServiceService, private app: AppComponent, private manager_edits: ManagerUserEditsComponent) {
+    this.ref.markForCheck();
+  }
 
   ngOnInit() {
-    this.service.show_spinner  = false;
+    this.service.show_spinner = false;
     this.indexID = this.idFromIndex();
 
     this.service.fetching();
 
   }
 
-  selectUser(event, member: TeamMemberModel){
+  selectUser(event, member: TeamMemberModel) {
 
     console.log(member);
-   
+
     console.log(member.id)
 
-      for (let i = 0 ; i < this.service.return_users.length ; i++){
+    for (let i = 0; i < this.service.return_users.length; i++) {
 
-        if(member.id == this.service.return_users[i].id ){
+      if (member.id == this.service.return_users[i].id) {
 
-          member._firstName = this.service.return_users[i].firstName 
-          member._lastName = this.service.return_users[i].lastName 
-          member._password = this.service.return_users[i]._password
-          member._email = this.service.return_users[i]._email 
-          member.id = this.service.return_users[i].id 
-          member._role = this.service.return_users[i]._role
-          console.log(this.service.return_users[i]._role)
-          console.log(member._firstName)
-          console.log(member._lastName)
-          console.log(member.id)
-     
+        member._firstName = this.service.return_users[i].firstName
+        member._lastName = this.service.return_users[i].lastName
+        member._password = this.service.return_users[i]._password
+        member._email = this.service.return_users[i]._email
+        member.id = this.service.return_users[i].id
+        member._role = this.service.return_users[i]._role
+        console.log(this.service.return_users[i]._role)
+        console.log(member._firstName)
+        console.log(member._lastName)
+        console.log(member.id)
 
-        }
+
       }
+    }
 
- 
-  
+
+
 
     this.update_firstName = member._firstName
     this.update_lastName = member._lastName
@@ -77,37 +77,37 @@ export class ManageUserViewComponent implements OnInit {
     this.update_password = member._password
     this.get_user_id = member.id
     this.update_role = member._role
-      console.log(this.get_user_id)
-    this.service.edit_manage_firstName  = this.update_firstName
+    console.log(this.get_user_id)
+    this.service.edit_manage_firstName = this.update_firstName
     this.service.edit_manage_lastName = this.update_lastName
-    this.service.edit_manage_password  = this.update_password
-    this.service.edit_manage_role  = this.update_role 
-    this.service.edit_manage_email = this.update_email 
-    this.service.get_user_id = this.get_user_id 
+    this.service.edit_manage_password = this.update_password
+    this.service.edit_manage_role = this.update_role
+    this.service.edit_manage_email = this.update_email
+    this.service.get_user_id = this.get_user_id
     console.log(this.service.get_user_id)
     this.app.manageUsersEditsPage();
 
 
-   
+
   }
 
 
-  selectRole(event, member: TeamMemberModel){
+  selectRole(event, member: TeamMemberModel) {
     member.projectRoleId = event
 
     this.service.roles.forEach(role => {
-      if(role._id == member.projectRoleId){
+      if (role._id == member.projectRoleId) {
         member.projectRole = role.name
       }
     });
-    
+
     console.error("selectrole: ", this.members)
   }
 
-  save(){
+  save() {
 
     this.service.saveRoles(this.members, this.service.return_user_id);
-    this.service.show_spinner  = true;
+    this.service.show_spinner = true;
     this.service.fetching();
     this.service.getProjects();
 
@@ -115,7 +115,7 @@ export class ManageUserViewComponent implements OnInit {
 
   }
 
-  idFromIndex(){
+  idFromIndex() {
     return "#" + this.index
   }
 

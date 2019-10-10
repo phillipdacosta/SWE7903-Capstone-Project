@@ -240,6 +240,24 @@ export class MasterCalendarComponent {
   Chhat_day: string;
   Chhat_date: string;
 
+  uMilad_day : string;
+  uMilad_date : string;
+
+  Jayantid_day : string;
+  Jayantid_date : string;
+
+  Martyrdom_day: string;
+  Martyrdom_date : string;
+
+  Christmas_eve_day : string;
+  Christmas_eve_date : string;
+
+  Christmas_day_day : string;
+  Christmas_day_date : string;
+
+  nye_day : string;
+  nye_date : string;
+  
   currentDate: any;
   constructor(private service: ServiceService, private router: Router) {
 
@@ -861,11 +879,46 @@ export class MasterCalendarComponent {
         }
 
 
+        if (holiday_name_india == "Milad un-Nabi/Id-e-Milad") {
 
+          this.uMilad_day = holiday_name_india;
+          this.uMilad_date = holiday_date_india
+        }
+
+        if (holiday_name_india == "Guru Nanak Jayantid") {
+
+          this.Jayantid_day = holiday_name_india;
+          this.Jayantid_date = holiday_date_india
+        }
+
+        if (holiday_name_india == "Guru Tegh Bahadur's Martyrdom Day") {
+
+          this.Martyrdom_day = holiday_name_india;
+          this.Martyrdom_date = holiday_date_india
+        }
+
+
+        if (holiday_name_india == "Christmas Eve") {
+
+          this.Christmas_eve_day = holiday_name_india;
+          this.Christmas_eve_date = holiday_date_india
+        }
+
+        if (holiday_name_india == "Christmas") {
+
+          this.Christmas_day_day = holiday_name_india;
+          this.Christmas_day_date = holiday_date_india
+        }
+
+        if (holiday_name_india == "New Year's Eve") {
+
+          this.nye_day = holiday_name_india;
+          this.nye_date = holiday_date_india
+        }
 
 
       }
-      //
+      //New Year's Eve
 
       this.calendarEvents = [
 
@@ -965,6 +1018,36 @@ export class MasterCalendarComponent {
 
         {
           title: this.Chhat_day, start: new Date(this.Chhat_date), allDay: true, color: 'Green',   // an option!
+          textColor: 'white'
+        },
+
+        {
+          title: this.uMilad_day, start: new Date(this.uMilad_date), allDay: true, color: 'Green',   // an option!
+          textColor: 'white'
+        },
+
+        {
+          title: this.Jayantid_day, start: new Date(this.Jayantid_date), allDay: true, color: 'Green',   // an option!
+          textColor: 'white'
+        },
+
+        {
+          title: this.Martyrdom_day, start: new Date(this.Martyrdom_date), allDay: true, color: 'Green',   // an option!
+          textColor: 'white'
+        },
+
+        {
+          title: this.Christmas_eve_day, start: new Date(this.Christmas_eve_date), allDay: true, color: 'Green',   // an option!
+          textColor: 'white'
+        },
+
+        {
+          title: this.Christmas_day_day, start: new Date(this.Christmas_day_date), allDay: true, color: 'Green',   // an option!
+          textColor: 'white'
+        },
+
+        {
+          title: this.ny_eve_day, start: new Date(this.ny_eve_date), allDay: true, color: 'Green',   // an option!
           textColor: 'white'
         },
 

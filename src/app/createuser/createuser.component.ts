@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserModel } from '../user.model';
 import { ServiceService } from '../service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createuser',
@@ -18,7 +19,7 @@ export class CreateuserComponent implements OnInit {
   @ViewChild('myForm', {static : true}) formValues; 
 
 
-  constructor(private service : ServiceService) {
+  constructor(private service : ServiceService, private router : Router) {
     this.user = new UserModel();
     this.roles = ["user", "admin"]
    }
@@ -37,11 +38,12 @@ export class CreateuserComponent implements OnInit {
   onSubmit(){
     console.error("USER", JSON.stringify(this.user))
     this.service.subscribe(this.user);
+    this.service.fetching();
+
     setTimeout(function(){
       
       this.user_created = true }, 1000);
 
-     
       }
   
     }

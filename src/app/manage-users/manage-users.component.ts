@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { TeamMemberModel } from '../team-member.model';
 import { ServiceService } from '../service.service';
 import { Team } from '../team.model';
@@ -21,7 +21,11 @@ export class ManageUsersComponent implements OnInit {
   indexID: string;
   show_spinner : boolean = false;
 
-  constructor(private service : ServiceService, public http: HttpClient) { }
+  constructor(private ref: ChangeDetectorRef, private service : ServiceService, public http: HttpClient) {
+
+    this.ref.markForCheck();
+
+   }
 
   ngOnInit() {
    this.members = [];

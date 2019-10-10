@@ -97,7 +97,8 @@ export class ServiceService {
   block_id: string;
 
   alphabet = "a b c d e f g h i j k l m n o p q r s t u v w x y z".toUpperCase().split(' ');
-
+  alphabet_update = "".toUpperCase().split(' ')
+  temp: any;
   alphabetized: Object;
 
 
@@ -186,6 +187,8 @@ export class ServiceService {
         console.log('User initial message is: ' + this.initial_message)
       })
 
+    this.fetching();
+
   }
 
 
@@ -272,6 +275,7 @@ export class ServiceService {
 
         console.log(this.get_all_users)
         // console.log(this.get_all_users_to_update_profile)
+        console.log(this.return_users)
 
         this.return_users = []
         this.manage_user_by_name = []
@@ -282,41 +286,58 @@ export class ServiceService {
           this.return_users.push(teamModel);
           this.return_users.sort((a, b) => a._firstName.localeCompare(b._lastName));
           this.edit_manage_id = user._id
-          console.log(this.return_users)
-          console.log(this.edit_manage_id)
+
         })
 
 
         for (let z = 0; z < this.alphabet.length; z++) {
 
+          console.log(this.alphabet)
           this.block_id = this.alphabet[z].toString();
           this.index = this.alphabet.indexOf(this.block_id)
 
           this.alphabetized[this.block_id] = [];
           console.log(this.alphabetized[this.block_id])
 
+          console.log(this.return_users)
 
           this.return_users.forEach((user: TeamMemberModel) => {
             if (user._lastName[0].toUpperCase() === this.block_id) {
 
-
               console.log(this.return_users)
+              console.log(user)
 
 
-                this.alphabetized[this.block_id].push(user);
+              this.alphabetized[this.block_id].push(user);
 
               console.log(this.alphabetized)
 
-             var size = Object.keys(this.alphabetized[this.block_id])
 
-         
-              console.log(size)
-
-              console.log(this.alphabetized[this.block_id])
-              this.get_user_id = user.id
-              console.log(this.get_user_id)
             }
           });
+
+          for (var key in this.alphabetized) {
+            if (this.alphabetized.hasOwnProperty(key)) {
+
+              if (this.alphabetized[key].length == 0) {
+
+                this.temp = key;
+
+                let forDeletion = [this.temp]
+
+                this.alphabet = this.alphabet.filter(item => !forDeletion.includes(item))
+
+                this.alphabet_update = this.alphabet;
+                console.log(this.alphabet)
+              }
+
+            }
+
+          }
+
+       
+
+
 
 
 
@@ -427,7 +448,7 @@ export class ServiceService {
 
 
     let the_year = year
-    this.serviceData = this.https.get(`https://calendarific.com/api/v2/holidays?api_key=38fa84b459ed09740077aa5911ad3a762f195b50&country=US&year=${the_year}`);
+    this.serviceData = this.https.get(`https://calendarific.com/api/v2/holidays?api_key=d65691e92c9d3bbad833289369b3e6b8775ffee3&country=US&year=${the_year}`);
 
     console.log(this.serviceData)
     return this.serviceData;
