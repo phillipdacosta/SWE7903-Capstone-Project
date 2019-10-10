@@ -15,6 +15,7 @@ export class CreateuserComponent implements OnInit {
   show_expiration_flag : Boolean = false;
   get_token : any;
   hide_create_user_button : boolean = false;
+  status : string = ""
 
   @ViewChild('myForm', {static : true}) formValues; 
 
@@ -26,6 +27,11 @@ export class CreateuserComponent implements OnInit {
 
   ngOnInit() {
 
+    if(this.user._firstName.length == 0 || this.user._lastName.length == 0|| this.user._email.length == 0 || this.user._password.length == 0 || this.user._role.length == 0){
+
+      this.status = "disabled"
+    }
+
     this.get_token = localStorage.getItem("auth_token")
     if(this.service.jwtHelper.isTokenExpired(this.get_token)){
  
@@ -36,6 +42,12 @@ export class CreateuserComponent implements OnInit {
 
 
   onSubmit(){
+
+
+ 
+
+
+
     console.error("USER", JSON.stringify(this.user))
     this.service.subscribe(this.user);
     this.service.fetching();
