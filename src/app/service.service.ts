@@ -289,7 +289,6 @@ export class ServiceService {
 
         })
 
-
         for (let z = 0; z < this.alphabet.length; z++) {
 
           console.log(this.alphabet)
@@ -316,18 +315,17 @@ export class ServiceService {
             }
           });
 
+          const forDeletion = [];
+
           for (var key in this.alphabetized) {
             if (this.alphabetized.hasOwnProperty(key)) {
 
               if (this.alphabetized[key].length == 0) {
-
+                
                 this.temp = key;
+                
+                forDeletion.push(this.temp);
 
-                let forDeletion = [this.temp]
-
-                this.alphabet = this.alphabet.filter(item => !forDeletion.includes(item))
-
-                this.alphabet_update = this.alphabet;
                 console.log(this.alphabet)
               }
 
@@ -335,8 +333,9 @@ export class ServiceService {
 
           }
 
-       
-
+          this.alphabet_update = this.alphabet.filter(item => !forDeletion.includes(item))
+          
+          console.error("alpha update ", this.alphabet_update);
 
 
 

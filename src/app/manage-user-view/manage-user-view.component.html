@@ -2,7 +2,7 @@
         <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
         aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
 
-      <p style = "float: left; padding-left: 30px">{{service.alphabet[index]}} </p>  
+      <p  style = "float: left; padding-left: 30px">{{service.alphabet_update[index]}}</p>  
  
 
     </button>
@@ -19,7 +19,7 @@
                         
                                     <li class="nav-item dropdown show">
                                       <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px);">
-                                            <div *ngFor="let member of service.alphabetized[service.alphabet[index]]" class="team">
+                                            <div *ngFor="let member of service.alphabetized[service.alphabet_update[index]]" class="team">
                                                 <!-- <div *ngFor="let member of service.manage_user_by_name" class="team"> -->
                                                     <button (click)="selectUser($event.target.value, member) ; this.manager_edits.loadUserProfile(); " class="form-control " style = "background-color: rgb(219, 217, 217); width: 60vw; font-size: 16px; " > 
                                                            <option  style = "float: left; font-size: 14pt;" value={{member.id}}> {{member.firstName}} {{member.lastName}}</option> 

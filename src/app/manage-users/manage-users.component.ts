@@ -30,6 +30,7 @@ export class ManageUsersComponent implements OnInit {
   ngOnInit() {
    this.members = [];
    this.test = this.service.data_received;
+   console.error("Fetrching")
    this.service.fetching();
    this.get_token = localStorage.getItem("auth_token")
    if(this.service.jwtHelper.isTokenExpired(this.get_token)){
