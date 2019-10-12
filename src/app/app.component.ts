@@ -47,6 +47,7 @@ export class AppComponent {
     
     this.service.fetching();
     this.router.navigateByUrl("/manage-user-edits")
+    
   }
   
   createUserPage(){
@@ -60,6 +61,7 @@ export class AppComponent {
 
     this.service.fetching();
     this.router.navigateByUrl("/profile")
+    window.scrollTo({ top: 90, behavior: 'smooth' })
 
 }
 

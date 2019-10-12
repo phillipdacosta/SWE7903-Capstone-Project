@@ -62,6 +62,7 @@
                                 <br>
 
                                 <br>
+
                                 <div style="border: solid rgb(146, 145, 145) ; " *ngIf="confirm_password == true">
                                     <br>
 
@@ -71,27 +72,39 @@
                                     <br>
 
 
-                                        <div *ngIf="this.no_match == true">
-                                            <p style="color: red"> Passwords do not match!</p>
-                                        </div>
-                                        {{passwordMatch()}}
-                                        <p>Enter new password</p><input placeholder=" New password" style="text-align:center;"
-                                            type="password" class="form-control" [(ngModel)]="user._password" name="password"
-                                            required>
+                                    <div *ngIf="this.no_match == true">
+                                        <p style="color: red"> Passwords do not match!</p>
+                                    </div>
+                                    {{passwordMatch()}}
+                                    <p>Enter new password</p><input placeholder=" New password" style="text-align:center;"
+                                        type="password" class="form-control" [(ngModel)]="user._password" name="password"
+                                        required>
 
-                                        <br>
-                                        <p>Re-enter new password</p><input placeholder="Re-enter new password" style="text-align:center;"
-                                            type="password" class="form-control" [(ngModel)]="retype_password" name="password"
-                                            required>
-                                        <br>
+                                    <br>
+                                    <p>Re-enter new password</p><input placeholder="Re-enter new password" style="text-align:center;"
+                                        type="password" class="form-control" [(ngModel)]="retype_password" name="password"
+                                        required>
+                                    <br>
 
 
                                 </div>
+
+
                             </div>
-                            <div *ngIf="hide_save_button">
+                            <div>
                                 <div class="center">
-                                    <button type="submit" class="btn btn-success" (click)="saveNewUserProfile()"
-                                        data-toggle="modal" data-target="#myModal1">Save</button>
+                                    
+                                    <div *ngIf = " !this.display_password_fields  ">
+
+                                
+                                   
+                                    <div *ngIf = "!this.no_match">
+                                            <button type="submit" class="btn btn-success" (click)="saveNewUserProfile()"
+                                            data-toggle="modal" data-target="#myModal1" [disabled]="!heroForm.form.valid">Save</button>
+    
+                                    </div>
+
+                                </div>
                                 </div>
                                 <button type="submit" class="btn btn-danger pull-right" data-toggle="modal" data-target="#myModal2">Delete
                                     User Account</button>
@@ -99,7 +112,6 @@
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -165,8 +177,8 @@
                     <button type="submit" class="btn btn-danger pull-left" (click)="deleteUserAccount($event.target.value, member)"
                         data-dismiss="modal" data-toggle="modal" data-target="#myModal3">Yes</button>
 
-                        <option value={{this.user_id_edit}}> </option>
-                    <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit"  >Close </button>
+                    <option value={{this.user_id_edit}}> </option>
+                    <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit">Close </button>
 
                 </div>
             </div>
@@ -183,7 +195,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button ></button>
+                    <button></button>
                     <div class="col text-center">
 
                         <h4 class="modal-title" style="color: rgb(0, 0, 0); font-size: 18pt"> Confirmation!</h4>
@@ -199,14 +211,14 @@
                 <div class="modal-footer">
 
 
-                    <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit" (click)= "backToManageUsersPage()">Close </button>
+                    <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit" (click)="backToManageUsersPage()">Close
+                    </button>
 
                 </div>
             </div>
 
         </div>
     </div>
-
 
 
 

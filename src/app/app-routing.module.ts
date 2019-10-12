@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'master-calendar', component : MasterCalendarComponent},
 
 
-  {path: '**', component: LoginComponent}
+  {path: '**', component: MasterCalendarComponent}
     ]
   }
 ];

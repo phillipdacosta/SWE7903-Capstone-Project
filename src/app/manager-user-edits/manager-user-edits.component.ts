@@ -31,6 +31,7 @@ export class ManagerUserEditsComponent implements OnInit {
   edit_firstname : any;
   user_id_edit : any;
   close_password_block : boolean = false;
+  password_flag : boolean = false;
 
 
   @ViewChild('myForm', { static: true }) formValues;
@@ -73,6 +74,8 @@ export class ManagerUserEditsComponent implements OnInit {
   openPasswordChange() {
 
     this.confirm_password = !this.confirm_password
+    window.scrollTo({ top: 10000, behavior: 'smooth' })
+    this.password_flag = true;
 
   }
 

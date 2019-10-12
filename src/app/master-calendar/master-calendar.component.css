@@ -8,6 +8,7 @@
 
     padding-bottom: 0;
     padding-top: 0;
+    width: 100%
 
 }
 
@@ -45,8 +46,8 @@ border: solid, white
     height: auto;
 
 }
-.navbar-default{
-    background-color: white;
+.navbar-default {
+  background-color: white; 
 }
 
 .welcome{
@@ -74,6 +75,7 @@ li:hover {
 
     background-image: linear-gradient(white, rgb(233, 230, 230));
     box-shadow: 0 2px 16px -6px black;
+    width: 100%;
 
 }
 
@@ -98,4 +100,14 @@ li:hover {
         Helvetica, Arial, "Lucida Grande", sans-serif, bold;
     }
 
-
+    .footer {
+      position: static;
+      bottom: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 100%;
+      margin-top: 100px;
+      background: linear-gradient(to right, #FDB713 0%, #E95524 50%, #D61A69 100%);
+      color: white;
+      text-align: center;
+    }

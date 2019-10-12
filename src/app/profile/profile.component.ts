@@ -41,6 +41,7 @@ export class ProfileComponent implements OnInit {
     this.user._password = this.service.user_password;
     this.updatedProfile();
 
+
   }
 
   updatedProfile(){
@@ -56,6 +57,7 @@ export class ProfileComponent implements OnInit {
     this.confirm_password = !this.confirm_password;
     
     this.enter_password_confirmation = "";
+    window.scrollTo({ top: 10000, behavior: 'smooth' })
 
   }
 
@@ -72,6 +74,7 @@ export class ProfileComponent implements OnInit {
 
 
       this.display_password_fields = true;
+      window.scrollTo({ top: 10000, behavior: 'smooth' })
 
     }
 

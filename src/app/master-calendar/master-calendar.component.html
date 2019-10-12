@@ -1,24 +1,20 @@
-
-
-
-
 <div *ngIf="service.userRole != 'user'">
 
-<div class="container">
-    <div *ngIf = "!hide_welcome">
-    <div class="jumbotron ">
-      <div class="row">
-        <div class="col-xs-12">
-          <br>
-          <div *ngIf = "service.check">
+  <div class="container-full-bg">
+    <div *ngIf="!hide_welcome">
+      <div class="jumbotron ">
+        <div class="row">
+          <div class="col-xs-12">
+            <br>
+            <div *ngIf="service.check">
               <h3 class="text-center" style="color: rgb(122, 122, 122)">Welcome back, {{service.set_user_name}}! </h3>
 
-          </div>
-          <div *ngIf = "service.check == false">
+            </div>
+            <div *ngIf="service.check == false">
               <h3 class="text-center" style="color: rgb(122, 122, 122)">Welcome!</h3>
 
-          </div>
-            <div *ngIf = "this.show_expiration_flag">
+            </div>
+            <div *ngIf="this.show_expiration_flag">
               <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
             </div>
           </div>
@@ -30,7 +26,7 @@
   </div>
   <div *ngIf="service.userRole == 'user'">
 
-  <div class="container">
+  <div class="container-full-bg">
       <div *ngIf = "!hide_welcome">
       <div class="jumbotron ">
         <div class="row">
@@ -50,35 +46,39 @@
 
 
   <br>
-  <div *ngIf = "!this.show_expiration_flag">
+  <div *ngIf="!this.show_expiration_flag">
+    <br>
+    <!--
+        <input type = "checkbox" style = "float: left" (click) = "showUSHolidays()"> <p style = "color: blue"> US Holidays </p>
       <br>
-
-
-
-<div class='app-calendar' *ngIf="calendarVisible">
-
-
-    <input type = "checkbox" style = "float: left" (click) = "showUSHolidays()"> <p style = "color: blue"> US Holidays </p>
-
-    
-    <br>
-    <input type = "checkbox" style = "float: left" (click) = "showIndianHolidays()"> <p style = "color: green">Indian Holidays </p>
-
-
+      <input type = "checkbox" style = "float: left" (click) = "showIndianHolidays()"> <p style = "color: green">Indian Holidays </p>
+    -->
     <br>
 
-    <full-calendar
+
+    <div class='app-calendar' *ngIf="calendarVisible">
+
+        <input type = "checkbox" style = "float: left" (click) = "showUSHolidays()"> <p style = "color: blue"> US Holidays </p>
+
     
-      #calendar
-      defaultView="dayGridMonth"
-      [header]="{
+        <br>
+        <input type = "checkbox" style = "float: left" (click) = "showIndianHolidays()"> <p style = "color: green">Indian Holidays </p>
+    
+    
+        <br>
+      <full-calendar #calendar
+                     defaultView="dayGridMonth"
+                     [header]="{
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
       }"
-      [plugins]="calendarPlugins"
-      [weekends]="calendarWeekends"
-      [events]="calendarEvents"
-      (dateClick)="handleDateClick($event)"
-    ></full-calendar>
-  </div>
+                     [plugins]="calendarPlugins"
+                     [weekends]="calendarWeekends"
+                     [events]="calendarEvents"
+                     (dateClick)="handleDateClick($event)"></full-calendar>
+    </div>
+
+    <div class="footer">
+      <p>Gas South © 2019</p>
+    </div>

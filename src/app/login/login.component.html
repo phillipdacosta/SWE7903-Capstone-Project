@@ -13,80 +13,83 @@
 <body>
 
 
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col text-center">
+        <br>
+      <br>
 
-        <div class="col text-center">
-                  <br>
-                 <br>
-                 <br>
-            
-                 <br>
-                 <br>
-                 <br>
 
-            <h3>Login</h3>
-            <br>
-            <br>
-        </div>
-        <div class="" style="color: white; margin: auto">
 
-            <br>
-            <input type="text" style="text-align:center;" placeholder="Email" [(ngModel)]="email" class="form-control">
 
-            <br>
-            <input type="password" style="text-align:center;" placeholder="Password" [(ngModel)]="password" class="form-control" />
-            <br>
-            <br>
+      <h1>Release Management Application</h1>
 
-            <div class="buttons">
-
-                <div class="spacer">
-                    <br>
-
-                    <button type="submit" (click)="Login()" style = "background-color:  rgb(218, 89, 3)"  class="btn btn-primary btn-lg btn btn-block">Login</button>
-
-                </div>
-                <br>
-
-            </div>
-            <br>
-         
-  
-            <button type="button" class="btn btn-link"  data-toggle="modal" data-target="#resetPassword">Forgot password</button>
-
-        </div>
+      <h3>Login</h3>
+      <br>
+      <br>
     </div>
+    <div class="" style="color: white; margin: auto">
+        <div class="col-md-4 col-md-offset-4">
 
-    <!-- Modal -->
-  <div id="resetPassword" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-      
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title" style = "color: rgb(97, 2, 2); font-size: 18pt">Reset Password</h4>
-            </div>
-            <div class="modal-body">
-                <br>
-      
-                <div class="second">
-                    <div class="col-md-12 text-center">
-                          <form>
-  
-                            <form>
-                                    <input style="text-align:center;" placeholder="username"  class="form-control" />
-                                </form>
-                           </form>
-                     </div>
-               </div>
-              </div>
-           
-         
-          </div>
-      
+      <br>
+      <input type="text" style="text-align:center;" placeholder="Email" [(ngModel)]="email" class="form-control">
+
+      <br>
+      <input type="password" style="text-align:center;" placeholder="Password" [(ngModel)]="password" class="form-control" />
+      <br>
+      <br>
+
+      <div class="buttons">
+
+        <div class="spacer">
+          <br>
+
+          <button type="submit" (click)="Login()" class="btn btn-primary btn-lg btn btn-block">Login</button>
+
         </div>
+        <br>
+
       </div>
+      <br>
+
+
+      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#resetPassword">Forgot password</button>
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="resetPassword" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color: rgb(97, 2, 2); font-size: 18pt">Reset Password</h4>
+        </div>
+        <div class="modal-body">
+          <br>
+
+          <div class="second">
+            <div class="col-md-12 text-center">
+              <form>
+
+                <form>
+                  <input style="text-align:center;" placeholder="username" class="form-control" />
+                </form>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Gas South © 2019</p>
+  </div>
 
 </body>
 

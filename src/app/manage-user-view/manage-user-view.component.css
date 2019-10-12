@@ -10,7 +10,21 @@
 
 }
 
- 
+
+.btn-danger {
+  color: white;
+  background-color: #E95524;
+  border-color: #E95524;
+  margin-top: -4px;
+  height: 28px;
+  padding-top: 3px;
+}
+
+  .btn-danger:hover {
+    color: white;
+    background-color: #D61A69;
+    border-color: #D61A69;
+  }
 
 li {
 
@@ -18,43 +32,20 @@ li {
 
 }
 
- 
+
 
 .btn-default {
-
- 
-
-    margin:0 auto;
-
-    height: 12vh;
-
+  margin: 0 auto;
+  height: 12vh;
+  background-color: rgb(202, 200, 200);
+  color: white
 }
 
-.list-group-item{
-
- 
-
-    background-color: rgb(224, 223, 223);
-
-    border: solid 1px rgb(105, 105, 105);
-
-    border-left: 20;
-    border-radius: 7px;
-
- 
-
-}
-
-.btn-default {
-
- 
-
-    background-color: rgb(202, 200, 200);
-
-    color: white
-
- 
-
+.list-group-item {
+  background-color: rgb(224, 223, 223);
+  border: solid 1px rgb(105, 105, 105);
+  border-left: 20;
+  border-radius: 7px;
 }
 
  
@@ -110,4 +101,5 @@ select.form-control {
 .dropdown-menu{
 
     background-color: #DBD9D9;
+
 }

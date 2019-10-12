@@ -1,131 +1,116 @@
-
-        <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
+<button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
         aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
 
-      <p  style = "float: left; padding-left: 30px">{{service.alphabet_update[index]}}</p>  
- 
-
-    </button>
+  <p style="float: left; padding-left: 30px">{{service.alphabet_update[index]}} </p>
 
 
-
-    <div class="collapse" id="{{index}}">
-
-        <div class="card" style="width: 50vw; color: grey">
-
-                
-                <div class="col text-center">
-
-                        
-                                    <li class="nav-item dropdown show">
-                                      <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px);">
-                                            <div *ngFor="let member of service.alphabetized[service.alphabet_update[index]]" class="team">
-                                                <!-- <div *ngFor="let member of service.manage_user_by_name" class="team"> -->
-                                                    <button (click)="selectUser($event.target.value, member) ; this.manager_edits.loadUserProfile(); " class="form-control " style = "background-color: rgb(219, 217, 217); width: 60vw; font-size: 16px; " > 
-                                                           <option  style = "float: left; font-size: 14pt;" value={{member.id}}>{{member.lastName}}, {{member.firstName}} </option> 
-                                                           <button style = "float: right" type="button" class="btn btn-danger btn-md">Edit</button>
-                                                    </button>
-                                                    <br>
-                                                </div>
-                                      </div>
-                                    </li>
-                                <!-- 
-                                    <div *ngFor="let member of service.return_users" class="team">
-                                        <select (change)="selectUser($event.target.value, member)" class="form-control" > 
-                                               <option  value={{member.id}}> {{member._firstName}} {{member._lastName}}</option> 
-                                        </select>
-                                            <hr>
-                            
-                                    </div>
-                            
-                            -->
-                            
-                        
+</button>
 
 
 
+<div class="collapse" id="{{index}}">
 
-                        <!--   
-    
-                        <div *ngFor = "let users of service.return_users">
+  <div class="card" style="width: 50vw; color: grey">
 
-                            <button type="submit" class="btn btn-success" (click)="openProfile()" data-toggle="modal" data-target="#myModal1"><p>  {{users._firstName}}  {{users.lastName}} </p> </button>
 
-                        </div>
+    <div class="col text-center">
 
--->
-                
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
 
-                
+      <li class="nav-item dropdown show">
+        <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: -85px; transform: translate3d(0px, 0px, 0px);">
+          <div *ngFor="let member of service.alphabetized[service.alphabet_update[index]]" class="team">
+            <!-- <div *ngFor="let member of service.manage_user_by_name" class="team"> -->
+            <button (click)="selectUser($event.target.value, member) ; this.manager_edits.loadUserProfile(); " class="form-control " style="background-color: rgb(219, 217, 217); width: 60vw; font-size: 16px; ">
+              <option style="float: left; font-size: 14pt;" value={{member.id}}> {{member.lastName}}, {{member.firstName}} </option>
+              <button style="float: right" type="button" class="btn btn-danger btn-md">Edit</button>
+            </button>
+            <br>
+          </div>
         </div>
+      </li>
+      <!--
+              <div *ngFor="let member of service.return_users" class="team">
+                  <select (change)="selectUser($event.target.value, member)" class="form-control" >
+                         <option  value={{member.id}}> {{member._firstName}} {{member._lastName}}</option>
+                  </select>
+                      <hr>
+              </div>
+      -->
+      <!--
+                              <div *ngFor = "let users of service.return_users">
+                                  <button type="submit" class="btn btn-success" (click)="openProfile()" data-toggle="modal" data-target="#myModal1"><p>  {{users._firstName}}  {{users.lastName}} </p> </button>
+                              </div>
+      -->
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
 
     </div>
 
- 
-    <div class="collapse" id="footwear3">
-
-        <div class="card" style="width: 60vw; color: grey">
-
-            <ul class="list-group list-group-flush">
-
-                <li class="list-group-item">test</li>
-
-                <li class="list-group-item">test</li>
-
-                <li class="list-group-item">test</li>
-
-                <li class="list-group-item">Team members</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-
-<!-- Modal -->
-<div id="myModal1" class="modal fade" role="dialog">
-<div class="modal-dialog">
-
-<!-- Modal content-->
-<div class="modal-content" >
-<div class="modal-header">
-    <div class="col-md-12 text-center">
-  <button type="button" class="close" data-dismiss="modal1">&times;</button>
-  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.update_firstName}}</h4>
-  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.update_lastName}}</h4>
-  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.update_email}}</h4>
-  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.update_password}}</h4>
-  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.get_user_id}}</h4>
-  <h4 class="modal-title" style = "color: rgb(41, 22, 1); font-size: 18pt">{{this.update_role}}</h4>
-
-
-</div>
-<div class="modal-body">
-    <br>
-    <br>
-    <br>
-    <div class="second">
-        <div class="col-md-12 text-center">
-              <form>
-                   <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit" >Close </button>
-               </form>
-         </div>
-   </div>
   </div>
-</div>
-
-</div>
-
-</div>
-</div>
 
 
+  <div class="collapse" id="footwear3">
+
+    <div class="card" style="width: 60vw; color: grey">
+
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item">test</li>
+
+        <li class="list-group-item">test</li>
+
+        <li class="list-group-item">test</li>
+
+        <li class="list-group-item">Team members</li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <!-- Modal -->
+  <div id="myModal1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="col-md-12 text-center">
+            <button type="button" class="close" data-dismiss="modal1">&times;</button>
+            <h4 class="modal-title" style="color: rgb(41, 22, 1); font-size: 18pt">{{this.update_firstName}}</h4>
+            <h4 class="modal-title" style="color: rgb(41, 22, 1); font-size: 18pt">{{this.update_lastName}}</h4>
+            <h4 class="modal-title" style="color: rgb(41, 22, 1); font-size: 18pt">{{this.update_email}}</h4>
+            <h4 class="modal-title" style="color: rgb(41, 22, 1); font-size: 18pt">{{this.update_password}}</h4>
+            <h4 class="modal-title" style="color: rgb(41, 22, 1); font-size: 18pt">{{this.get_user_id}}</h4>
+            <h4 class="modal-title" style="color: rgb(41, 22, 1); font-size: 18pt">{{this.update_role}}</h4>
+
+
+          </div>
+          <div class="modal-body">
+            <br>
+            <br>
+            <br>
+            <div class="second">
+              <div class="col-md-12 text-center">
+                <form>
+                  <button class="btn btn-success btn-lg" data-dismiss="modal" type="submit">Close </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>

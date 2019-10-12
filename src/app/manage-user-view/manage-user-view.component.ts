@@ -63,6 +63,7 @@ export class ManageUserViewComponent implements OnInit {
         console.log(member._firstName)
         console.log(member._lastName)
         console.log(member.id)
+        window.scrollTo({ top: 80, behavior: 'smooth' })
 
 
       }

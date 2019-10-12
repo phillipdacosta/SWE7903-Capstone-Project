@@ -1,11 +1,12 @@
 .jumbrotron{
 
     padding-bottom: 0;
+    width: 100%;
 
 }
 .navbar{
 
-    color: white
+    color: white;
 }
 
 .nav-rectangle{
@@ -20,9 +21,9 @@ border: solid, white
     
 }
 
-.container{
-
-    width : 95vw;
+.container {
+  width: 100%;
+ 
 }
 
 .modal {
@@ -42,10 +43,11 @@ border: solid, white
     max-height:90px;
     width: auto;
     height: auto;
+    padding-top: 8px;
 
 }
-.navbar-default{
-    background-color: white;
+.navbar-default {
+  background-image: linear-gradient(to right, #FDB713 0%, #E95524 50%, #D61A69 100%);
 }
 
 .welcome{
@@ -56,36 +58,37 @@ border: solid, white
 }
 
 li:hover {
-    
-   background-color: rgb(218, 89, 3);
-   
-  }
+  background-color: rgb(253, 183, 20);
+}
 
-.container{
 
-   background-color: white;
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
-   Helvetica, Arial, "Lucida Grande", sans-serif;
 
+.container {
+  background-image: linear-gradient(to right, #FDB713 0%, #E95524 50%, #D61A69 100%);
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  width: 100%;
+ 
+  
 }
 
 .jumbotron{
 
     background-image: linear-gradient(white, rgb(233, 230, 230));
+    width: 100%;
 }
 
 
-.btn-link{
+.btn-link {
 
-    font-size: 13pt;
-    
+  font-size: 13pt;
+  
 }
 
 .btn-link:hover {
 
      /* removes underline in boostraps btn-link buttn */
 
-     background-color: rgb(218, 89, 3);
+     background-color: rgb(253, 183, 20);
      text-decoration: none;
 
     }
@@ -98,24 +101,86 @@ li:hover {
     
       }
 
-      button { 
-          
-        margin: 7px 7px 7px 7px;
-       
-    
-    } 
+    button {
+      margin: 7px 7px 7px 7px;
+      
+    }
 
+    .btn-danger{
+    color: white;
+    background-color: #E95524;
+    border-color: #E95524;
+    }
 
-
-      .modal-dialog {
-        width: 50vw;
-        margin: 50px auto;
-        height : 70vh;
+      .btn-danger:hover {
+        color: white;
+        background-color: #D61A69;
+        border-color: #D61A69;
       }
+
+    .btn-danger.active,
+    .btn.btn-danger:active {
+      color: white;
+      background-color: #D61A69;
+      border-color: #D61A69;
+    }
+
+    .btn-danger.focus,
+    .btn.btn-danger:focus {
+      color: white;
+      background-color: #E95524;
+      border-color: #E95524;
+    }
+
+
+.btn-primary {
+  color: white;
+  background-color: #FDB713;
+  border-color: #FDB713;
+}
+
+  .btn-primary:hover {
+    color: white;
+    background-color: #D61A69;
+    border-color: #D61A69;
+  }
+
+  .btn-primary.active,
+  .btn.btn-primary:active {
+    color: white;
+    background-color: #D61A69;
+    border-color: #D61A69;
+  }
+
+  .btn-primary.focus,
+  .btn.btn-primary:focus {
+    color: white;
+    background-color: #FDB713;
+    border-color: #FDB713;
+  }
+
+
+.gas_south_img{
+
+    max-width:180px;
+    max-height:90px;
+    width: auto;
+    height: auto;
+    padding-top: 8px;
+
+}
+
+
+
+.modal-dialog {
+  width: 50vw;
+  margin: 50px auto;
+  height: 70vh;
+}
       .modal-dialog,
       .modal-content {
           /* 60% of window height */
-          height: 70%;
+          height: 50%;
       }
 
       .modal-body {
@@ -125,3 +190,15 @@ li:hover {
           overflow-y: scroll;
           */
       }
+
+     /* .footer {
+       position: fixed;
+       bottom: 0;
+       padding-top: 10px;
+       padding-bottom: 10px;
+       width: 100%;
+       background: linear-gradient(to right, #FDB713 0%, #E95524 50%, #D61A69 100%);
+       color: white;
+       text-align: center;
+  
+      }*/
