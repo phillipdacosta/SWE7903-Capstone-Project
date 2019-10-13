@@ -88,6 +88,9 @@ li:hover {
     background-image: linear-gradient(white, rgb(233, 230, 230));
     box-shadow: 0 2px 16px -6px black;
     width: 100%;
+    padding-top: 0;
+    padding-bottom: 20px;
+    margin-bottom:0;
 
 }
 
