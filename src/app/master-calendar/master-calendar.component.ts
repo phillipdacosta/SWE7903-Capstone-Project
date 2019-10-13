@@ -1099,17 +1099,6 @@ export class MasterCalendarComponent {
     })
   }
 
-
-
-
-
-
-
-
-
-
-
-
   handleDateClick(arg) {
     if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
       this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
