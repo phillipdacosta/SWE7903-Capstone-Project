@@ -272,7 +272,8 @@ export class MasterCalendarComponent {
 
   calendarEvents: EventInput[] = [
 
-    { title: "Today ", start: new Date(), allDay: true , color: 'Orange',   // an option!
+    {
+      title: "Today ", start: new Date(), allDay: true, color: '#FDB713',   // an option!
     textColor: 'white'},
 
   ];
@@ -487,7 +488,7 @@ export class MasterCalendarComponent {
       this.calendarEvents = [
 
 
-        { title: "Today ", start: new Date(), allDay: true , color: 'Orange',   // an option!
+        { title: "Today ", start: new Date(), allDay: true , color: '#FDB713',   // an option!
         textColor: 'white'},
 
         { title: this.new_years_day, start: new Date(this.new_years_date), allDay: true },
@@ -922,132 +923,132 @@ export class MasterCalendarComponent {
 
       this.calendarEvents = [
 
-        { title: "Today ", start: new Date(), allDay: true , color: 'Orange',   // an option!
+        { title: "Today ", start: new Date(), allDay: true , color: '#FDB713',   // an option!
         textColor: 'white'},
 
         {
-          title: this.new_years_day, start: new Date(this.new_years_date), allDay: true, color: 'Green',   // an option!
+          title: this.new_years_day, start: new Date(this.new_years_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Guru_day, start: new Date(this.Guru_date), allDay: true, color: 'Green',   // an option!
+          title: this.Guru_day, start: new Date(this.Guru_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.lori_day, start: new Date(this.lori_date), allDay: true, color: 'Green',   // an option!
+          title: this.lori_day, start: new Date(this.lori_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.makar_day, start: new Date(this.makar_date), allDay: true, color: 'Green',   // an option!
+          title: this.makar_day, start: new Date(this.makar_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.pongal, start: new Date(this.pongal_date), allDay: true, color: 'Green',   // an option!
+          title: this.pongal, start: new Date(this.pongal_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.republic_day, start: new Date(this.republic_date), allDay: true, color: 'Green',   // an option!
+          title: this.republic_day, start: new Date(this.republic_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.vasant_day, start: new Date(this.vasant_date), allDay: true, color: 'Green',   // an option!
+          title: this.vasant_day, start: new Date(this.vasant_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Jayanti_day, start: new Date(this.Jayanti_date), allDay: true, color: 'Green',   // an option!
+          title: this.Jayanti_day, start: new Date(this.Jayanti_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Shivaji_day, start: new Date(this.Shivaji_date), allDay: true, color: 'Green',   // an option!
+          title: this.Shivaji_day, start: new Date(this.Shivaji_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Maharishi_day, start: new Date(this.Maharishi_date), allDay: true, color: 'Green',   // an option!
+          title: this.Maharishi_day, start: new Date(this.Maharishi_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Maha_day, start: new Date(this.Maha_date), allDay: true, color: 'Green',   // an option!
+          title: this.Maha_day, start: new Date(this.Maha_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Dussehra_day, start: new Date(this.Dussehra_date), allDay: true, color: 'Green',   // an option!
+          title: this.Dussehra_day, start: new Date(this.Dussehra_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Valmiki_day, start: new Date(this.Valmiki_date), allDay: true, color: 'Green',   // an option!
+          title: this.Valmiki_day, start: new Date(this.Valmiki_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Chaturthi_day, start: new Date(this.Chaturthi_date), allDay: true, color: 'Green',   // an option!
+          title: this.Chaturthi_day, start: new Date(this.Chaturthi_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Diwali_day, start: new Date(this.Diwali_date), allDay: true, color: 'Green',   // an option!
+          title: this.Diwali_day, start: new Date(this.Diwali_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Naraka_day, start: new Date(this.Naraka_date), allDay: true, color: 'Green',   // an option!
+          title: this.Naraka_day, start: new Date(this.Naraka_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
 
         {
-          title: this.Govardhan_day, start: new Date(this.Govardhan_date), allDay: true, color: 'Green',   // an option!
+          title: this.Govardhan_day, start: new Date(this.Govardhan_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Bhai_day, start: new Date(this.Bhai_date), allDay: true, color: 'Green',   // an option!
+          title: this.Bhai_day, start: new Date(this.Bhai_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Chhat_day, start: new Date(this.Chhat_date), allDay: true, color: 'Green',   // an option!
+          title: this.Chhat_day, start: new Date(this.Chhat_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.uMilad_day, start: new Date(this.uMilad_date), allDay: true, color: 'Green',   // an option!
+          title: this.uMilad_day, start: new Date(this.uMilad_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Jayantid_day, start: new Date(this.Jayantid_date), allDay: true, color: 'Green',   // an option!
+          title: this.Jayantid_day, start: new Date(this.Jayantid_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Martyrdom_day, start: new Date(this.Martyrdom_date), allDay: true, color: 'Green',   // an option!
+          title: this.Martyrdom_day, start: new Date(this.Martyrdom_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Christmas_eve_day, start: new Date(this.Christmas_eve_date), allDay: true, color: 'Green',   // an option!
+          title: this.Christmas_eve_day, start: new Date(this.Christmas_eve_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.Christmas_day_day, start: new Date(this.Christmas_day_date), allDay: true, color: 'Green',   // an option!
+          title: this.Christmas_day_day, start: new Date(this.Christmas_day_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 
         {
-          title: this.ny_eve_day, start: new Date(this.ny_eve_date), allDay: true, color: 'Green',   // an option!
+          title: this.ny_eve_day, start: new Date(this.ny_eve_date), allDay: true, color: '#D61A69',   // an option!
           textColor: 'white'
         },
 

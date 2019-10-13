@@ -15,8 +15,31 @@
 
 .btn-block{
 
-    width: 25%;
-    border: 5px;
+    width: 20%;
+    height: 20%;
+    border: 2px;
+    background-color: #E95524;
+    border-color: #E95524;
+}
+
+.btn-block:hover {
+  color: white;
+  background-color: #D61A69;
+  border-color: #D61A69;
+}
+
+.btn-block.active,
+.btn.btn-block:active {
+  color: white;
+  background-color: #D61A69;
+  border-color: #D61A69;
+}
+
+.btn-block.focus,
+.btn.btn-block:focus {
+  color: white;
+  background-color: #E95524;
+  border-color: #E95524;
 }
 
 .grey-background {background-color:rgb(8, 157, 226)}
@@ -75,4 +98,3 @@
    
  }
 
- 

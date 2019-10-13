@@ -17,7 +17,7 @@
 
 
       <li class="nav-item dropdown show">
-        <div class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: -85px; transform: translate3d(0px, 0px, 0px);">
+        <div class="dropdown-menu show" x-placement="bottom-start" style="position: relative; will-change: transform; top: 0px; left: -85px; margin-bottom:50px; transform: translate3d(0px, 0px, 0px);">
           <div *ngFor="let member of service.alphabetized[service.alphabet_update[index]]" class="team">
             <!-- <div *ngFor="let member of service.manage_user_by_name" class="team"> -->
             <button (click)="selectUser($event.target.value, member) ; this.manager_edits.loadUserProfile(); " class="form-control " style="background-color: rgb(219, 217, 217); width: 60vw; font-size: 16px; ">
