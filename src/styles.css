@@ -1,3 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
+
+.fc-button-primary {
+  color: #fff;
+  background-color: #D61A69;
+  border-color: #FFFFFF;
+}
+
+  .fc-button-primary:hover {
+    color: #fff;
+    background-color: #1e2b37;
+    border-color: #1a252f;
+  }
+
+  .fc-button-primary:disabled {
+    color: #fff;
+    background-color: #D61A69;
+    border-color: #FFFFFF;
+  }
+
+.fc-event {
+  position: relative;
+  display: block;
+  font-size: 0.85em;
+  line-height: 1.4;
+  border-radius: 3px;
+  border: 1px solid #E95524;
+  background-color: #E95524;
+}
+
+
