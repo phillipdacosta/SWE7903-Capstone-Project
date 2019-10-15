@@ -63,7 +63,7 @@
 
     
         <br>
-        <input type = "checkbox" style = "float: left" (click) = "showIndianHolidays()"> <p style = "color: #D61A69">Indian Holidays </p>
+        <input type = "checkbox" style = "float: left" (click) = "showIndianHolidays()"> <p style = "color: #D61A69">India Holidays </p>
     
     
         <br>
@@ -73,11 +73,13 @@
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      
       }"
                      [plugins]="calendarPlugins"
                      [weekends]="calendarWeekends"
                      [events]="calendarEvents"
                      (dateClick)="handleDateClick($event)"></full-calendar>
+
     </div>
 
     <div class="footer">

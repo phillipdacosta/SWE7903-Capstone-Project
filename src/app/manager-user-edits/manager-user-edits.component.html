@@ -30,7 +30,7 @@
 
                 <div class="col-md-8 col-md-offset-2">
 
-                    <button type="submit" class="btn btn-warning" (click)="backToManageUsersPage()">Go back
+                    <button type="submit" class="btn btn-warning" (click)="backToManageUsersPage()">Go Back
                         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
                     </button>
                     <br>
@@ -41,16 +41,16 @@
                         <form #heroForm="ngForm">
                             <div class="form-group">
 
-                                <p>First name</p><input placeholder="first name" style="text-align:center;" type="text"
+                                <p>First Name</p><input placeholder="First Name" style="text-align:center;" type="text"
                                     class="form-control" [(ngModel)]="user._firstName" name="firstName" required>
                                 <br>
-                                <p>Last name</p><input placeholder="last name" style="text-align:center;" type="text"
+                                <p>Last Name</p><input placeholder="Last Name" style="text-align:center;" type="text"
                                     class="form-control" [(ngModel)]="user._lastName" name="lastName" required>
                                 <br>
-                                <p>Email address</p><input placeholder="email" style="text-align:center;" type="text"
+                                <p>Email Address</p><input placeholder="Email" style="text-align:center;" type="text"
                                     class="form-control" [(ngModel)]="user._email" name="email" required>
                                 <br>
-                                <p>Current account type</p>
+                                <p>Current Account Type</p>
                                 <select placeholder="Role" class="form-control" [(ngModel)]="user._role" name="role"
                                     required>
                                     <option style="text-align:center;" *ngFor="let role of roles" value="{{role}}">{{role}}</option>
@@ -58,7 +58,7 @@
 
                                 <br>
                                 <button type="submit" class="btn btn-md"
-                                    (click)="openPasswordChange()">change password</button>
+                                    (click)="openPasswordChange()">Change Password</button>
                                 <br>
 
                                 <br>
@@ -76,12 +76,12 @@
                                         <p style="color: red"> Passwords do not match!</p>
                                     </div>
                                     {{passwordMatch()}}
-                                    <p>Enter new password</p><input placeholder=" New password" style="text-align:center;"
+                                    <p>Enter New Password</p><input placeholder=" New Password" style="text-align:center;"
                                         type="password" class="form-control" [(ngModel)]="user._password" name="password"
                                         required>
 
                                     <br>
-                                    <p>Re-enter new password</p><input placeholder="Re-enter new password" style="text-align:center;"
+                                    <p>Re-enter New Password</p><input placeholder="Re-enter New Password" style="text-align:center;"
                                         type="password" class="form-control" [(ngModel)]="retype_password" name="password"
                                         required>
                                     <br>

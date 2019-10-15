@@ -469,6 +469,8 @@ export class ServiceService {
 
   }
 
+ 
+
 
   getArrayCount() {
 

@@ -43,6 +43,20 @@ h1 {
       border-color: #D61A69;
     }
 
+     .btn-md.active,
+    .btn.btn-md:active {
+      color: white;
+      background-color: #D61A69;
+      border-color: #D61A69;
+    }
+
+    .btn-md.focus,
+    .btn.btn-md:focus {
+      color: white;
+      background-color: #E95524;
+      border-color: #E95524;
+    }
+
 .btn-success {
   color: white;
   background-color: #FDB713;
@@ -69,6 +83,31 @@ h1 {
       border-color: #FDB713;
     }
 
+    .btn-primary {
+  color: white;
+  background-color: #E95524;
+  border-color: #E95524;
+}
+
+      .btn-primary:hover {
+        color: white;
+        background-color: #D61A69;
+        border-color: #D61A69;
+      }
+
+    .btn-primary.active,
+    .btn.btn-primary:active {
+      color: white;
+      background-color: #D61A69;
+      border-color: #D61A69;
+    }
+
+    .btn-primary.focus,
+    .btn.btn-primary:focus {
+      color: white;
+      background-color: #E95524;
+      border-color: #E95524;
+    }
   .text-center{
 
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 

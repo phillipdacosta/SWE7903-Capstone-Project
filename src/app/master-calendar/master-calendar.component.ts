@@ -240,25 +240,32 @@ export class MasterCalendarComponent {
   Chhat_day: string;
   Chhat_date: string;
 
-  uMilad_day : string;
-  uMilad_date : string;
+  uMilad_day: string;
+  uMilad_date: string;
 
-  Jayantid_day : string;
-  Jayantid_date : string;
+  Jayantid_day: string;
+  Jayantid_date: string;
 
   Martyrdom_day: string;
-  Martyrdom_date : string;
+  Martyrdom_date: string;
 
-  Christmas_eve_day : string;
-  Christmas_eve_date : string;
+  Christmas_eve_day: string;
+  Christmas_eve_date: string;
 
-  Christmas_day_day : string;
-  Christmas_day_date : string;
+  Christmas_day_day: string;
+  Christmas_day_date: string;
 
-  nye_day : string;
-  nye_date : string;
-  
+  nye_day: string;
+  nye_date: string;
+
   currentDate: any;
+
+
+  hide_US_holiday: boolean = false;
+  hide_INDIAN_holiday: boolean = false;
+
+
+
   constructor(private service: ServiceService, private router: Router) {
 
 
@@ -274,7 +281,8 @@ export class MasterCalendarComponent {
 
     {
       title: "Today ", start: new Date(), allDay: true, color: '#FDB713',   // an option!
-    textColor: 'white'},
+      textColor: 'white'
+    },
 
   ];
 
@@ -304,6 +312,9 @@ export class MasterCalendarComponent {
   }
 
   showUSHolidays() {
+
+    this.hide_US_holiday = !this.hide_US_holiday
+
 
     var el = document.getElementsByTagName('h2')[0].innerHTML // or some other element reference
     let new_year = el;
@@ -484,12 +495,17 @@ export class MasterCalendarComponent {
 
       }
 
+      if(this.hide_US_holiday){
+
+
 
       this.calendarEvents = [
 
 
-        { title: "Today ", start: new Date(), allDay: true , color: '#FDB713',   // an option!
-        textColor: 'white'},
+        {
+          title: "Today ", start: new Date(), allDay: true, color: '#FDB713',   // an option!
+          textColor: 'white'
+        },
 
         { title: this.new_years_day, start: new Date(this.new_years_date), allDay: true },
 
@@ -537,12 +553,26 @@ export class MasterCalendarComponent {
 
       ];
 
+    } else {
+
+      this.calendarEvents = [
+
+        {
+          title: "Today ", start: new Date(), allDay: true, color: '#FDB713',   // an option!
+          textColor: 'white'
+        },
+      ]
+    }
+
     })
   }
 
 
 
   showIndianHolidays() {
+
+    this.hide_INDIAN_holiday = !this.hide_INDIAN_holiday;
+
 
     var el = document.getElementsByTagName('h2')[0].innerHTML // or some other element reference
     let new_year = el;
@@ -919,12 +949,15 @@ export class MasterCalendarComponent {
 
 
       }
-      //New Year's Eve
+
+      if(this.hide_INDIAN_holiday){
 
       this.calendarEvents = [
 
-        { title: "Today ", start: new Date(), allDay: true , color: '#FDB713',   // an option!
-        textColor: 'white'},
+        {
+          title: "Today ", start: new Date(), allDay: true, color: '#FDB713',   // an option!
+          textColor: 'white'
+        },
 
         {
           title: this.new_years_day, start: new Date(this.new_years_date), allDay: true, color: '#D61A69',   // an option!
@@ -1053,20 +1086,18 @@ export class MasterCalendarComponent {
         },
 
       ];
+    } else {
 
+      this.calendarEvents = [
+
+        {
+          title: "Today ", start: new Date(), allDay: true, color: '#FDB713',   // an option!
+          textColor: 'white'
+        },
+      ]
+    }
     })
   }
-
-
-
-
-
-
-
-
-
-
-
 
   handleDateClick(arg) {
     if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
