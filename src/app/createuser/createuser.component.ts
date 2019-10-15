@@ -25,7 +25,7 @@ export class CreateuserComponent implements OnInit {
 
   constructor(private service : ServiceService, private router : Router) {
     this.user = new UserModel();
-    this.roles = ["user", "admin"]
+    this.roles = ["User", "Admin"]
    }
 
   ngOnInit() {

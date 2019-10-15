@@ -40,7 +40,7 @@ export class ManagerUserEditsComponent implements OnInit {
   constructor(private service: ServiceService, private router : Router, private profile_page : ProfileComponent) {
 
     this.user = new UserModel();
-    this.roles = ["user", "admin"]
+    this.roles = ["User", "Admin"]
 
   }
 

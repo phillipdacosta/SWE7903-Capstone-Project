@@ -6,6 +6,7 @@
   color: #fff;
   background-color: #D61A69;
   border-color: #FFFFFF;
+  text-transform: capitalize;
 }
 
   .fc-button-primary:hover {
@@ -30,4 +31,7 @@
   background-color: #E95524;
 }
 
+.fc-button-group > .fc-button {
+     text-transform: capitalize;
+}
 
