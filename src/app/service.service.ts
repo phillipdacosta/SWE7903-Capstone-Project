@@ -79,6 +79,7 @@ export class ServiceService {
   set_user_lastname: any;
   set_user_firstname: any;
   user_id: any;
+  user_innotas_id : any;
   updated_firstname: any;
   updated_lastname: any;
   updated_email: any;
@@ -100,6 +101,7 @@ export class ServiceService {
   alphabet_update = "".toUpperCase().split(' ')
   temp: any;
   alphabetized: Object;
+  Project_Manager_ID : any;
 
 
 
@@ -136,7 +138,6 @@ export class ServiceService {
         this.get_user = localStorage.getItem('user');
         this.check_email = response.return_email;
         this.set_user_name = localStorage.setItem('username', response.return_user_first_name);
-        console.log(this.set_user_name)
         this.get_user = localStorage.getItem('username')
         this.userRole = response.return_user_role;
         this.check = true;
@@ -147,6 +148,13 @@ export class ServiceService {
         this.set_user_lastname = response.return_user_lastname;
         this.get_user_email = response.return_email
         this.user_id = response.return_user_id;
+        this.user_innotas_id = response.return_user_innotas_id;
+
+        console.log(this.user_innotas_id)
+
+
+
+
         console.log(this.user_id)
         console.log(this.get_user_email)
         console.log(this.set_user_lastname)
@@ -378,12 +386,33 @@ export class ServiceService {
     this.https.get(this.uri + '/getprojects')
       .subscribe((response: any) => {
 
-        this.created_user_id = response.result
-        console.log(this.created_user_id)
+        this.created_user_id = response.result;
 
-        let v;
+        this.Project_Manager_ID = response.result.project_Manager_ID
+
         let array_of_projects = [];
+        
+        for(let v = 0 ; v < this.created_user_id.length ; v++){
+/*
+         var id_in= this.created_user_id[v].project_Manager_ID
+          console.log(id_in)
 
+          if(this.user_innotas_id == id_in){
+
+            this.created_user_id[v]
+            
+              array_of_projects.push(this.created_user_id[v]);
+          
+          }
+       */       
+        }
+      //  console.log(array_of_projects)
+
+       // console.log(this.created_user_id)
+
+
+       
+/*
         for (v = 0; v < this.created_user_id.length; v++) {
 
           if (this.created_user_id[v].created_by_user == this.return_user_id) {
@@ -398,6 +427,8 @@ export class ServiceService {
           }
 
         }
+
+        */
         this.array_of_projects = array_of_projects;
 
         this.array_of_projects_role = array_of_projects[0].projectteam[0]._firstName;

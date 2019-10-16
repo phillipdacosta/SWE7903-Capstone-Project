@@ -8,21 +8,21 @@
 
 
 h1 {
-  font-weight: bold;
-  margin-top: 0;
-  font-size: 25pt;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 15px;
-  background: linear-gradient(to right, #FDB713 0%, #E95524 50%, #D61A69 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  
-  
-}
+    font-weight: bold;
+    margin-top: 0;
+    font-size: 25pt;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    background: linear-gradient(to right, #FDB713 0%, #E95524 50%, #D61A69 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    
+    
+  }
 
 .modal1 {
     position: absolute;

@@ -25,15 +25,15 @@ const routes: Routes = [
 
   { path: 'guest', component : GuestComponent },
 
-  { path: 'yourproject', component : YourProjectComponent , data: {  allowedRoles: ['admin', 'user'] }},
+  { path: 'yourproject', component : YourProjectComponent , data: {  allowedRoles: ['Admin', 'User'] }},
 
-  { path: 'create-user', component : CreateuserComponent , data: {  allowedRoles: [ 'admin'] }},
+  { path: 'create-user', component : CreateuserComponent , data: {  allowedRoles: [ 'Admin'] }},
 
-  { path: 'manage-user', component : ManageUsersComponent , data: {  allowedRoles: [ 'admin'] }},
+  { path: 'manage-user', component : ManageUsersComponent , data: {  allowedRoles: [ 'Admin'] }},
 
-  { path: 'manage-user-edits', component : ManagerUserEditsComponent , data: {  allowedRoles: [ 'admin'] }},
+  { path: 'manage-user-edits', component : ManagerUserEditsComponent , data: {  allowedRoles: [ 'Admin'] }},
 
-  { path: 'profile', component : ProfileComponent , data: {  allowedRoles: ['admin', 'user'] }},
+  { path: 'profile', component : ProfileComponent , data: {  allowedRoles: ['Admin', 'User'] }},
 
 
   { path: 'completed-projects', component : CompletedProjectsComponent},

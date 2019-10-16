@@ -4,15 +4,17 @@ export class UserModel {
     public _firstName: string;
     public _lastName: string;
     public _password: string;
+    public _innotas_id : string;
     public _email: string
     public _role: string;
 
-    constructor(fname="", lname="", pass="", email="",role=""){
+    constructor(fname="", lname="", pass="", email="",role="", innotas_id = ""){
         this.firstName = fname;
         this.lastName = lname;
         this.password = pass;
         this.email = email;
         this.role = role;
+        this._innotas_id = innotas_id;
     }
 
     set firstName(name: string){
