@@ -10,7 +10,7 @@
 
 }
 
-h1 {
+  h1 {
     font-weight: bold;
     margin-top: 0;
     font-size: 25pt;
@@ -23,8 +23,8 @@ h1 {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    
-    
+    margin-left: auto;
+    margin-right: auto;
   }
 
 li {
@@ -120,4 +120,7 @@ li.list-group-item{
     background: linear-gradient(to right, #FDB713 0%, #E95524 50%, #D61A69 100%);
     color: white;
     text-align: center;
+    margin-left: auto;
   }
+
+

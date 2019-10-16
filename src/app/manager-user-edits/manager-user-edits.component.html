@@ -14,13 +14,14 @@
 <body>
 
 
-<h1>Release Management Application</h1>
+  <h1>Release Management Application</h1>
     <div class="col text-center">
         <div *ngIf="this.show_expiration_flag">
             <br>
             <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
         </div>
-        
+        <br>
+        <br>
         <h3>Edit User Profile</h3>
         <br>
         <div *ngIf="!this.show_expiration_flag">
@@ -48,9 +49,6 @@
                                 <br>
                                 <p>Email Address</p><input placeholder="Email" style="text-align:center;" type="text"
                                     class="form-control" [(ngModel)]="user._email" name="email" required>
-                                <br>
-                                <p>User ID</p><input placeholder="Innotas ID" style="text-align:center;" type="text"
-                                    class="form-control" [(ngModel)]="user._innotas_id" name="id" required>
                                 <br>
                                 <p>Current Account Type</p>
                                 <select placeholder="Role" class="form-control" [(ngModel)]="user._role" name="role"

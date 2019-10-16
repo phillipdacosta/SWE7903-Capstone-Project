@@ -10,7 +10,7 @@
 
 }
 
-h1 {
+  h1 {
     font-weight: bold;
     margin-top: 0;
     font-size: 25pt;
@@ -23,9 +23,6 @@ h1 {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    
-    
-    
   }
 
 .btn-success {
