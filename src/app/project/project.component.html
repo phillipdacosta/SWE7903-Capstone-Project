@@ -53,10 +53,31 @@
               <br>
               Project Status: {{service.all_projects[index]._project_Status}}
               <br>
+
+              <div *ngIf="service.all_projects[index]._groject_RYG_Color == 'Green'; else showOther">
+                
+                  <div class="foo green"></div>
+
+                </div>
+                
+                <ng-template #showOther>
+                
+                    <div class="foo orange"></div>
+
+                </ng-template>
+
+                <br>
+                <br>
+
+
+<!-- 
+              <div *ngIf = "service.all_projects[index]._groject_RYG_Color == 'Green'">
+
+              </div>
               Color: {{service.all_projects[index]._groject_RYG_Color}}
               <br>
           
-
+-->
 
 
 
