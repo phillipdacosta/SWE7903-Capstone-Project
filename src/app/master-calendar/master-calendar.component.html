@@ -59,11 +59,11 @@
 
     <div class='app-calendar' *ngIf="calendarVisible">
 
-        <input type = "checkbox" style = "float: left" (click) = "showUSHolidays()"> <p style = "color: #E95524"> US Holidays </p>
+        <input type = "radio" name = "holiday" style = "float: left" (click) = "showUSHolidays()"> <p style = "color: #E95524"> US Holidays </p>
 
     
         <br>
-        <input type = "checkbox" style = "float: left" (click) = "showIndianHolidays()"> <p style = "color: #D61A69">India Holidays </p>
+        <input type = "radio" name = "holiday" style = "float: left" (click) = "showIndianHolidays()"> <p style = "color: #D61A69">India Holidays </p>
     
     
         <br>
