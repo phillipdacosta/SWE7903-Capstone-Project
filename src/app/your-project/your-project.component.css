@@ -1,3 +1,7 @@
+html {
+  height: 101%;
+}
+
 .btn-block{
 
  
@@ -6,10 +10,8 @@
 
     border-radius: 18px;
 
- 
 
 }
-
 
 
 .modal-title{
@@ -35,8 +37,10 @@ li {
     margin:0 auto;
 
     height: 12vh;
+    
 
 }
+
 
 .list-group-item{
 
@@ -83,6 +87,7 @@ li.list-group-item{
  
 
     color:grey
+    
 
 }
 
@@ -140,7 +145,7 @@ li.list-group-item{
 }
 
 .footer {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     padding-top: 10px;
     padding-bottom: 10px;

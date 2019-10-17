@@ -1,10 +1,14 @@
+html{
+  height: 101%
+}
+
 .btn-block{
 
  
 
     width: 70%;
 
-    border-radius: 18px;
+    border-radius: 10px;
 
  
 
@@ -14,7 +18,7 @@
 
 li {
 
-    border-bottom: 1;
+    border-bottom: 0;
 
 }
 
@@ -26,7 +30,7 @@ li {
 
     margin:0 auto;
 
-    height: 12vh;
+    height: auto;
 
 }
 
@@ -34,9 +38,8 @@ li {
 
  
 
-    background-color: rgb(224, 223, 223);
+    background-color: #D1D1D1;
 
-    border: solid 1px rgb(105, 105, 105);
 
     border-left: 20;
 
@@ -44,19 +47,45 @@ li {
 
 }
 
+div{
+  color: white;
+  font-size: 16pt;
+  text-align: center;
+  height: auto;
+
+  
+}
  
 
 .btn-default {
 
  
 
-    background-color: rgb(202, 200, 200);
+    background: #808080;
 
     color: white
 
- 
-
 }
+
+  .btn-default:hover {
+    color: white;
+    background-color: #E95524;;
+    border-color: #E95524;;
+  }
+
+  .btn-default.active,
+  .btn.btn-default:active {
+    color: white;
+    background-color: #E95524;;
+    border-color: #E95524;;
+  }
+
+  .btn-default.focus,
+  .btn.btn-default:focus {
+    color: white;
+    background: #808080;
+    border-color: #E95524;
+  }
 
  
 
@@ -86,7 +115,7 @@ li.list-group-item{
 
     float: none; /* Added */
 
-    margin-bottom: 10px; /* Added */
+    margin-bottom: 5px; /* Added */
 
 }
 
@@ -109,3 +138,26 @@ li.list-group-item{
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
     Helvetica, Arial, "Lucida Grande", sans-serif, bold;
 }
+
+
+.foo {
+    
+    width: 20 px;
+    height: 20px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, .2);
+   
+  }
+  
+  .blue {
+    background: #13b4ff;
+  }
+  
+  .orange {
+    background: #e79b0d;
+  }
+  
+  .green {
+    background: #018d0d;
+    
+  }
