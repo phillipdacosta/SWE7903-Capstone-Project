@@ -13,7 +13,7 @@
 
 <body>
 
-  <div *ngIf="service.userRole != 'user'">
+  <div *ngIf="service.userRole != 'User'">
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -53,7 +53,7 @@
   </div>
 
 
-  <div *ngIf="service.userRole == 'user'">
+  <div *ngIf="service.userRole == 'User'">
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -61,15 +61,15 @@
 
           <li><button class="btn btn-link" (click)="masterCalendarPage()"><font color="white">Master Calendar</font></button></li>
           <li><button class="btn btn-link" (click)="activeProjectsPage()"><font color="white">Active Projects</font></button> </li>
-          <li><button class="btn btn-link" (click)="yourProjectPage()"><font color="white">Your Projects</font></button></li>
           <li><button class="btn btn-link" (click)="completedProjectsPage()"><font color="white">Completed Projects</font></button></li>
+          <li><button class="btn btn-link" (click)="yourProjectPage()"><font color="white">Your Projects</font></button></li>
           <li><button class="btn btn-link" (click)="profilePage()"><font color="white">Profile</font></button></li>
 
           <li>
             <div *ngIf="service.flag ">
-              <li><button type="button" class="btn btn-link" style="float:right" data-toggle="modal" data-target="#myModal"><font color="white">Logout</font></button></li>
+          <li><button type="button" class="btn btn-link" style="float:right" data-toggle="modal" data-target="#myModal"><font color="white">Logout</font></button></li>
 
-            </div>
+</div>
             <div *ngIf="!service.flag">
               <li><button class="btn btn-link" (click)="loginPage()"><font color="white">Login</font></button></li>
             </div>
