@@ -24,6 +24,7 @@ export class ManageUserViewComponent implements OnInit {
   update_email: string;
   update_password: string;
   update_role: string;
+  update_innotas : string;
   get_user_id: any;
   user_id_edit: any;
   @Input() index: number;
@@ -59,10 +60,13 @@ export class ManageUserViewComponent implements OnInit {
         member._email = this.service.return_users[i]._email
         member.id = this.service.return_users[i].id
         member._role = this.service.return_users[i]._role
+        member._innotas_id = this.service.return_users[i]._innotas_id
+
         console.log(this.service.return_users[i]._role)
         console.log(member._firstName)
         console.log(member._lastName)
         console.log(member.id)
+        console.log(member._innotas_id)
         window.scrollTo({ top: 80, behavior: 'smooth' })
 
 
@@ -78,6 +82,7 @@ export class ManageUserViewComponent implements OnInit {
     this.update_password = member._password
     this.get_user_id = member.id
     this.update_role = member._role
+    this.update_innotas = member._innotas_id
     console.log(this.get_user_id)
     this.service.edit_manage_firstName = this.update_firstName
     this.service.edit_manage_lastName = this.update_lastName
@@ -85,6 +90,8 @@ export class ManageUserViewComponent implements OnInit {
     this.service.edit_manage_role = this.update_role
     this.service.edit_manage_email = this.update_email
     this.service.get_user_id = this.get_user_id
+    this.service.edit_manage_innotas_id = this.update_innotas
+
     console.log(this.service.get_user_id)
     this.app.manageUsersEditsPage();
 

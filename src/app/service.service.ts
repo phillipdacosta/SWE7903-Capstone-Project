@@ -93,6 +93,7 @@ export class ServiceService {
   edit_manage_role: string;
   edit_manage_email: string;
   edit_manage_id: string;
+  edit_manage_innotas_id : string;
   get_user_id: string;
   serviceData_india: any;
   index: number;
@@ -114,6 +115,7 @@ export class ServiceService {
   project_Status : any;
   project_Title : any;
   project_Work_Type : any;
+  return_user_innotas_id : any;
 
 
   public jwtHelper = new JwtHelperService();
@@ -292,6 +294,9 @@ export class ServiceService {
         this.user_lastname = response.get_user_password;
         this.get_all_users = response.get_all_users
         this.get_all_users_to_update_profile = response.get_all_users
+        this.return_user_innotas_id = response.get_user_innotas_id;
+        console.log(this.return_user_innotas_id)
+
 
         console.log(this.get_all_users)
         // console.log(this.get_all_users_to_update_profile)
@@ -302,7 +307,7 @@ export class ServiceService {
 
         this.get_all_users.forEach(user => {
 
-          const teamModel = new TeamMemberModel(user.user._firstName, user.user._lastName, user._id, user.user._password, user.user._email, user.user._role);
+          const teamModel = new TeamMemberModel(user.user._firstName, user.user._lastName, user._id, user.user._password, user.user._email, user.user._role, user.user._innotas_id);
           this.return_users.push(teamModel);
           this.return_users.sort((a, b) => a._firstName.localeCompare(b._lastName));
           this.edit_manage_id = user._id
@@ -407,7 +412,7 @@ export class ServiceService {
         for(let v = 0 ; v < this.created_user_id.length ; v++){
 
          var id_in= this.created_user_id[v].project_Manager_ID
-          console.log(id_in)
+       //   console.log(id_in)
 
           if(this.user_innotas_id == id_in){
 
