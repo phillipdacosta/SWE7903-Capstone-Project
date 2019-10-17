@@ -20,8 +20,8 @@
             <br>
             <h3 class="text-center" style="color: red">Your session has expired. Log back in to continue...</h3>
         </div>
-        <br>
-        <br>
+        
+        
         <h3>Edit User Profile</h3>
         <br>
         <div *ngIf="!this.show_expiration_flag">
@@ -39,58 +39,62 @@
                     <div class="jumbotron text-center ">
 
                         <form #heroForm="ngForm">
-                            <div class="form-group">
+                          <div class="form-group">
 
-                                <p>First Name</p><input placeholder="First Name" style="text-align:center;" type="text"
-                                    class="form-control" [(ngModel)]="user._firstName" name="firstName" required>
-                                <br>
-                                <p>Last Name</p><input placeholder="Last Name" style="text-align:center;" type="text"
-                                    class="form-control" [(ngModel)]="user._lastName" name="lastName" required>
-                                <br>
-                                <p>Email Address</p><input placeholder="Email" style="text-align:center;" type="text"
-                                    class="form-control" [(ngModel)]="user._email" name="email" required>
-                                <br>
-                                <p>Current Account Type</p>
-                                <select placeholder="Role" class="form-control" [(ngModel)]="user._role" name="role"
+                            <p>First Name</p><input placeholder="First Name" style="text-align:center;" type="text"
+                                                    class="form-control" [(ngModel)]="user._firstName" name="firstName" required>
+                            <br>
+                            <p>Last Name</p><input placeholder="Last Name" style="text-align:center;" type="text"
+                                                   class="form-control" [(ngModel)]="user._lastName" name="lastName" required>
+                            <br>
+                            <p>Email Address</p><input placeholder="Email" style="text-align:center;" type="text"
+                                                       class="form-control" [(ngModel)]="user._email" name="email" required>
+                            <br>
+                            <p>User ID</p><input placeholder="Innotas ID" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._innotas_id" name="email" required>
+                            <br>
+                            <p>Current Account Type</p>
+                            <select placeholder="Role" class="form-control" [(ngModel)]="user._role" name="role"
                                     required>
-                                    <option style="text-align:center;" *ngFor="let role of roles" value="{{role}}">{{role}}</option>
-                                </select>
+                              <option style="text-align:center;" *ngFor="let role of roles" value="{{role}}">{{role}}</option>
+                            </select>
 
-                                <br>
-                                <button type="submit" class="btn btn-md"
-                                    (click)="openPasswordChange()">Change Password</button>
-                                <br>
+                            <br>
+                            <button type="submit" class="btn btn-md"
+                                    (click)="openPasswordChange()">
+                              Change Password
+                            </button>
+                            <br>
 
-                                <br>
+                            <br>
 
-                                <div style="border: solid rgb(146, 145, 145) ; " *ngIf="confirm_password == true">
-                                    <br>
-
-
-
-                                    <br>
-                                    <br>
+                            <div style="border: solid rgb(146, 145, 145) ; " *ngIf="confirm_password == true">
+                              <br>
 
 
-                                    <div *ngIf="this.no_match == true">
-                                        <p style="color: red"> Passwords do not match!</p>
-                                    </div>
-                                    {{passwordMatch()}}
-                                    <p>Enter New Password</p><input placeholder=" New Password" style="text-align:center;"
-                                        type="password" class="form-control" [(ngModel)]="user._password" name="password"
-                                        required>
 
-                                    <br>
-                                    <p>Re-enter New Password</p><input placeholder="Re-enter New Password" style="text-align:center;"
-                                        type="password" class="form-control" [(ngModel)]="retype_password" name="password"
-                                        required>
-                                    <br>
+                              <br>
+                              <br>
 
 
-                                </div>
+                              <div *ngIf="this.no_match == true">
+                                <p style="color: red"> Passwords do not match!</p>
+                              </div>
+                              {{passwordMatch()}}
+                              <p>Enter New Password</p><input placeholder=" New Password" style="text-align:center;"
+                                                              type="password" class="form-control" [(ngModel)]="user._password" name="password"
+                                                              required>
+
+                              <br>
+                              <p>Re-enter New Password</p><input placeholder="Re-enter New Password" style="text-align:center;"
+                                                                 type="password" class="form-control" [(ngModel)]="retype_password" name="password"
+                                                                 required>
+                              <br>
 
 
                             </div>
+
+
+                          </div>
                             <div>
                                 <div class="center">
                                     
