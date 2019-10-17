@@ -17,16 +17,21 @@ export class ProjectComponent implements OnInit {
   indexID: string;
   project: Project;
   show_expiration_flag : Boolean = false;
+  projectlist: Project ;
+
 
 
   constructor(private service : ServiceService) { 
-      this.project = new Project()
+    //  this.project = new Project()
+
+      this.projectlist = new Project()
     
   }
 
   ngOnInit() {
     console.log(this.index)
     this.indexID = this.idFromIndex();
+    console.log(this.projectlist._go_live_date)
     //this.service.getArrayCount();
 
   }

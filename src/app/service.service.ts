@@ -51,6 +51,7 @@ export class ServiceService {
   return_user_model: Array<UserModel>;
   manage_user_by_name: Array<TeamMemberModel>
   display_user_array: Array<UserModel>;
+  all_projects : Array<Project>
   user_firstname: any;
   user_lastname: any;
   user_email: any;
@@ -102,7 +103,17 @@ export class ServiceService {
   temp: any;
   alphabetized: Object;
   Project_Manager_ID : any;
-
+  project_block_index : any;
+  project_block : any;
+  go_Live_Date : any;
+  groject_RYG_Color : any;
+  last_Updated : any;
+  project_Manager : any;
+  project_Manager_ID : any;
+  project_Start_Date : any;
+  project_Status : any;
+  project_Title : any;
+  project_Work_Type : any;
 
 
   public jwtHelper = new JwtHelperService();
@@ -119,6 +130,7 @@ export class ServiceService {
     console.error("init", this.return_users);
     this.return_project_team = [];
     this.manage_user_by_name = []
+    this.all_projects = [];
 
 
 
@@ -393,7 +405,7 @@ export class ServiceService {
         let array_of_projects = [];
         
         for(let v = 0 ; v < this.created_user_id.length ; v++){
-/*
+
          var id_in= this.created_user_id[v].project_Manager_ID
           console.log(id_in)
 
@@ -402,11 +414,9 @@ export class ServiceService {
             this.created_user_id[v]
             
               array_of_projects.push(this.created_user_id[v]);
-          
           }
-       */       
         }
-      //  console.log(array_of_projects)
+        console.log(array_of_projects)
 
        // console.log(this.created_user_id)
 
@@ -431,21 +441,51 @@ export class ServiceService {
         */
         this.array_of_projects = array_of_projects;
 
-        this.array_of_projects_role = array_of_projects[0].projectteam[0]._firstName;
-        console.log('ARRAY OF PROJECTS ' + JSON.stringify(this.array_of_projects))
 
-        this.array_of_projects_firstname = array_of_projects[0].projectteam[0].projectRole;
-
-        console.log(this.array_of_projects_role)
-
+        let all_projects = [];
 
         console.log(this.array_of_projects.length)
 
-        this.array_of_projects.forEach(team => {
-          // const teamModel = new TeamMemberModel(team.projectteam[0]._firstName);
-          //    this.return_project_team.push(teamModel);
-          //  console.log("PROJECT TEAM" + this.return_project_team[0].firstName)
+        this.array_of_projects.forEach(project => {
+
+             const project_db = new Project(project.go_Live_Date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project._id);
+              all_projects.push(project_db)
+
         });
+        this.all_projects = all_projects;
+
+        for (let c = 0; c < this.all_projects.length ; c++){
+
+            let project_block = all_projects[c];
+            this.project_block = project_block
+
+            console.log(project_block)
+
+            let project_block_index = all_projects.indexOf(this.project_block)
+
+            this.project_block_index = project_block_index;
+
+            console.log(project_block_index)
+
+            this.Project_Manager_ID = all_projects[c]._project_Manager_ID
+            this.go_Live_Date = all_projects[c]._go_live_date
+            this.groject_RYG_Color = all_projects[c]._groject_RYG_Color
+            this.last_Updated = all_projects[c]._last_Updated
+            this.project_Manager = all_projects[c]._project_Manager
+            this.project_Start_Date = all_projects[c]._project_Start_Date
+            this.project_Status = all_projects[c]._project_Status
+            this.project_Title = all_projects[c]._project_Title
+            this.project_Work_Type= all_projects[c]._project_Work_Typ
+            console.log(this.Project_Manager_ID)
+            console.log( this.go_Live_Date)
+            console.log(this.project_Title)
+            console.log(this.project_Work_Type)
+
+        }
+      //  console.log(all_projects)
+        console.log(this.all_projects)
+        
+
 
 
       })

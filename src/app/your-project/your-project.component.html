@@ -40,7 +40,7 @@
       <br>
 
       <div *ngFor="let team of service.teamlist; let i = index">
-        <app-project [index]="i" [teamlist]="team"></app-project>
+
       </div>
 
       <li *ngFor="let t of display_data">
@@ -49,11 +49,12 @@
 
       <!--
           <button type="button" class="btn btn-link"  data-toggle="modal" data-target="#addProject"></button>
-      -->
+   
       <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addProject">
         Add new
         project
       </button>
+         -->
       <br>
       <br>
 
@@ -110,13 +111,17 @@
       </button>
     </div>
 
-    <div *ngFor="let project of service.array_of_projects">
+    <div *ngFor="let project of service.array_of_projects ; let i=index">
       <br>
 
-      <app-project> </app-project>
+      <app-project index={{i}}> </app-project>
 
 
     </div>
+
+
+
+    
 
   </div>
 
