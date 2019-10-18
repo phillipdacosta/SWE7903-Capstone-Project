@@ -313,7 +313,6 @@ export class MasterCalendarComponent {
 
   showUSHolidays() {
 
-    this.hide_US_holiday = !this.hide_US_holiday
 
 
     var el = document.getElementsByTagName('h2')[0].innerHTML // or some other element reference
@@ -495,7 +494,6 @@ export class MasterCalendarComponent {
 
       }
 
-      if(this.hide_US_holiday){
 
 
 
@@ -553,16 +551,7 @@ export class MasterCalendarComponent {
 
       ];
 
-    } else {
-
-      this.calendarEvents = [
-
-        {
-          title: "Today ", start: new Date(), allDay: true, color: '#FDB713',   // an option!
-          textColor: 'white'
-        },
-      ]
-    }
+  
 
     })
   }
@@ -571,7 +560,6 @@ export class MasterCalendarComponent {
 
   showIndianHolidays() {
 
-    this.hide_INDIAN_holiday = !this.hide_INDIAN_holiday;
 
 
     var el = document.getElementsByTagName('h2')[0].innerHTML // or some other element reference
@@ -950,7 +938,6 @@ export class MasterCalendarComponent {
 
       }
 
-      if(this.hide_INDIAN_holiday){
 
       this.calendarEvents = [
 
@@ -1086,16 +1073,7 @@ export class MasterCalendarComponent {
         },
 
       ];
-    } else {
-
-      this.calendarEvents = [
-
-        {
-          title: "Today ", start: new Date(), allDay: true, color: '#FDB713',   // an option!
-          textColor: 'white'
-        },
-      ]
-    }
+    
     })
   }
 

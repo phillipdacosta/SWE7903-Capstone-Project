@@ -32,6 +32,7 @@ export class ManagerUserEditsComponent implements OnInit {
   user_id_edit : any;
   close_password_block : boolean = false;
   password_flag : boolean = false;
+  _innotas_id
 
 
   @ViewChild('myForm', { static: true }) formValues;
@@ -64,6 +65,9 @@ export class ManagerUserEditsComponent implements OnInit {
     this.user._password = this.service.edit_manage_password
     this.user._role = this.service.edit_manage_role
     this.user_id_edit = this.service.get_user_id 
+    this.user._innotas_id = this.service.edit_manage_innotas_id;
+    console.log(this.user._innotas_id)
+
     console.log(this.user_id_edit)
     console.log(this.user._firstName)
     console.log(this.user._lastName)
@@ -138,11 +142,13 @@ export class ManagerUserEditsComponent implements OnInit {
   saveNewUserProfile() {
 
 
-    this.service.updateUserProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this.user_id_edit, this.user._role);
+    this.service.updateUserProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this.user_id_edit, this.user._role), this.user._innotas_id;
     this.service.edit_manage_firstName = this.user._firstName;
     this.service.edit_manage_lastName = this.user._lastName;
     this.service.edit_manage_email = this.user._email;
     this.service.edit_manage_role = this.user._role
+    this.service.edit_manage_innotas_id = this.user._innotas_id
+
     this.close_password_block = true;
     this.confirm_password = false;
     this.updateProfile();
@@ -166,6 +172,8 @@ export class ManagerUserEditsComponent implements OnInit {
     console.log(this.service.set_user_lastname)
     this.service.get_user_email = this.user._email
     this.service.user_password = this.user._password
+    this.service.user_innotas_id = this.user._innotas_id
+
 
   }
   

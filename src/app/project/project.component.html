@@ -22,7 +22,7 @@
 
 
   <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
-    aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+    aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 20pt;">
 
     {{service.all_projects[index]._project_Title}} <p style="font-size: 12pt"> Last updated:
       {{service.all_projects[index]._last_Updated}}</p>
@@ -41,44 +41,46 @@
 
           <div class="list-group-item" style="color: rgb(117, 115, 115)">
 
-            <div >
-             Release Name: {{service.all_projects[index]._project_Title}}
-             <br>
-             Project Start Date: {{service.all_projects[index]._project_Start_Date}}
-              <br>
-              Go Live Date: {{service.all_projects[index]._go_live_date}}
-              <br>
-              Project Manager ID: {{service.all_projects[index]._project_Manager_ID}}
-              <br>
-              Project Manager: {{service.all_projects[index]._project_Manager}}
-              <br>
-              Project Status: {{service.all_projects[index]._project_Status}}
-              <br>
-              RYG Status: 
+            <div>
+              
+             <div class="release-name">Release Name: {{service.all_projects[index]._project_Title}} </div>
+              
+              <div class="project-start-date">Project Start Date: {{service.all_projects[index]._project_Start_Date}}</div>
+              
+              <div class="go-live-date">Go Live Date: {{service.all_projects[index]._go_live_date}}</div>
+              
+              <div class="project-manager-id">Project Manager ID: {{service.all_projects[index]._project_Manager_ID}}</div>
+              
+              <div class="project-manager">Project Manager: {{service.all_projects[index]._project_Manager}}</div>
+              
+              <div class="project-status">Project Status: {{service.all_projects[index]._project_Status}}</div>
+              
+              <div class="ryg-status">RYG Status: </div>
+              
               <div *ngIf="service.all_projects[index]._groject_RYG_Color == 'Green'; else showOther">
-                
-                  <div class="foo green"></div>
+
+                <div class="foo green"></div>
+               
+              </div>
+
+              <ng-template #showOther>
+
+                <div class="foo orange"></div>
+
+              </ng-template>
+
+              <br>
+              <br>
+
+
+              <!--
+                <div *ngIf = "service.all_projects[index]._groject_RYG_Color == 'Green'">
 
                 </div>
-                
-                <ng-template #showOther>
-                
-                    <div class="foo orange"></div>
-
-                </ng-template>
-
-                <br>
+                Color: {{service.all_projects[index]._groject_RYG_Color}}
                 <br>
 
-
-<!-- 
-              <div *ngIf = "service.all_projects[index]._groject_RYG_Color == 'Green'">
-
-              </div>
-              Color: {{service.all_projects[index]._groject_RYG_Color}}
-              <br>
-          
--->
+  -->
 
 
 
