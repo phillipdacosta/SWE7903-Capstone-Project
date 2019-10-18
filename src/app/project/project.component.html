@@ -57,15 +57,15 @@
               <div class="project-status">Project Status: <br><span style="color: #D61A69">{{service.all_projects[index]._project_Status}}</span></div>
 
                                        
-              <div class="ryg-status" *ngIf="service.all_projects[index]._groject_RYG_Color == 'Green'; else showOther">RYG Status:
+              <div class="ryg-status" *ngIf="service.all_projects[index]._groject_RYG_Color == 'Green'">RYG Status:
 
                 <div class="foo green"></div>
   </div>
-                <div class="ryg-status" *ngIf="service.all_projects[index]._groject_RYG_Color == 'Yellow'; else showOther">RYG Status:
+                <div class="ryg-status" *ngIf="service.all_projects[index]._groject_RYG_Color == 'Yellow'" >RYG Status:
 
                 <div class="foo orange"></div>
   </div>
-               <div class="ryg-status" *ngIf="service.all_projects[index]._groject_RYG_Color == 'Red'; else showOther">RYG Status:
+               <div class="ryg-status" *ngIf="service.all_projects[index]._groject_RYG_Color == 'Red'">RYG Status:
 
                 <div class="foo red"></div>
   </div>

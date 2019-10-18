@@ -142,7 +142,9 @@ div {
 
 .btn-default {
   background: #808080;
-  color: white
+  color: white;
+  box-shadow: 0 2px 16px -6px rgb(80, 75, 75);
+
 }
 
   .btn-default:hover {
