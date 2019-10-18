@@ -24,8 +24,10 @@
   <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
     aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
 
+
     {{service.all_projects[index]._project_Title}} <p style="font-size: 12pt"> Last updated:
       {{service.all_projects[index]._last_Updated}}</p>
+
 
   </button>
 
@@ -41,9 +43,9 @@
 
           <div class="list-group-item" style="color: rgb(117, 115, 115)">
 
-            <div >
+            <div>
 
-             Project Start Date: {{service.all_projects[index]._project_Start_Date}}
+              Project Start Date: {{service.all_projects[index]._project_Start_Date}}
               <br>
               Go Live: {{service.all_projects[index]._go_live_date}}
               <br>
@@ -55,22 +57,22 @@
               <br>
 
               <div *ngIf="service.all_projects[index]._groject_RYG_Color == 'Green'; else showOther">
-                
-                  <div class="foo green"></div>
 
-                </div>
-                
-                <ng-template #showOther>
-                
-                    <div class="foo orange"></div>
+                <div class="foo green"></div>
 
-                </ng-template>
+              </div>
 
-                <br>
-                <br>
+              <ng-template #showOther>
+
+                <div class="foo orange"></div>
+
+              </ng-template>
+
+              <br>
+              <br>
 
 
-<!-- 
+              <!-- 
               <div *ngIf = "service.all_projects[index]._groject_RYG_Color == 'Green'">
 
               </div>

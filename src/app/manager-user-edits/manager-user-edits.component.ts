@@ -141,8 +141,8 @@ export class ManagerUserEditsComponent implements OnInit {
 
   saveNewUserProfile() {
 
-
-    this.service.updateUserProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this.user_id_edit, this.user._role), this.user._innotas_id;
+    console.log('*****' + this.user._innotas_id)
+    this.service.updateUserProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this.user_id_edit, this.user._role, this.user._innotas_id);
     this.service.edit_manage_firstName = this.user._firstName;
     this.service.edit_manage_lastName = this.user._lastName;
     this.service.edit_manage_email = this.user._email;
