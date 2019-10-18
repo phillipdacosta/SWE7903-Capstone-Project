@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -22,12 +23,10 @@
 
 
   <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
-    aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
-
+    aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 20pt;">
 
     {{service.all_projects[index]._project_Title}} <p style="font-size: 12pt"> Last updated:
       {{service.all_projects[index]._last_Updated}}</p>
-
 
   </button>
 
@@ -44,42 +43,44 @@
           <div class="list-group-item" style="color: rgb(117, 115, 115)">
 
             <div>
+              
+             <div class="release-name">Release Name: <br><span style="color: #D61A69">{{service.all_projects[index]._project_Title}}</span> </div>
+              
+              <div class="project-start-date">Project Start Date: <br><span style="color: #D61A69">{{service.all_projects[index]._project_Start_Date}}</span></div>
+              
+              <div class="go-live-date">Go Live Date: <br><span style="color: #D61A69">{{service.all_projects[index]._go_live_date}}</span></div>
+              
+              <div class="project-manager-id">Project Manager ID: <br><span style="color: #D61A69">{{service.all_projects[index]._project_Manager_ID}}</span></div>
+              
+              <div class="project-manager">Project Manager: <br><span style="color: #D61A69">{{service.all_projects[index]._project_Manager}}</span></div>
+              
+              <div class="project-status">Project Status: <br><span style="color: #D61A69">{{service.all_projects[index]._project_Status}}</span></div>
 
-              Project Start Date: {{service.all_projects[index]._project_Start_Date}}
-              <br>
-              Go Live: {{service.all_projects[index]._go_live_date}}
-              <br>
-              Project Manager ID: {{service.all_projects[index]._project_Manager_ID}}
-              <br>
-              Project Manager: {{service.all_projects[index]._project_Manager}}
-              <br>
-              Project Status: {{service.all_projects[index]._project_Status}}
-              <br>
-
-              <div *ngIf="service.all_projects[index]._groject_RYG_Color == 'Green'; else showOther">
+                                       
+              <div class="ryg-status" *ngIf="service.all_projects[index]._groject_RYG_Color == 'Green'; else showOther">RYG Status:
 
                 <div class="foo green"></div>
-
-              </div>
-
-              <ng-template #showOther>
+  </div>
+                <div class="ryg-status" *ngIf="service.all_projects[index]._groject_RYG_Color == 'Yellow'; else showOther">RYG Status:
 
                 <div class="foo orange"></div>
+  </div>
+               <div class="ryg-status" *ngIf="service.all_projects[index]._groject_RYG_Color == 'Red'; else showOther">RYG Status:
 
-              </ng-template>
+                <div class="foo red"></div>
+  </div>
+              
 
               <br>
               <br>
 
 
-              <!-- 
-              <div *ngIf = "service.all_projects[index]._groject_RYG_Color == 'Green'">
-
-              </div>
-              Color: {{service.all_projects[index]._groject_RYG_Color}}
-              <br>
-          
--->
+              <!--
+                <div *ngIf = "service.all_projects[index]._groject_RYG_Color == 'Green'">
+                </div>
+                Color: {{service.all_projects[index]._groject_RYG_Color}}
+                <br>
+  -->
 
 
 
@@ -109,35 +110,20 @@
   <!-- 
   <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]="'#' + index "
     aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
-
     Project {{index + 1}}
     <button type="button" class="btn btn-danger btn-md" style="color: white; float : right">Edit</button>
-
   </button>
-
   <br>
-
   <div class="collapse" id={{index}}>
-
     <div class="card" style="width: 60vw; color: grey">
-
       <ul class="list-group list-group-flush">
-
         <li class="list-group-item">Release 1 Start 08/24/19 - 08/29/19</li>
-
         <li class="list-group-item">Release 2 Start 09/28/19 - 10/19/19</li>
-
         <div class="col text-left">
-
           <div class="list-group-item" style="color: rgb(117, 115, 115)">
-
             <button type="button" class="btn btn-danger btn-sm" style="color: white; float : right" (click)="sendToService()">Save</button>
-
-
             <h3 class="col text-center">Team members: </h3>
-
             <button class="add" (click)="project.team.addMember()">Add Team Member</button>
-
             <div *ngFor="let member of project.team.members">
                 <p> 
                     <select name="memberName" id="memberName" [(ngModel)]="member.name">
@@ -148,19 +134,11 @@
                     </select>
                 </p>
             </div>
-
             <br>
-
-
-
           </div>
-
         </div>
-
       </ul>
-
     </div>
-
   </div>
 -->
 </body>
