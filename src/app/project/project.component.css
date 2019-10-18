@@ -98,7 +98,7 @@ div.ryg-status {
   padding-top: 30px;
   border: 2px solid white;
   text-align: center;
-  border-spacing: 15px 15px;
+  
   padding-bottom: 50px;
   margin: auto;
   padding: 10px;
@@ -106,6 +106,11 @@ div.ryg-status {
   font-weight: bold;
   
   border-style: inset;
+  display:inline-block;
+  width: 100%;
+
+  
+  
 }
 
 
@@ -219,12 +224,28 @@ li.list-group-item {
 
 .blue {
   background: #13b4ff;
+ 
+ 
 }
 
 .orange {
   background: #e79b0d;
+  display:inline-block;
+  width: 100px;
+ 
 }
 
 .green {
-  background: #018d0d;
+  background-color: #3D9970;
+  display:inline-block;
+  width: 100px;
+ 
 }
+
+.red {
+  background: red;
+  display:inline-block;
+  width: 100px;
+ 
+}
+
