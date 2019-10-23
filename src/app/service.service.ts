@@ -164,7 +164,6 @@ export class ServiceService {
         this.get_user_email = response.return_email
         this.user_id = response.return_user_id;
         this.user_innotas_id = response.return_user_innotas_id;
-
         console.log(this.user_innotas_id)
 
 
