@@ -116,6 +116,7 @@ export class ServiceService {
   project_Title : any;
   project_Work_Type : any;
   return_user_innotas_id : any;
+  project_count : any;
 
 
   public jwtHelper = new JwtHelperService();
@@ -297,6 +298,8 @@ export class ServiceService {
         this.get_all_users = response.get_all_users
         this.get_all_users_to_update_profile = response.get_all_users
         this.return_user_innotas_id = response.get_user_innotas_id;
+        this.project_count = response.number_of_projects
+        console.log(this.project_count)
         console.log(this.return_user_innotas_id)
 
 
@@ -319,6 +322,7 @@ export class ServiceService {
         for (let z = 0; z < this.alphabet.length; z++) {
 
           console.log(this.alphabet)
+        //  this.project_count = this.alphabet.length;
           this.block_id = this.alphabet[z].toString();
           this.index = this.alphabet.indexOf(this.block_id)
 
@@ -465,6 +469,7 @@ export class ServiceService {
 
             let project_block = all_projects[c];
             this.project_block = project_block
+            this.project_count = this.all_projects.length;
 
             console.log(project_block)
 

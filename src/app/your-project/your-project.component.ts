@@ -23,14 +23,17 @@ export class YourProjectComponent implements OnInit {
   members: Array<TeamMemberModel>;
   indexID: string;
   show_spinner : boolean = false;
-
+project_count : any;
   constructor(private service : ServiceService, public http: HttpClient) { }
 
   ngOnInit() {
+
    this.members = [];
    this.test = this.service.data_received;
    this.service.fetching();
+   
    this.get_token = localStorage.getItem("auth_token")
+
    if(this.service.jwtHelper.isTokenExpired(this.get_token)){
 
      this.show_expiration_flag = true;

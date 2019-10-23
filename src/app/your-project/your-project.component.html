@@ -35,16 +35,14 @@
     <h3>Your Projects</h3>
     <div *ngIf="!this.show_expiration_flag">
 
-      
-
-        
-      
-
-
-        
-      
-
-
+      <div *ngIf = "!service.project_count > 0">
+          <br>
+        <h4 style = "color: #E95524"> No projects to display.</h4>
+      </div>
+      <div *ngIf = "service.project_count > 0">
+        <br>
+          <h4 style = "color: #E95524;">  Displaying {{service.project_count}} projects.  </h4>
+        </div>
       <div *ngFor="let team of service.teamlist; let i = index">
 
       </div>

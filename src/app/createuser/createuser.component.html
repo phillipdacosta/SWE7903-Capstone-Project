@@ -23,7 +23,7 @@
       <h1>Release Management Application</h1>
     <h3>Create User Account</h3>
     <br>
-    <br>
+  
     <div *ngIf = "!this.show_expiration_flag">
 
     <div class="container">
@@ -34,16 +34,15 @@
         <form #heroForm="ngForm" >
           <div class="form-group">
 
-          <p>First Name</p> <input placeholder = "First Name" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._firstName" name="firstName"  required>
+         <input placeholder = "First Name" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._firstName" name="firstName"  required>
             <br>
-            <p>Last Name</p> <input placeholder = "Last Name"style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._lastName" name="lastName"  required>
+           <input placeholder = "Last Name"style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._lastName" name="lastName"  required>
             <br>
-            <p>User Email Address</p><input placeholder = "Email" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._email" name="email"  required>
+           <input placeholder = "Email" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._email" name="email"  required>
             <br>
+            <input placeholder = "Innotas ID" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._innotas_id" name="email"  required>
             <br>
-            <p>User ID</p><input placeholder = "Innotas ID" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._innotas_id" name="email"  required>
-            <br>
-            <p>Set User Password</p> <input placeholder = "Set User Password" style="text-align:center;" type="password" class="form-control" [(ngModel)]="user._password" name="password"  required>
+             <input placeholder = "Set User Password" style="text-align:center;" type="password" class="form-control" [(ngModel)]="user._password" name="password"  required>
           <p>Role</p>
          <select placeholder = "Role" class="form-control" [(ngModel)]="user._role"  name="role"  required>
            <option *ngFor="let role of roles" value="{{role}}">{{role}}</option>
