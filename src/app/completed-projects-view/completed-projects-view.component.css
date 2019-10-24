@@ -238,7 +238,7 @@ html {
   }
   
   .green {
-    background-color: #3D9970;
+    background-color: green;
     display:inline-block;
     width: 100px;
    
@@ -250,6 +250,5 @@ html {
     width: 100px;
    
   }
-  
   
   

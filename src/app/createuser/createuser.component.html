@@ -34,16 +34,17 @@
         <form #heroForm="ngForm" >
           <div class="form-group">
 
-         <input placeholder = "First Name" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._firstName" name="firstName"  required>
+            <p style="font-weight: bold; color: white">First Name</p><input placeholder = "First Name" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._firstName" name="firstName"  required>
             <br>
-           <input placeholder = "Last Name"style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._lastName" name="lastName"  required>
+            <p style="font-weight: bold; color: white">Last Name</p><input placeholder = "Last Name"style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._lastName" name="lastName"  required>
             <br>
-           <input placeholder = "Email" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._email" name="email"  required>
+            <p style="font-weight: bold; color: white">Email<p><input placeholder = "Email" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._email" name="email"  required>
+            
+            <p style="font-weight: bold; color: white">Innotas ID</p><input placeholder = "Innotas ID" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._innotas_id" name="email"  required>
             <br>
-            <input placeholder = "Innotas ID" style="text-align:center;"type="text" class="form-control" [(ngModel)]="user._innotas_id" name="email"  required>
+            <p style="font-weight: bold; color: white">Set User Password</p><input placeholder = "Set User Password" style="text-align:center;" type="password" class="form-control" [(ngModel)]="user._password" name="password"  required>
             <br>
-             <input placeholder = "Set User Password" style="text-align:center;" type="password" class="form-control" [(ngModel)]="user._password" name="password"  required>
-          <p>Role</p>
+            <p style="font-weight: bold; color: white">Role</p>
          <select placeholder = "Role" class="form-control" [(ngModel)]="user._role"  name="role"  required>
            <option *ngFor="let role of roles" value="{{role}}">{{role}}</option>
           </select>

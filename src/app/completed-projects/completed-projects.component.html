@@ -37,11 +37,11 @@
 
       <div *ngIf = "!service.completed_projects_count > 0">
           <br>
-        <h4 style = "color: #E95524"> No projects to display.</h4>
+        <h4 class="no-projects" style = "color: #E95524"> No projects to display.</h4>
       </div>
       <div *ngIf = "service.completed_projects_count > 0">
         <br>
-          <h4 style = "color: #E95524;">  Displaying {{service.completed_projects_count}} projects.  </h4>
+          <h4 style = "color: #E95524;">  Count: {{service.completed_projects_count}} Projects  </h4>
         </div>
  
 

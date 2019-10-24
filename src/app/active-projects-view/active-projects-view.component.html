@@ -46,12 +46,14 @@
               
              <div class="release-name">Release Name: <br><span style="color: #D61A69">{{service.active_projects[index]._project_Title}}</span> </div>
               
-              <div class="project-start-date">Release Start Date: <br><span style="color: #D61A69">{{service.active_projects[index]._project_Start_Date}}</span></div>
+              <div class="project-start-date" *ngIf="service.active_projects[index]._project_Start_Date">Release Start Date: <br><span style="color: #D61A69">{{service.active_projects[index]._project_Start_Date}}</span></div>
+
+              <div class="project-start-date" *ngIf="!service.active_projects[index]._project_Start_Date">Release Start Date: <br><span style="color: #D61A69">TBD</span></div>
               
-              <div class="go-live-date">Go Live Date: <br><span style="color: #D61A69">{{service.active_projects[index]._go_live_date}}</span></div>
+              <div class="go-live-date" *ngIf="service.active_projects[index]._go_live_date">Go Live Date: <br><span style="color: #D61A69">{{service.active_projects[index]._go_live_date}}</span></div>
               
-              <div class="project-manager-id">Project Manager ID: <br><span style="color: #D61A69">{{service.active_projects[index]._project_Manager_ID}}</span></div>
-              
+              <div class="go-live-date" *ngIf="!service.active_projects[index]._go_live_date">Go Live Date: <br><span style="color: #D61A69">TBD</span></div>
+
               <div class="project-manager">Project Manager: <br><span style="color: #D61A69">{{service.active_projects[index]._project_Manager}}</span></div>
               
               <div class="project-status">Project Status: <br><span style="color: #D61A69">{{service.active_projects[index]._project_Status}}</span></div>

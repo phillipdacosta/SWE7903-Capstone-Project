@@ -4,8 +4,9 @@
 
     width: 70%;
 
-    border-radius: 18px;
-
+    border-radius: 5px;
+   box-shadow: 0 2px 16px -6px rgb(80, 75, 75);
+    
  
 
 }
@@ -15,8 +16,7 @@
   color: white;
   background-color: #E95524;
   border-color: #E95524;
-  margin-top: -4px;
-  height: 28px;
+  height: auto;
   padding-top: 3px;
 }
 
@@ -36,16 +36,43 @@ li {
 
 .btn-default {
   margin: 0 auto;
-  height: 12vh;
-  background-color: rgb(202, 200, 200);
+  height: 7vh;
+  background-color: #808080;
   color: white
+  
+
 }
 
+.btn-default:hover {
+    color: white;
+    background-color: #E95524;
+    
+    border-color: #E95524;
+    
+  }
+
+  .btn-default.active,
+  .btn.btn-default:active {
+    color: white;
+    background-color: #E95524;
+    
+    border-color: #E95524;
+    
+  }
+
+  .btn-default.focus,
+  .btn.btn-default:focus {
+    color: white;
+    background: #808080;
+    border-color: #E95524;
+  }
+
 .list-group-item {
-  background-color: rgb(224, 223, 223);
+  background-color: #4D4D4D;
   border: solid 1px rgb(105, 105, 105);
   border-left: 20;
   border-radius: 7px;
+  box-shadow: 15px 15px 15px grey;
 }
 
  
@@ -80,6 +107,34 @@ li.list-group-item{
 
 }
 
+.form-control{
+
+color: #E95524;
+
+
+
+}
+
+button.form-control{
+  padding-top: 15px;
+  border: 2px solid white;
+  padding-bottom: 10px;
+  
+  padding: 5px;
+  background-color: white;
+  
+  
+  border-style: inset;
+  display:inline-block;
+  margin-top: 5px;
+margin-bottom: 5px;
+margin-left: 10px;
+margin-right: 10px;
+
+  
+
+}
+
 select.form-control {
     -moz-appearance: none;
      -webkit-appearance: none;
@@ -100,6 +155,6 @@ select.form-control {
 
 .dropdown-menu{
 
-    background-color: #DBD9D9;
-
+    background-color: #D1D1D1;
+    box-shadow: 7px 7px 7px grey;
 }
