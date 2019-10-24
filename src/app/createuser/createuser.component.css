@@ -22,9 +22,12 @@ h1 {
   margin-right: auto;
 }
 
+
+
 .jumbotron{
 
     box-shadow: 0 8px 16px -6px black;
+    background: #808080;
 }
 
 .modal {
@@ -70,6 +73,7 @@ h1 {
 
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
     Helvetica, Arial, "Lucida Grande", sans-serif, bold;
+    
 }
 
  

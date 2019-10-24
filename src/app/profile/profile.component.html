@@ -36,13 +36,13 @@
             <form #heroForm="ngForm">
               <div class="form-group">
 
-                <p>First Name</p><input placeholder="First Name" style="text-align:center;" type="text" class="form-control"
+                <p style="font-weight: bold; color: white">First Name</p><input placeholder="First Name" style="text-align:center;" type="text" class="form-control"
                                         [(ngModel)]="user._firstName" name="firstName" required>
                 <br>
-                <p>Last Name</p><input placeholder="Last Name" style="text-align:center;" type="text" class="form-control"
+                <p style="font-weight: bold; color: white">Last Name</p><input placeholder="Last Name" style="text-align:center;" type="text" class="form-control"
                                        [(ngModel)]="user._lastName" name="lastName" required>
                 <br>
-                <p>Email Address</p><input placeholder="Email" style="text-align:center;" type="text" class="form-control"
+                <p style="font-weight: bold; color: white">Email Address</p><input placeholder="Email" style="text-align:center;" type="text" class="form-control"
                                            [(ngModel)]="user._email" name="email" required>
                 <br>
                 <button type="submit" class="btn btn-md" (click)="openPasswordChange()" >
@@ -55,7 +55,7 @@
                 <div style="border: solid rgb(146, 145, 145) ; " *ngIf="confirm_password == true">
                   <br>
 
-                  <p>Enter Current Password</p> <input placeholder="Current Password" style="text-align:center;" type="password"
+                  <p style="font-weight: bold; color: white">Enter Current Password</p> <input placeholder="Current Password" style="text-align:center;" type="password"
                                                        class="form-control" [(ngModel)]="enter_password_confirmation" name="password" required><br>
                   <br>
                   <div *ngIf="this.display_password_fields == false">
@@ -80,7 +80,7 @@
                                                     class="form-control" [(ngModel)]="user._password" name="password" required>
 
                     <br>
-                    <p>Re-enter New Password</p><input placeholder="Re-enter New Password" style="text-align:center;"
+                    <p style="font-weight: bold; color: white">Re-enter New Password</p><input placeholder="Re-enter New Password" style="text-align:center;"
                                                        type="password" class="form-control" [(ngModel)]="retype_password" name="password" required>
                     <br>
 
