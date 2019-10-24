@@ -52,6 +52,7 @@ export class ServiceService {
   manage_user_by_name: Array<TeamMemberModel>
   display_user_array: Array<UserModel>;
   all_projects : Array<Project>
+  every_single_project : Array<Project>;
   user_firstname: any;
   user_lastname: any;
   user_email: any;
@@ -117,6 +118,13 @@ export class ServiceService {
   project_Work_Type : any;
   return_user_innotas_id : any;
   project_count : any;
+  every_project : any;
+  project_status_every_project : any;
+  completed_projects : Array <Project>;
+  completed_projects_count : number
+  active_projects : Array <Project>;
+  active_projects_count : number;
+
 
 
   public jwtHelper = new JwtHelperService();
@@ -134,6 +142,10 @@ export class ServiceService {
     this.return_project_team = [];
     this.manage_user_by_name = []
     this.all_projects = [];
+    this.every_single_project = []
+    this.completed_projects = [];
+    this.active_projects = [];
+
 
 
 
@@ -270,10 +282,8 @@ export class ServiceService {
   fromCompletedProjects(test: Project) {
 
     console.log(test)
-    console.log("first")
     this.https.post(this.uri + '/test', { test })
       .subscribe((response: any) => {
-        console.log("second")
 
         this.data_sent = response.message_user
         console.log(this.data_sent)
@@ -292,14 +302,13 @@ export class ServiceService {
         console.log("third")
         this.user_firstname = response.get_user_name
         console.log(this.user_firstname)
-        console.log('From fetching:' + this.user_firstname)
+
         this.user_lastname = response.get_user_password;
         this.get_all_users = response.get_all_users
         this.get_all_users_to_update_profile = response.get_all_users
         this.return_user_innotas_id = response.get_user_innotas_id;
         this.project_count = response.number_of_projects
-        console.log(this.project_count)
-        console.log(this.return_user_innotas_id)
+ 
 
 
         console.log(this.get_all_users)
@@ -326,20 +335,16 @@ export class ServiceService {
           this.index = this.alphabet.indexOf(this.block_id)
 
           this.alphabetized[this.block_id] = [];
-          console.log(this.alphabetized[this.block_id])
-
-          console.log(this.return_users)
+    
 
           this.return_users.forEach((user: TeamMemberModel) => {
             if (user._lastName[0].toUpperCase() === this.block_id) {
 
-              console.log(this.return_users)
-              console.log(user)
+             
 
 
               this.alphabetized[this.block_id].push(user);
 
-              console.log(this.alphabetized)
 
 
             }
@@ -356,7 +361,6 @@ export class ServiceService {
                 
                 forDeletion.push(this.temp);
 
-                console.log(this.alphabet)
               }
 
             }
@@ -365,7 +369,6 @@ export class ServiceService {
 
           this.alphabet_update = this.alphabet.filter(item => !forDeletion.includes(item))
           
-          console.error("alpha update ", this.alphabet_update);
 
 
 
@@ -409,6 +412,7 @@ export class ServiceService {
       .subscribe((response: any) => {
 
         this.created_user_id = response.result;
+        this.every_project = response.result
 
         this.Project_Manager_ID = response.result.project_Manager_ID
 
@@ -426,35 +430,14 @@ export class ServiceService {
               array_of_projects.push(this.created_user_id[v]);
           }
         }
-        console.log(array_of_projects)
 
-       // console.log(this.created_user_id)
+ 
 
-
-       
-/*
-        for (v = 0; v < this.created_user_id.length; v++) {
-
-          if (this.created_user_id[v].created_by_user == this.return_user_id) {
-
-            array_of_projects.push(this.created_user_id[v]);
-            console.log(this.created_user_id[v]);
-
-
-
-            console.log(array_of_projects)
-            this.show_spinner = false;
-          }
-
-        }
-
-        */
         this.array_of_projects = array_of_projects;
 
 
         let all_projects = [];
 
-        console.log(this.array_of_projects.length)
 
         this.array_of_projects.forEach(project => {
 
@@ -470,13 +453,11 @@ export class ServiceService {
             this.project_block = project_block
             this.project_count = this.all_projects.length;
 
-            console.log(project_block)
 
             let project_block_index = all_projects.indexOf(this.project_block)
 
             this.project_block_index = project_block_index;
 
-            console.log(project_block_index)
 
             this.Project_Manager_ID = all_projects[c]._project_Manager_ID
             this.go_Live_Date = all_projects[c]._go_live_date
@@ -487,14 +468,63 @@ export class ServiceService {
             this.project_Status = all_projects[c]._project_Status
             this.project_Title = all_projects[c]._project_Title
             this.project_Work_Type= all_projects[c]._project_Work_Typ
-            console.log(this.Project_Manager_ID)
-            console.log( this.go_Live_Date)
-            console.log(this.project_Title)
-            console.log(this.project_Work_Type)
+  
 
         }
+
+
       //  console.log(all_projects)
-        console.log(this.all_projects)
+
+        let every_single_project = [];
+        let every_completed_project = [];
+
+        let completed_projects = [];
+        let active_projects = []
+
+
+        for (let q = 0 ; q  < this.every_project.length ; q++){
+
+            every_single_project.push(this.every_project[q]);
+            every_completed_project.push(this.every_project[q]);
+
+            
+        }
+
+        console.log(every_single_project)
+
+
+              every_single_project.forEach(project => {
+
+             const project_db = new Project(project.go_Live_Date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project._id);
+
+             if(project.project_Status == 'Open' || project.project_Status == 'Hold'){
+              active_projects.push(project_db)
+              this.active_projects = active_projects
+              this.active_projects_count = this.active_projects.length
+             }
+
+
+        });
+
+        every_completed_project.forEach(project => {
+
+          const project_db_completed = new Project(project.go_Live_Date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project._id);
+
+     
+          if(project.project_Status == 'Completed' ){
+           completed_projects.push(project_db_completed)
+           this.completed_projects = completed_projects
+
+           this.completed_projects_count = this.completed_projects.length
+
+          }
+
+
+     });
+      //  console.log(this.every_project)
+
+
+
         
 
 
@@ -517,7 +547,6 @@ export class ServiceService {
         this.project_team = response.project_team
 
 
-        console.log(this.project_team)
       })
 
 

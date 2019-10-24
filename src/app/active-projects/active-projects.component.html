@@ -6,21 +6,23 @@
 
 <head>
 
-    <title>Bootstrap Example</title>
+  <title>Bootstrap Example</title>
 
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
+
 
   <div class="col text-center">
     <div *ngIf="this.show_expiration_flag">
@@ -31,137 +33,107 @@
     <br>
     <h1>Release Management Application</h1>
     <h3>Active Projects</h3>
-
-    <br>
-    <br>
-
-    <br>
-
     <div *ngIf="!this.show_expiration_flag">
 
-      <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear"
-              aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
+      <div *ngIf = "!service.active_projects_count > 0">
+          <br>
+        <h4 style = "color: #E95524"> No projects to display.</h4>
+      </div>
+      <div *ngIf = "service.active_projects_count > 0">
+        <br>
+          <h4 style = "color: #E95524;">  Displaying {{service.active_projects_count}} projects.  </h4>
+        </div>
 
-        Project 1 - Last Updated: {{time}}
 
+      <!--
+          <button type="button" class="btn btn-link"  data-toggle="modal" data-target="#addProject"></button>
+   
+      <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addProject">
+        Add new
+        project
       </button>
-
+         -->
+      <br>
       <br>
 
-      <div class="collapse" id="footwear">
 
-        <div class="card" style="width: 60vw; color: grey">
+      <!-- Modal -->
+      <div id="addProject" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-          <ul class="list-group list-group-flush">
 
-            <li class="list-group-item">Release 1 Start 08/24/19 - 08/29/19</li>
 
-            <li class="list-group-item">Release 2 Start 09/28/19 - 10/19/19</li>
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h1 class="modal-title" style="color: rgb(218, 89, 3); font-size: 18pt">Team Builder</h1>
+              <br>
+              <button type="submit" (click)="addMember()" class="btn btn-primary btn-lg">Add team member</button>
 
-            <div class="col text-left">
+          <!-- <app-projectteam [members]=members></app-projectteam> -->   
+            </div>
+            <div class="modal-body">
+              <br>
 
-              <div class="list-group-item" style="color: rgb(117, 115, 115)">
-
-                <h3 class="col text-center">Team members: </h3>
-
-                Project Manager:<p class="form-control" type="text" disabled="disabled">{{display}} </p>
-
-                Business Analyst: <p class="form-control" type="text" disabled="disabled">
-                  {{service.data_received?.Business_analyst}}
-                </p>
-
-                QA: <p class="form-control" type="text" disabled="disabled">
-                  {{service.data_received?.QA}}
-                </p>
-
-                Product Owner: <p class="form-control" type="text" disabled="disabled">
-                  {{service.data_received?.Product_owner}}
-                </p>
-
-                <p class="">Test Environment:<p class="form-control" type="text" placeholder="">
-                  {{this.data_received}}
-                </p>
-
-                <br>
+              <div class="second">
+                <div class="col-md-12 text-center">
+                  <form>
+                  </form>
+                </div>
               </div>
             </div>
-          </ul>
-        </div>
-      </div>
-
-      <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear2"
-              aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
-
-        Project 2
-
-      </button>
-
-      <br>
 
 
-
-      <div class="collapse" id="footwear2">
-
-        <div class="card" style="width: 60vw; color: grey">
-
-          <ul class="list-group list-group-flush">
-
-            <li class="list-group-item">test</li>
-
-            <li class="list-group-item">test</li>
-
-            <li class="list-group-item">test</li>
-
-            <li class="list-group-item">Team members</li>
-
-          </ul>
+          </div>
 
         </div>
-
-      </div>
-
-      <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" data-target="#footwear3"
-              aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 15pt;">
-
-        Project 3
-
-      </button>
-
-      <br>
-
-
-      <div class="collapse" id="footwear3">
-
-        <div class="card" style="width: 60vw; color: grey">
-
-          <ul class="list-group list-group-flush">
-
-            <li class="list-group-item">test</li>
-
-            <li class="list-group-item">test</li>
-
-            <li class="list-group-item">test</li>
-
-            <li class="list-group-item">Team members</li>
-
-          </ul>
-
-        </div>
-
       </div>
 
 
 
     </div>
+
   </div>
 
+  <div class="col text-center">
 
+
+    <div *ngIf="service.show_spinner == true">
+
+      <button class="btn btn-lg btn-warning">
+        <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+        <br>
+        <span>Creating project...</span>
+
+      </button>
+    </div>
+
+    <div *ngFor="let project of service.active_projects ; let i=index">
+      <br>
+
+    
+
+      <app-active-projects-view index={{i}}> </app-active-projects-view>
+
+
+    </div>
+
+ 
+
+
+
+   
+    
+
+  </div>
 
   <div class="footer">
     <p>Gas South © 2019</p>
   </div>
 
 </body>
+
 
 
 

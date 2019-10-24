@@ -68,7 +68,6 @@ export class AppComponent {
   completedProjectsPage(){
     
     
-    console.log('fetching data from DB...')
     this.service.fetching();
     this.router.navigateByUrl("/completed-projects")
   }

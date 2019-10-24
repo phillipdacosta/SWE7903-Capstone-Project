@@ -20,6 +20,8 @@ import { ProjectteamComponent } from './projectteam/projectteam.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ManageUserViewComponent } from './manage-user-view/manage-user-view.component';
 import { ManagerUserEditsComponent } from './manager-user-edits/manager-user-edits.component';
+import { ActiveProjectsViewComponent } from './active-projects-view/active-projects-view.component';
+import { CompletedProjectsViewComponent } from './completed-projects-view/completed-projects-view.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { ManagerUserEditsComponent } from './manager-user-edits/manager-user-edi
     ProfileComponent,
     ManageUserViewComponent,
     ManagerUserEditsComponent,
+    ActiveProjectsViewComponent,
+    CompletedProjectsViewComponent,
 
   ],
   imports: [
