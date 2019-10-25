@@ -124,8 +124,11 @@ export class ServiceService {
   completed_projects_count : number
   active_projects : Array <Project>;
   active_projects_count : number;
-
-
+  test_date : any;
+  test_name : any;
+  project_live_date : any;
+  project_name_date : any;
+  project_go_live_array = [];
 
   public jwtHelper = new JwtHelperService();
 
@@ -145,6 +148,7 @@ export class ServiceService {
     this.every_single_project = []
     this.completed_projects = [];
     this.active_projects = [];
+    this.project_go_live_array
 
 
 
@@ -492,6 +496,7 @@ export class ServiceService {
 
         console.log(every_single_project)
 
+              let time_arr = []
 
               every_single_project.forEach(project => {
 
@@ -502,14 +507,28 @@ export class ServiceService {
               this.active_projects = active_projects
               this.active_projects_count = this.active_projects.length
              }
+/*
+             for(let u = 0; u < every_single_project.length ; u++){
 
+
+              this.project_live_date =  every_single_project[u].go_Live_Date;
+              time_arr.push(this.project_live_date)
+              this.project_go_live_array = time_arr;
+
+             }
+             */
 
         });
+
+        console.log(this.project_go_live_array)
+
 
         every_completed_project.forEach(project => {
 
           const project_db_completed = new Project(project.go_Live_Date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project._id);
 
+          this.project_live_date = project.go_Live_Date;
+          this.project_name_date = project.project_Title
      
           if(project.project_Status == 'Completed' ){
            completed_projects.push(project_db_completed)
@@ -523,16 +542,20 @@ export class ServiceService {
      });
       //  console.log(this.every_project)
 
-
-
+ 
         
-
-
-
       })
 
 
 
+  }
+
+  releaseDates(){
+
+    this.test_name = this.project_name_date
+    this.test_date = new Date(this.project_live_date);
+    console.log(this.test_date)
+    console.log(this.test_name)
   }
 
 

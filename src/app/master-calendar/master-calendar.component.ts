@@ -1072,6 +1072,8 @@ export class MasterCalendarComponent {
           textColor: 'white'
         },
 
+     
+
       ];
     
     })
@@ -1091,12 +1093,28 @@ export class MasterCalendarComponent {
 
     this.get_token = localStorage.getItem("auth_token")
 
-
+    this.service.releaseDates();
     console.log('WL' + this.service.jwtHelper.isTokenExpired(this.get_token));
 
+    /*
+    for (let t = 0; t < this.service.project_go_live_array.length; t++){
 
+      this.service.test_date = this.service.project_go_live_array[t]
+        console.log(this.service.test_date)
 
+   
+    }
 
+    this.calendarEvents = [
+
+    
+      {
+        title: "test", start: new Date(this.service.test_date), allDay: true, color: '#FDB713',   // an option!
+        textColor: 'white'
+      },
+
+    ]
+*/
   }
 
 }

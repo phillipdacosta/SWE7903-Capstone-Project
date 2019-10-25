@@ -85,7 +85,8 @@ export class AppComponent {
 
 
     this.router.navigateByUrl("/master-calendar")
-    
+    this.service.getProjects();
+    this.service.releaseDates();
     this.service.fetching();
 
     
