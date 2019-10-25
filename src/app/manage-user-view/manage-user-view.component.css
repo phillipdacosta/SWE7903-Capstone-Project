@@ -36,7 +36,7 @@ li {
 
 .btn-default {
   margin: 0 auto;
-  height: 7vh;
+  height: 12vh;
   background-color: #808080;
   color: white
   
@@ -127,9 +127,9 @@ button.form-control{
   border-style: inset;
   display:inline-block;
   margin-top: 5px;
-margin-bottom: 5px;
-margin-left: 10px;
-margin-right: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
 
   
 

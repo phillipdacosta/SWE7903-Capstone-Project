@@ -41,25 +41,25 @@
                         <form #heroForm="ngForm">
                           <div class="form-group">
 
-                            <p>First Name</p><input placeholder="First Name" style="text-align:center;" type="text"
+                            <p style="font-weight: bold; color: white">First Name</p><input placeholder="First Name" style="text-align:center;" type="text"
                                                     class="form-control" [(ngModel)]="user._firstName" name="firstName" required>
                             <br>
-                            <p>Last Name</p><input placeholder="Last Name" style="text-align:center;" type="text"
+                            <p style="font-weight: bold; color: white">Last Name</p><input placeholder="Last Name" style="text-align:center;" type="text"
                                                    class="form-control" [(ngModel)]="user._lastName" name="lastName" required>
                             <br>
-                            <p>Email Address</p><input placeholder="Email" style="text-align:center;" type="text"
+                            <p style="font-weight: bold; color: white">Email Address</p><input placeholder="Email" style="text-align:center;" type="text"
                                                        class="form-control" [(ngModel)]="user._email" name="email" required>
                             <br>
-                            <p>User ID</p><input placeholder="Innotas ID" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._innotas_id" name="innotas_id" required>
+                            <p style="font-weight: bold; color: white">User ID</p><input placeholder="Innotas ID" style="text-align:center;" type="text" class="form-control" [(ngModel)]="user._innotas_id" name="innotas_id" required>
                             <br>
-                            <p>Current Account Type</p>
+                            <p style="font-weight: bold; color: white">Current Account Type</p>
                             <select placeholder="Role" class="form-control" [(ngModel)]="user._role" name="role"
                                     required>
                               <option style="text-align:center;" *ngFor="let role of roles" value="{{role}}">{{role}}</option>
                             </select>
 
                             <br>
-                            <button type="submit" class="btn btn-md"
+                            <button type="submit" class="btn btn-md" 
                                     (click)="openPasswordChange()">
                               Change Password
                             </button>
@@ -80,12 +80,12 @@
                                 <p style="color: red"> Passwords do not match!</p>
                               </div>
                               {{passwordMatch()}}
-                              <p>Enter New Password</p><input placeholder=" New Password" style="text-align:center;"
+                              <p style="font-weight: bold; color: white">Enter New Password</p><input placeholder=" New Password" style="text-align:center;"
                                                               type="password" class="form-control" [(ngModel)]="user._password" name="password"
                                                               required>
 
                               <br>
-                              <p>Re-enter New Password</p><input placeholder="Re-enter New Password" style="text-align:center;"
+                              <p style="font-weight: bold; color: white">Re-enter New Password</p><input placeholder="Re-enter New Password" style="text-align:center;"
                                                                  type="password" class="form-control" [(ngModel)]="retype_password" name="password"
                                                                  required>
                               <br>
