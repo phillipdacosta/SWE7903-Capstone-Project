@@ -6,8 +6,11 @@
 
     border-radius: 18px;
 
- 
 
+}
+
+.jumbotron{
+  background: #808080;
 }
 
   h1 {
@@ -164,7 +167,7 @@ li.list-group-item{
 }
 
 .footer {
-  position: relative;
+  position: sticky;
   bottom: 0;
   padding-top: 10px;
   padding-bottom: 10px;
