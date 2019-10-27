@@ -129,6 +129,7 @@ export class ServiceService {
   project_live_date : any;
   project_name_date : any;
   project_go_live_array = [];
+  show_flag : Boolean = false;
 
   public jwtHelper = new JwtHelperService();
 
@@ -298,6 +299,8 @@ export class ServiceService {
 
   fetching() {
 
+    this.show_spinner = true;
+
     this.getProjects();
     console.log(this.show_spinner)
     // console.log('code ran')
@@ -389,6 +392,7 @@ export class ServiceService {
       })
 
 
+    this.show_spinner = false;
 
   }
 
@@ -411,6 +415,7 @@ export class ServiceService {
 
   getProjects() {
 
+    this.show_spinner = true;
 
     this.https.get(this.uri + '/getprojects')
       .subscribe((response: any) => {
@@ -446,6 +451,7 @@ export class ServiceService {
         this.array_of_projects.forEach(project => {
 
              const project_db = new Project(project.go_Live_Date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project._id);
+             this.show_flag = true;
               all_projects.push(project_db)
 
         });
@@ -456,6 +462,11 @@ export class ServiceService {
             let project_block = all_projects[c];
             this.project_block = project_block
             this.project_count = this.all_projects.length;
+
+            if(this.project_count.length == 0 ){
+              this.show_flag = true;
+
+            }
 
 
             let project_block_index = all_projects.indexOf(this.project_block)
@@ -503,9 +514,11 @@ export class ServiceService {
              const project_db = new Project(project.go_Live_Date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project._id);
 
              if(project.project_Status == 'Open' || project.project_Status == 'Hold'){
+              this.show_flag = true;
               active_projects.push(project_db)
               this.active_projects = active_projects
               this.active_projects_count = this.active_projects.length
+
              }
 /*
              for(let u = 0; u < every_single_project.length ; u++){
@@ -531,8 +544,10 @@ export class ServiceService {
           this.project_name_date = project.project_Title
      
           if(project.project_Status == 'Completed' ){
+            this.show_flag = true;
            completed_projects.push(project_db_completed)
            this.completed_projects = completed_projects
+           
 
            this.completed_projects_count = this.completed_projects.length
 
@@ -545,8 +560,6 @@ export class ServiceService {
  
         
       })
-
-
 
   }
 

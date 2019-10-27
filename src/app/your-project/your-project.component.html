@@ -35,7 +35,11 @@
     <h3>Your Projects</h3>
     <div *ngIf="!this.show_expiration_flag">
 
-      <div *ngIf = "!service.project_count > 0">
+        <div *ngIf = "!service.show_flag"  class="loader " style = "left: 45%;">
+
+          </div>
+
+      <div *ngIf = "!service.project_count > 0 && service.show_flag">
           <br>
         <h4 class="no-projects" style = "color: #E95524"> No projects to display.</h4>
       </div>

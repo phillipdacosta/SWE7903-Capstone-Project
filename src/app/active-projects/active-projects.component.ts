@@ -16,6 +16,7 @@ export class ActiveProjectsComponent implements OnInit {
 
   ngOnInit() {
 
+    this.service.fetching();
     this.display = this.service.project.projectteam[0]._firstName
 
     this.time = this.service.time;
