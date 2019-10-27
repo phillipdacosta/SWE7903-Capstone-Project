@@ -39,11 +39,11 @@
 
           </div>
 
-      <div *ngIf = "!service.project_count > 0 && service.show_flag">
+      <div *ngIf = "service.project_count == 0">
           <br>
         <h4 class="no-projects" style = "color: #E95524"> No projects to display.</h4>
       </div>
-      <div *ngIf = "service.project_count > 0">
+      <div *ngIf = "service.project_count >= 1">
         <br>
           <h4 style = "color: #E95524;">  Count: {{service.project_count}} Projects  </h4>
         </div>

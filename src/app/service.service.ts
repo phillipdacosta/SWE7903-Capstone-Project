@@ -299,10 +299,10 @@ export class ServiceService {
 
   fetching() {
 
-    this.show_spinner = true;
+   // this.show_spinner = true;
 
     this.getProjects();
-    console.log(this.show_spinner)
+   // console.log(this.show_spinner)
     // console.log('code ran')
     this.https.get(this.uri + '/yourprojects')
       .subscribe((response: any) => {
@@ -392,7 +392,7 @@ export class ServiceService {
       })
 
 
-    this.show_spinner = false;
+    //this.show_spinner = false;
 
   }
 
@@ -415,7 +415,7 @@ export class ServiceService {
 
   getProjects() {
 
-    this.show_spinner = true;
+   // this.show_spinner = true;
 
     this.https.get(this.uri + '/getprojects')
       .subscribe((response: any) => {
@@ -435,7 +435,7 @@ export class ServiceService {
           if(this.user_innotas_id == id_in){
 
             this.created_user_id[v]
-            
+           // this.show = true;
               array_of_projects.push(this.created_user_id[v]);
           }
         }
