@@ -320,7 +320,7 @@ export class ServiceService {
 
         console.log(this.get_all_users)
         // console.log(this.get_all_users_to_update_profile)
-        console.log(this.return_users)
+        //console.log(this.return_users)
 
         this.return_users = []
         this.manage_user_by_name = []
@@ -336,7 +336,7 @@ export class ServiceService {
 
         for (let z = 0; z < this.alphabet.length; z++) {
 
-          console.log(this.alphabet)
+         // console.log(this.alphabet)
         //  this.project_count = this.alphabet.length;
           this.block_id = this.alphabet[z].toString();
           this.index = this.alphabet.indexOf(this.block_id)
@@ -439,9 +439,6 @@ export class ServiceService {
               array_of_projects.push(this.created_user_id[v]);
           }
         }
-
- 
-
         this.array_of_projects = array_of_projects;
 
 
