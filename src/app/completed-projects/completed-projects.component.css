@@ -128,7 +128,7 @@ li.list-group-item{
 }
 
   .footer {
-    position: sticky;
+    position: fixed;
     bottom: 0;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -165,3 +165,4 @@ li.list-group-item{
   }
 
 
+  .clear { clear: both; height: 250px; }
