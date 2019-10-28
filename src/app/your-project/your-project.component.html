@@ -35,18 +35,18 @@
     <h3>Your Projects</h3>
     <div *ngIf="!this.show_expiration_flag">
 
-        <div *ngIf = "!service.show_flag"  class="loader " style = "left: 45%;">
+      <div *ngIf="!service.show_flag" class="loader " style="left: 45%;">
 
-          </div>
-
-      <div *ngIf = "service.project_count == 0">
-          <br>
-        <h4 class="no-projects" style = "color: #E95524"> No projects to display.</h4>
       </div>
-      <div *ngIf = "service.project_count >= 1">
+
+      <div *ngIf="!service.project_count > 0">
         <br>
-          <h4 style = "color: #E95524;">  Count: {{service.project_count}} Projects  </h4>
-        </div>
+        <h4 class="no-projects" style="color: #E95524"> No projects to display.</h4>
+      </div>
+      <div *ngIf="service.project_count >= 1">
+        <br>
+        <h4 style="color: #E95524;"> Count: {{service.project_count}} Projects </h4>
+      </div>
       <div *ngFor="let team of service.teamlist; let i = index">
 
       </div>
@@ -122,19 +122,19 @@
     <div *ngFor="let project of service.array_of_projects ; let i=index">
       <br>
 
-    
+
 
       <app-project index={{i}}> </app-project>
 
 
     </div>
 
- 
 
 
 
-   
-    
+
+
+
 
   </div>
   <div class="clear"></div>
