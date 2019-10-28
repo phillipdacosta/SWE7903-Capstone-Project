@@ -430,13 +430,12 @@ export class ServiceService {
         for(let v = 0 ; v < this.created_user_id.length ; v++){
 
          var id_in= this.created_user_id[v].project_Manager_ID
-       //   console.log(id_in)
 
           if(this.user_innotas_id == id_in){
 
             this.created_user_id[v]
-           // this.show = true;
-              array_of_projects.push(this.created_user_id[v]);
+            if(this.created_user_id[v].project_Status != 'Canceled')
+           array_of_projects.push(this.created_user_id[v]);
           }
         }
         this.array_of_projects = array_of_projects;
@@ -496,10 +495,11 @@ export class ServiceService {
 
         for (let q = 0 ; q  < this.every_project.length ; q++){
 
+
             every_single_project.push(this.every_project[q]);
             every_completed_project.push(this.every_project[q]);
-
-            
+          
+         
         }
 
         console.log(every_single_project)
