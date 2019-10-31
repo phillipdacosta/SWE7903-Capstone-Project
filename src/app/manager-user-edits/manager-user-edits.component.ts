@@ -151,7 +151,7 @@ export class ManagerUserEditsComponent implements OnInit {
 
     this.close_password_block = true;
     this.confirm_password = false;
-    this.updateProfile();
+   // this.updateProfile();
 
   }
 

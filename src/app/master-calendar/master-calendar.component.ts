@@ -264,6 +264,8 @@ export class MasterCalendarComponent {
   hide_US_holiday: boolean = false;
   hide_INDIAN_holiday: boolean = false;
 
+  date : any;
+
 
 
   constructor(private service: ServiceService, private router: Router) {
@@ -284,6 +286,11 @@ export class MasterCalendarComponent {
       textColor: 'white'
     },
 
+  ];
+
+  calendarEvents2: EventInput[] = [
+
+ 
   ];
 
   toggleVisible() {
@@ -562,6 +569,72 @@ export class MasterCalendarComponent {
 
 
 
+  //  this.service.releaseDates();
+    console.log(this.service.project_go_live_array)
+    for (let t = 0; t < this.service.project_go_live_array.length; t++){
+
+      this.service.test_date = this.service.project_go_live_array[t]
+        console.log(this.service.test_date)
+
+        var object = {
+
+          date : this.service.test_date 
+        }
+
+     this.calendarEvents2.push(object)
+     console.log(this.calendarEvents2)
+    }
+
+
+    for (var key in this.calendarEvents2) {
+
+      if (this.calendarEvents2.hasOwnProperty(key)) {
+
+
+        console.log(this.calendarEvents2[key].date)
+
+        this.date = this.calendarEvents2[key].date
+
+        this.calendarEvents2 = [
+
+          { title: this.ny_eve_day, start: new Date(this.ny_eve_date), allDay: true },
+
+        ]
+      }
+
+     
+
+    }
+
+
+
+/*
+
+
+  for (let a = 0 ; a < this.calendarEvents2.length; a++) {
+
+    console.log(this.calendarEvents2[a].date)
+  
+    
+    this.date = this.calendarEvents2[a].date
+
+  this.calendarEvents2 = [
+
+    {
+      title : "test",
+      date : this.date,
+    }
+  ]
+ 
+
+ 
+  
+  }
+
+  */
+
+  
+  
     var el = document.getElementsByTagName('h2')[0].innerHTML // or some other element reference
     let new_year = el;
     let year = el.substring(new_year.length - 4)
@@ -570,7 +643,6 @@ export class MasterCalendarComponent {
 
     console.log(el)
 
-    console.log(this.calendarComponent);
 
     let holiday_date_india = "";
     let holiday_name_india = ""
@@ -585,7 +657,7 @@ export class MasterCalendarComponent {
         holiday_name_india = data_india.response.holidays[i].name
 
 
-        console.log(holiday_name_india)
+       // console.log(holiday_name_india)
 
         if (holiday_name_india == "New Year's Day") {
 
@@ -1093,28 +1165,9 @@ export class MasterCalendarComponent {
 
     this.get_token = localStorage.getItem("auth_token")
 
-    this.service.releaseDates();
     console.log('WL' + this.service.jwtHelper.isTokenExpired(this.get_token));
 
-    /*
-    for (let t = 0; t < this.service.project_go_live_array.length; t++){
 
-      this.service.test_date = this.service.project_go_live_array[t]
-        console.log(this.service.test_date)
-
-   
-    }
-
-    this.calendarEvents = [
-
-    
-      {
-        title: "test", start: new Date(this.service.test_date), allDay: true, color: '#FDB713',   // an option!
-        textColor: 'white'
-      },
-
-    ]
-*/
   }
 
 }

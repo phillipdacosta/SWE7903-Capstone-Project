@@ -306,9 +306,9 @@ export class ServiceService {
     // console.log('code ran')
     this.https.get(this.uri + '/yourprojects')
       .subscribe((response: any) => {
-        console.log("third")
+       // console.log("third")
         this.user_firstname = response.get_user_name
-        console.log(this.user_firstname)
+       // console.log(this.user_firstname)
 
         this.user_lastname = response.get_user_password;
         this.get_all_users = response.get_all_users
@@ -318,7 +318,7 @@ export class ServiceService {
  
 
 
-        console.log(this.get_all_users)
+        //console.log(this.get_all_users)
         // console.log(this.get_all_users_to_update_profile)
         //console.log(this.return_users)
 
@@ -434,8 +434,14 @@ export class ServiceService {
           if(this.user_innotas_id == id_in){
 
             this.created_user_id[v]
-            if(this.created_user_id[v].project_Status != 'Canceled')
-           array_of_projects.push(this.created_user_id[v]);
+            if(this.created_user_id[v].project_Status != 'Canceled'){
+
+              array_of_projects.push(this.created_user_id[v]);
+              this.project_go_live_array.push(this.created_user_id[v].go_Live_Date)
+   
+            }
+
+         
           }
         }
         this.array_of_projects = array_of_projects;
@@ -502,7 +508,7 @@ export class ServiceService {
          
         }
 
-        console.log(every_single_project)
+       // console.log(every_single_project)
 
               let time_arr = []
 
@@ -530,7 +536,7 @@ export class ServiceService {
 
         });
 
-        console.log(this.project_go_live_array)
+       // console.log(this.project_go_live_array)
 
 
         every_completed_project.forEach(project => {

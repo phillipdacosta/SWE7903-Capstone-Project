@@ -29,7 +29,7 @@ export class CompletedProjectsViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.index)
+    //console.log(this.index)
     this.indexID = this.idFromIndex();
     //this.service.getArrayCount();
 
