@@ -597,8 +597,11 @@ export class MasterCalendarComponent {
 
         this.calendarEvents2 = [
 
-          { title: this.ny_eve_day, start: new Date(this.ny_eve_date), allDay: true },
-
+          {
+            title : "test",
+            start: new Date(this.date)
+  
+          }
         ]
       }
 
