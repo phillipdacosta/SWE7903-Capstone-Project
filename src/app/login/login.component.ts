@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
 
+  cred : Boolean = false;
+
 
    
   constructor(private service: ServiceService, private router : Router) {
@@ -21,7 +23,12 @@ export class LoginComponent implements OnInit {
   Login() {
 
   console.log("you are logging in")
-  
+  console.log('cred is: ' + this.cred)
+  console.log(this.cred)
+  this.cred = this.service.cred;
+
+  console.log(this.cred)
+
   
   if(this.email.length == 0 && this.password.length == 0){
 
@@ -53,7 +60,6 @@ export class LoginComponent implements OnInit {
  
   ngOnInit() { 
 
-      
     
   }
 }

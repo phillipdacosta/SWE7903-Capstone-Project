@@ -558,6 +558,8 @@ export class MasterCalendarComponent {
 
       ];
 
+      
+
   
 
     })
@@ -566,24 +568,6 @@ export class MasterCalendarComponent {
 
 
   showIndianHolidays() {
-
-
-
-  //  this.service.releaseDates();
-    console.log(this.service.project_go_live_array)
-    for (let t = 0; t < this.service.project_go_live_array.length; t++){
-
-      this.service.test_date = this.service.project_go_live_array[t]
-        console.log(this.service.test_date)
-
-        var object = {
-
-          date : this.service.test_date 
-        }
-
-     this.calendarEvents2.push(object)
-     console.log(this.calendarEvents2)
-    }
 
 
     for (var key in this.calendarEvents2) {
@@ -595,14 +579,7 @@ export class MasterCalendarComponent {
 
         this.date = this.calendarEvents2[key].date
 
-        this.calendarEvents2 = [
-
-          {
-            title : "test",
-            start: new Date(this.date)
   
-          }
-        ]
       }
 
      
@@ -1147,9 +1124,44 @@ export class MasterCalendarComponent {
           textColor: 'white'
         },
 
-     
-
       ];
+
+      //  this.service.releaseDates();
+    console.log(this.service.project_go_live_array)
+    for (let t = 0; t < this.service.every_single_project.length; t++){
+
+      
+      this.service.test_date = this.service.every_single_project[t]['project']['go_Live_Date'];
+      this.service.test_name = this.service.every_single_project[t]['project']['project_Title'];
+      
+      const proj = this.service.every_single_project[t];
+    //  console.log(proj["_id"], ' ', proj['project']['project_Title'], ' ', proj['project']['go_Live_Date'])
+        //console.log(this.service.test_date)
+
+
+   
+
+        var title = this.service.test_name;
+        var date =  this.service.test_date ;
+
+      //  object[title] = date;
+
+      if( date != null){
+
+        
+     this.calendarEvents.push(
+
+      {
+        title: title, start: new Date(date), allDay: true, color: '#FFA500',   // an option!
+        textColor: 'white'
+      }
+     )
+
+    }
+    
+    }
+
+    //console.log(this.service.every_single_project)
     
     })
   }

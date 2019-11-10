@@ -88,6 +88,8 @@ export class ServiceService {
   user_profile: UserModel;
   all_users: any;
 
+  
+
   edit_manage_firstName: string;
   edit_manage_lastName: string;
   edit_manage_password: string;
@@ -130,6 +132,14 @@ export class ServiceService {
   project_name_date : any;
   project_go_live_array = [];
   show_flag : Boolean = false;
+  user_credentials_email : any;
+  user_credentials_password : any;
+  user_credentials : any;
+  cred : Boolean = false;
+  user_login : any;
+  user_obj : any;
+
+
 
   public jwtHelper = new JwtHelperService();
 
@@ -153,13 +163,52 @@ export class ServiceService {
 
 
 
+  }
 
 
+  checkPassword(){
+    
+
+    this.https.get(this.uri + '/return_users')
+    .subscribe((response: any) => {
+
+      //this.user_credentials_email = response.user_credentials_email
+      this.user_credentials = response.result;
+
+   
+
+      for (var key in this.user_credentials) {
+        var obj = this.user_credentials[key];
+
+
+        this.user_obj = {
+
+          email : obj.user._email,
+          password : obj.user._password
+        }
+
+
+
+   
+        if(this.user_login != this.user_obj){
+
+  
+          this.cred = true;
+        }
+    }
+
+  
+    
+
+
+     
+
+    })
   }
 
   login(user: UserModel) {
 
-
+    this.checkPassword();
     console.log(user)
     this.https.post(this.uri + '/authenticate', { user })
       .subscribe((response: any) => {
@@ -183,15 +232,26 @@ export class ServiceService {
         this.user_innotas_id = response.return_user_innotas_id;
         console.log(this.user_innotas_id)
 
-
-
-
-        console.log(this.user_id)
         console.log(this.get_user_email)
-        console.log(this.set_user_lastname)
+        console.log(this.user_password)
 
-        console.log(this.set_user_name)
+       
 
+        this.user_login = {
+
+          email2 : this.get_user_email,
+          password2 : this.user_password
+        }
+
+        console.log(this.user_login)
+       
+
+        if(this.user_login == this.user_obj){
+
+          console.log(" I DONT KNOW WHO U R!")
+        }
+
+        
         /*
         
                email: get_user_email,
@@ -315,6 +375,7 @@ export class ServiceService {
         this.get_all_users_to_update_profile = response.get_all_users
         this.return_user_innotas_id = response.get_user_innotas_id;
         this.project_count = response.number_of_projects
+        console.log(this.return_user_id)
  
 
 
@@ -351,6 +412,7 @@ export class ServiceService {
 
 
               this.alphabetized[this.block_id].push(user);
+              console.log(this.alphabetized)
 
 
 
@@ -362,6 +424,7 @@ export class ServiceService {
           for (var key in this.alphabetized) {
             if (this.alphabetized.hasOwnProperty(key)) {
 
+              // if user (user initials do not exist) - do not create a block
               if (this.alphabetized[key].length == 0) {
                 
                 this.temp = key;
@@ -492,7 +555,6 @@ export class ServiceService {
 
       //  console.log(all_projects)
 
-        let every_single_project = [];
         let every_completed_project = [];
 
         let completed_projects = [];
@@ -502,27 +564,31 @@ export class ServiceService {
         for (let q = 0 ; q  < this.every_project.length ; q++){
 
 
-            every_single_project.push(this.every_project[q]);
+            this.every_single_project.push(this.every_project[q]);
             every_completed_project.push(this.every_project[q]);
           
          
-        }
-
-       // console.log(every_single_project)
+        } 
+        
+        console.log(this.every_project)
 
               let time_arr = []
 
-              every_single_project.forEach(project => {
+              this.every_project.forEach(project => {
 
-             const project_db = new Project(project.go_Live_Date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project._id);
+             const project_db = new Project(project.go_live_date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project.id);
 
              if(project.project_Status == 'Open' || project.project_Status == 'Hold'){
+
+              
               this.show_flag = true;
               active_projects.push(project_db)
               this.active_projects = active_projects
               this.active_projects_count = this.active_projects.length
+              console.log(this.active_projects)
 
              }
+            });
 /*
              for(let u = 0; u < every_single_project.length ; u++){
 
@@ -534,7 +600,7 @@ export class ServiceService {
              }
              */
 
-        });
+    
 
        // console.log(this.project_go_live_array)
 

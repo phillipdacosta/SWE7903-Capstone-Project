@@ -26,7 +26,8 @@ export class AppComponent {
   loginPage(){
 
     this.router.navigateByUrl("/login")
-
+    console.log("Hello")
+    this.service.checkPassword();
 
   }
 
@@ -103,6 +104,8 @@ export class AppComponent {
 
   ngOnInit() { 
 
+    
+    this.service.checkPassword()
     this.service.get_user = localStorage.getItem('username') 
 
     setTimeout(() => {

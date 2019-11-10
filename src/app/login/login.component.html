@@ -17,11 +17,9 @@
         <br>
       <br>
 
-
-
-
       <h1>Release Management Application</h1>
 
+   
       <h3>Login</h3>
       
     </div>
@@ -34,11 +32,15 @@
       <br>
       <input type="password" style="text-align:center;" placeholder="Password" [(ngModel)]="password" class="form-control" />
       <br>
-      <br>
-
+ 
+      <div *ngIf = "this.cred == true">
+          <p class = "incorrect_credentials" style = " color: red">Incorrect username or password</p>
+        </div>
       <div class="buttons">
 
+        
         <div class="spacer">
+          <br>
           <br>
 
           <button type="submit" (click)="Login()" class="btn btn-primary btn-lg btn btn-block">Login</button>
@@ -47,7 +49,7 @@
         <br>
 
       </div>
-      <br>
+ 
 
 
       <button type="button" class="btn btn-link" data-toggle="modal" data-target="#resetPassword">Forgot Password</button>
