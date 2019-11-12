@@ -16,9 +16,9 @@ import { verifyHostBindings } from '@angular/compiler';
 export class ServiceService {
 
 
-  // uri = "http://localhost:5000"
+  uri = "http://localhost:5000"
 
-  uri = "https://pacific-thicket-17424.herokuapp.com"
+  //uri = "https://pacific-thicket-17424.herokuapp.com"
 
   endpoint = "";
   data_received: any;
@@ -174,6 +174,7 @@ export class ServiceService {
 
       //this.user_credentials_email = response.user_credentials_email
       this.user_credentials = response.result;
+      console.log(this.user_credentials)
 
    
 
@@ -188,14 +189,14 @@ export class ServiceService {
         }
 
 
-
+      }
    
         if(this.user_login != this.user_obj){
 
   
           this.cred = true;
         }
-    }
+   
 
   
     
@@ -208,7 +209,7 @@ export class ServiceService {
 
   login(user: UserModel) {
 
-    this.checkPassword();
+    if (this.checkPassword)
     console.log(user)
     this.https.post(this.uri + '/authenticate', { user })
       .subscribe((response: any) => {
@@ -243,13 +244,6 @@ export class ServiceService {
           password2 : this.user_password
         }
 
-        console.log(this.user_login)
-       
-
-        if(this.user_login == this.user_obj){
-
-          console.log(" I DONT KNOW WHO U R!")
-        }
 
         
         /*
@@ -631,6 +625,21 @@ export class ServiceService {
       })
 
   }
+
+
+  passwordReset(email){
+
+    console.log('Sending email: ' + email)
+
+    this.https.post(this.uri + '/password_reset',{email})
+
+      .subscribe((response: any) => {
+
+        this.data_sent = response.message_user
+        console.log(this.data_sent)
+      }
+    
+)};
 
   releaseDates(){
 

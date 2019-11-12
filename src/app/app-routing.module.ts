@@ -14,6 +14,7 @@ import { AuthorizationGuard } from './authorization.guard';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ManagerUserEditsComponent } from './manager-user-edits/manager-user-edits.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,8 @@ const routes: Routes = [
   { path: 'manage-user-edits', component : ManagerUserEditsComponent , data: {  allowedRoles: [ 'Admin'] }},
 
   { path: 'profile', component : ProfileComponent , data: {  allowedRoles: ['Admin', 'User'] }},
+
+  { path: 'passwordReset', component : ForgotPasswordComponent},
 
 
   { path: 'completed-projects', component : CompletedProjectsComponent},

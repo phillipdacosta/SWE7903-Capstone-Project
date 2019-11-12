@@ -22,6 +22,7 @@ import { ManageUserViewComponent } from './manage-user-view/manage-user-view.com
 import { ManagerUserEditsComponent } from './manager-user-edits/manager-user-edits.component';
 import { ActiveProjectsViewComponent } from './active-projects-view/active-projects-view.component';
 import { CompletedProjectsViewComponent } from './completed-projects-view/completed-projects-view.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CompletedProjectsViewComponent } from './completed-projects-view/comple
     ManagerUserEditsComponent,
     ActiveProjectsViewComponent,
     CompletedProjectsViewComponent,
+    ForgotPasswordComponent,
 
   ],
   imports: [

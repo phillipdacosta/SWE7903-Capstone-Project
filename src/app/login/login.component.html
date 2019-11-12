@@ -2,29 +2,29 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
 
-    <div class="col text-center">
-        <br>
-      <br>
+  <div class="col text-center">
+    <br>
+    <br>
 
-      <h1>Release Management Application</h1>
+    <h1>Release Management Application</h1>
 
-   
-      <h3>Login</h3>
-      
-    </div>
-    <div class="" style="color: white; margin: auto">
-        <div class="col-md-4 col-md-offset-4">
+
+    <h3>Login</h3>
+
+  </div>
+  <div class="" style="color: white; margin: auto">
+    <div class="col-md-4 col-md-offset-4">
 
       <br>
       <input type="text" style="text-align:center;" placeholder="Email" [(ngModel)]="email" class="form-control">
@@ -32,13 +32,14 @@
       <br>
       <input type="password" style="text-align:center;" placeholder="Password" [(ngModel)]="password" class="form-control" />
       <br>
- 
-      <div *ngIf = "this.cred == true">
-          <p class = "incorrect_credentials" style = " color: red">Incorrect username or password</p>
-        </div>
+
+     
+      <div *ngIf="this.cred == true">
+        <p class="incorrect_credentials" style=" color: red">Incorrect username or password</p>
+      </div>
       <div class="buttons">
 
-        
+
         <div class="spacer">
           <br>
           <br>
@@ -49,7 +50,7 @@
         <br>
 
       </div>
- 
+
 
 
       <button type="button" class="btn btn-link" data-toggle="modal" data-target="#resetPassword">Forgot Password</button>
@@ -57,31 +58,43 @@
     </div>
   </div>
 
-  <!-- Modal -->
-  <div id="resetPassword" class="modal fade" role="dialog">
+ <!-- Modal -->
+ <div id="resetPassword" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" style="color: rgb(97, 2, 2); font-size: 18pt">Reset Password</h4>
-        </div>
-        <div class="modal-body">
+          <div class="col-md-12 text-center">
+           <h2>Password Reset Request</h2>
+
           <br>
+          <p>If you do not remember your password, you can reset it here.</p>
+          <p>Please check your email at the address entered below after you have submitted the request.</p>
+            <br>
+          </div>
+          <div class="modal-body">
 
-          <div class="second">
-            <div class="col-md-12 text-center">
-              <form>
+            
+       
+                  <input type="text" style="text-align:center;" placeholder="Enter Email Address" [(ngModel)]="email_reset" class="form-control">
 
-                <form>
-                  <input style="text-align:center;" placeholder="username" class="form-control" />
+      
+
+
+            <br>
+            <br>
+            <br>
+            <div class="second">
+              <div class="col-md-12 text-center">
+                <form #heroForm="ngForm">
+
+                  <button class="btn btn-success btn-lg" [disabled] = "!heroForm.form.valid" data-dismiss="modal" type="submit" (click)= "resetPassword(email_reset)" >Submit </button>
                 </form>
-              </form>
+              </div>
             </div>
           </div>
         </div>
-
 
       </div>
 
