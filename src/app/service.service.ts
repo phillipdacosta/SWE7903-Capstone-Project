@@ -16,9 +16,9 @@ import { verifyHostBindings } from '@angular/compiler';
 export class ServiceService {
 
 
-  uri = "http://localhost:5000"
+ //uri = "http://localhost:5000"
 
-  //uri = "https://pacific-thicket-17424.herokuapp.com"
+  uri = "https://pacific-thicket-17424.herokuapp.com"
 
   endpoint = "";
   data_received: any;
