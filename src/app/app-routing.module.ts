@@ -8,13 +8,14 @@ import { GuestComponent } from './guest/guest.component';
 import { YourProjectComponent } from './your-project/your-project.component';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { 
-  ServiceService as AuthGuard 
+  ServiceService as AuthGuard, ServiceService 
 } from './service.service';
 import { AuthorizationGuard } from './authorization.guard';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ManagerUserEditsComponent } from './manager-user-edits/manager-user-edits.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 
 const routes: Routes = [
   {
@@ -38,7 +39,6 @@ const routes: Routes = [
 
   { path: 'passwordReset', component : ForgotPasswordComponent},
 
-
   { path: 'completed-projects', component : CompletedProjectsComponent},
 
   { path: 'active-projects', component : ActiveProjectsComponent },
@@ -56,4 +56,19 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+
+export class AppRoutingModule { 
+
+
+  email : any;
+
+  constructor(private service : ServiceService){
+
+
+    this.email = this.service.email
+  }
+
+
+
+}

@@ -114,7 +114,7 @@ export class ManageUserViewComponent implements OnInit {
 
   save() {
 
-    this.service.saveRoles(this.members, this.service.return_user_id);
+    this.service.saveRoles1(this.members, this.service.return_user_id);
     this.service.show_spinner = true;
     this.service.fetching();
     this.service.getProjects();

@@ -22,11 +22,12 @@
 <body>
 
 
-  <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
+  <button class="btn btn-default btn-md btn-block"   (click)="getProjectDetails($event.target.value, service.all_projects[index]._id)" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
     aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 20pt;">
 
     {{service.all_projects[index]._project_Title}} <p style="font-size: 12pt"> Last updated:
       {{service.all_projects[index]._last_Updated}}</p>
+   
 
   </button>
 
@@ -75,19 +76,96 @@
 
               <br>
               <br>
+
+ 
+
+              <button (click) = "showTeam()"> View Team</button>
+
+           
+
+              <br>
+
+<div *ngIf = "this.show_team" >
+
+<form>
+  <br>
+   
+
+    <div>
+
+
+        <button type="submit" (click)="addMember($event.target.value, service.all_projects[index]._id)" class="btn btn-primary btn-lg">Add team member</button>
+      
+        <app-projectteam [members]=members></app-projectteam>
+
+
+        <br>
+
+                  </div>
+
+               
+
+                  <p style = "text-decoration: underline">PROJECT TEAM</p>
+
+    <div *ngFor = "let project_team of service.final_all_your_projects; let team_index = index">
+ 
+      <div *ngFor = "let item of service.all_project_teams ;  let final_index = index">
+
+
+          <div *ngFor = "let team of item.team.team">
+
+
+              <div *ngIf = "project_team[index]._id === item.team.project">
+
+                <!-- 
+                  <button (click) = "deleteProjectMember($event.target.value, team.name)" type="submit"><img src = "assets/download.jpg" class = "deleteUser" > </button>
+-->
+            
+
+                    <div *ngIf = "this.hide_name == true">
+       
+                          {{team.role}} : {{team.name}}
+
+                    </div>
+
+                    <div *ngIf = "this.hide_name == false && team.name == this.member">
+
+                        <div *ngIf = "show_name == false">
+                            {{team.role}} : {{team.name}}
+                        </div>
+                               
+
+                        
+
+                  </div>
+
+                  
+                    
+              
+                
+                
+               
+
+          </div>
+        </div>
+     
+      </div>
+
+   
+    </div>
+
+    <br>
+    <button type="submit" (click)="save()" data-dismiss="modal" class="btn btn-success btn-lg">Save</button>
+
+
+   
+  </form>
+</div>
+
+</div>
               
 
 
-              <!--
-                <div *ngIf = "service.all_projects[index]._groject_RYG_Color == 'Green'">
-                </div>
-                Color: {{service.all_projects[index]._groject_RYG_Color}}
-                <br>
-  -->
-
-
-
-            </div>
 
           </div>
 

@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   email_reset = ''
 
   cred : Boolean = false;
-
+  
+  @ViewChild('myForm', {static : true}) formValues; 
 
 
    

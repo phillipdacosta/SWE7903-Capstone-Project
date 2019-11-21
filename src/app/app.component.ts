@@ -96,6 +96,9 @@ export class AppComponent {
 
   yourProjectPage(){
 
+   
+    this.service.getProjects();
+     this.service.getProjectTeam();
     this.router.navigateByUrl("/yourproject")
     this.service.fetching();
     console.log('i am: ' + this.service.get_user)
