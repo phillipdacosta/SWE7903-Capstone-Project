@@ -251,4 +251,20 @@ li.list-group-item {
  
 }
 
+.clear { clear: both; height: 60px; }
+
+
+.square {
+  height: 200px;
+  width: 200px;
+  background-color: #555;
+}
+
+.deleteUser{
+
+    width:15px;
+    height:15px;
+}
+
+
 

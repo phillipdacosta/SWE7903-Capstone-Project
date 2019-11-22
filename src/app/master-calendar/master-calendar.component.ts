@@ -264,6 +264,8 @@ export class MasterCalendarComponent {
   hide_US_holiday: boolean = false;
   hide_INDIAN_holiday: boolean = false;
 
+  date : any;
+
 
 
   constructor(private service: ServiceService, private router: Router) {
@@ -284,6 +286,11 @@ export class MasterCalendarComponent {
       textColor: 'white'
     },
 
+  ];
+
+  calendarEvents2: EventInput[] = [
+
+ 
   ];
 
   toggleVisible() {
@@ -551,6 +558,8 @@ export class MasterCalendarComponent {
 
       ];
 
+      
+
   
 
     })
@@ -561,7 +570,51 @@ export class MasterCalendarComponent {
   showIndianHolidays() {
 
 
+    for (var key in this.calendarEvents2) {
 
+      if (this.calendarEvents2.hasOwnProperty(key)) {
+
+
+        console.log(this.calendarEvents2[key].date)
+
+        this.date = this.calendarEvents2[key].date
+
+  
+      }
+
+     
+
+    }
+
+
+
+/*
+
+
+  for (let a = 0 ; a < this.calendarEvents2.length; a++) {
+
+    console.log(this.calendarEvents2[a].date)
+  
+    
+    this.date = this.calendarEvents2[a].date
+
+  this.calendarEvents2 = [
+
+    {
+      title : "test",
+      date : this.date,
+    }
+  ]
+ 
+
+ 
+  
+  }
+
+  */
+
+  
+  
     var el = document.getElementsByTagName('h2')[0].innerHTML // or some other element reference
     let new_year = el;
     let year = el.substring(new_year.length - 4)
@@ -570,7 +623,6 @@ export class MasterCalendarComponent {
 
     console.log(el)
 
-    console.log(this.calendarComponent);
 
     let holiday_date_india = "";
     let holiday_name_india = ""
@@ -585,7 +637,7 @@ export class MasterCalendarComponent {
         holiday_name_india = data_india.response.holidays[i].name
 
 
-        console.log(holiday_name_india)
+       // console.log(holiday_name_india)
 
         if (holiday_name_india == "New Year's Day") {
 
@@ -1073,6 +1125,43 @@ export class MasterCalendarComponent {
         },
 
       ];
+
+      //  this.service.releaseDates();
+    console.log(this.service.project_go_live_array)
+    for (let t = 0; t < this.service.every_single_project.length; t++){
+
+      
+      this.service.test_date = this.service.every_single_project[t]['project']['go_Live_Date'];
+      this.service.test_name = this.service.every_single_project[t]['project']['project_Title'];
+      
+      const proj = this.service.every_single_project[t];
+    //  console.log(proj["_id"], ' ', proj['project']['project_Title'], ' ', proj['project']['go_Live_Date'])
+        //console.log(this.service.test_date)
+
+
+   
+
+        var title = this.service.test_name;
+        var date =  this.service.test_date ;
+
+      //  object[title] = date;
+
+      if( date != null){
+
+        
+     this.calendarEvents.push(
+
+      {
+        title: title, start: new Date(date), allDay: true, color: '#FFA500',   // an option!
+        textColor: 'white'
+      }
+     )
+
+    }
+    
+    }
+
+    //console.log(this.service.every_single_project)
     
     })
   }
@@ -1091,10 +1180,7 @@ export class MasterCalendarComponent {
 
     this.get_token = localStorage.getItem("auth_token")
 
-
     console.log('WL' + this.service.jwtHelper.isTokenExpired(this.get_token));
-
-
 
 
   }

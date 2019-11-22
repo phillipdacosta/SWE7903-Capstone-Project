@@ -35,14 +35,18 @@
     <h3>Your Projects</h3>
     <div *ngIf="!this.show_expiration_flag">
 
-      <div *ngIf = "!service.project_count > 0">
-          <br>
-        <h4 class="no-projects" style = "color: #E95524"> No projects to display.</h4>
+      <div *ngIf="!service.show_flag" class="loader " style="left: 45%;">
+
       </div>
-      <div *ngIf = "service.project_count > 0">
+
+      <div *ngIf="!service.project_count > 0">
         <br>
-          <h4 style = "color: #E95524;">  Count: {{service.project_count}} Projects  </h4>
-        </div>
+        <h4 class="no-projects" style="color: #E95524"> No projects to display.</h4>
+      </div>
+      <div *ngIf="service.project_count >= 1">
+        <br>
+        <h4 style="color: #E95524;"> Count: {{service.project_count}} Projects </h4>
+      </div>
       <div *ngFor="let team of service.teamlist; let i = index">
 
       </div>
@@ -51,14 +55,9 @@
         {{t}}
       </li>
 
-      <!--
-          <button type="button" class="btn btn-link"  data-toggle="modal" data-target="#addProject"></button>
-   
-      <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addProject">
-        Add new
-        project
-      </button>
-         -->
+     
+
+    
       <br>
       <br>
 
@@ -72,6 +71,7 @@
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
+              
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h1 class="modal-title" style="color: rgb(218, 89, 3); font-size: 18pt">Team Builder</h1>
               <br>
@@ -118,21 +118,22 @@
     <div *ngFor="let project of service.array_of_projects ; let i=index">
       <br>
 
-    
+
 
       <app-project index={{i}}> </app-project>
 
 
     </div>
 
- 
 
 
 
-   
-    
+
+
+
 
   </div>
+  <div class="clear"></div>
 
   <div class="footer">
     <p>Gas South © 2019</p>

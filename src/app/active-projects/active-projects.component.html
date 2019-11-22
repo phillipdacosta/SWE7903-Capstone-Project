@@ -35,7 +35,11 @@
     <h3>Active Projects</h3>
     <div *ngIf="!this.show_expiration_flag">
 
-      <div *ngIf = "!service.active_projects_count > 0">
+        <div *ngIf = "!service.show_flag"  class="loader " style = "left: 45%;">
+
+          </div>
+
+      <div *ngIf = "!service.active_projects_count > 0 && service.show_flag">
           <br>
         <h4 class="no-projects" style = "color: #E95524"> No projects to display.</h4>
       </div>
@@ -54,7 +58,7 @@
       </button>
          -->
       <br>
-      
+      <br>
 
 
       <!-- Modal -->
@@ -111,7 +115,7 @@
 
     <div *ngFor="let project of service.active_projects ; let i=index">
       <br>
-
+  
     
 
       <app-active-projects-view index={{i}}> </app-active-projects-view>
@@ -127,7 +131,7 @@
     
 
   </div>
-
+  <div class="clear"></div>
   <div class="footer">
     <p>Gas South © 2019</p>
   </div>

@@ -128,7 +128,7 @@ li.list-group-item{
 }
 
   .footer {
-    position: sticky;
+    position: fixed;
     bottom: 0;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -140,4 +140,29 @@ li.list-group-item{
     margin-left: auto;
   }
 
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid   #E95524 ;
+    width: 120px;
+    height: 120px;
+    position : relative;
+    -webkit-animation: spin 50s linear infinite; /* Safari */
+    animation: spin 0.4s linear infinite;
+    z-index: 1;
+    
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
+
+  .clear { clear: both; height: 250px; }

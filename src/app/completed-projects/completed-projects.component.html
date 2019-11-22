@@ -35,10 +35,18 @@
     <h3>Completed Projects</h3>
     <div *ngIf="!this.show_expiration_flag">
 
-      <div *ngIf = "!service.completed_projects_count > 0">
+ 
+
+        <div *ngIf = "!service.show_flag"  class="loader " style = "left: 46%;">
+
+          </div>
+         
+      <div *ngIf = "!service.completed_projects_count > 0 && service.show_flag">
           <br>
         <h4 class="no-projects" style = "color: #E95524"> No projects to display.</h4>
       </div>
+
+
       <div *ngIf = "service.completed_projects_count > 0">
         <br>
           <h4 style = "color: #E95524;">  Count: {{service.completed_projects_count}} Projects  </h4>
@@ -94,7 +102,6 @@
 
 
 
-    </div>
 
   </div>
 
@@ -114,9 +121,10 @@
     <div *ngFor="let projects of service.completed_projects ; let i=index">
       <br>
 
-    
 
       <app-completed-projects-view index={{i}}> </app-completed-projects-view>
+
+
 
 
     </div>
@@ -125,10 +133,12 @@
 
 
 
-   
+
     
 
   </div>
+</div>
+<div class="clear"></div>
 
   <div class="footer">
     <p>Gas South © 2019</p>

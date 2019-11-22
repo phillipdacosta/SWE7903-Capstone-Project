@@ -36,7 +36,7 @@
                     <br>
                     <br>
 
-                    <div class="jumbotron text-center ">
+                    <div  *ngIf = "this.user._innotas_id != service.user_innotas_id" class="jumbotron text-center ">
 
                         <form #heroForm="ngForm">
                           <div class="form-group">
@@ -224,9 +224,19 @@
         </div>
     </div>
 
+    <div *ngIf = "this.user._innotas_id == service.user_innotas_id">
+
+        <h4 class="col text-center"> Head to your Profile page to edit your profile!</h4>
+
+    </div>
 
 
 
+    <div class="clear"></div>
+
+    <div class="footer">
+      <p>Gas South © 2019</p>
+    </div>
 
 </body>
 

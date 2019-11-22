@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from './service.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,7 +27,8 @@ export class AppComponent {
   loginPage(){
 
     this.router.navigateByUrl("/login")
-
+    console.log("Hello")
+    this.service.checkPassword();
 
   }
 
@@ -85,7 +87,18 @@ export class AppComponent {
 
 
     this.router.navigateByUrl("/master-calendar")
+    this.service.getProjects();
+    this.service.releaseDates();
+    this.service.fetching();
+
     
+
+  }
+
+    yearViewPage(){
+
+
+    this.router.navigateByUrl("/year-view")
     this.service.fetching();
 
     
@@ -94,6 +107,9 @@ export class AppComponent {
 
   yourProjectPage(){
 
+   
+    this.service.getProjects();
+     this.service.getProjectTeam();
     this.router.navigateByUrl("/yourproject")
     this.service.fetching();
     console.log('i am: ' + this.service.get_user)
@@ -102,6 +118,8 @@ export class AppComponent {
 
   ngOnInit() { 
 
+    
+    this.service.checkPassword()
     this.service.get_user = localStorage.getItem('username') 
 
     setTimeout(() => {

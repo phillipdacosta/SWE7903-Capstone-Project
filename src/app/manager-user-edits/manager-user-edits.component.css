@@ -182,3 +182,5 @@ li.list-group-item{
 
     box-shadow: 0 8px 16px -6px black;
 }
+
+.clear { clear: both; height: 250px; }
