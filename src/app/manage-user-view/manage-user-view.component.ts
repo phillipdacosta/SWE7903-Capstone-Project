@@ -46,10 +46,6 @@ export class ManageUserViewComponent implements OnInit {
 
   selectUser(event, member: TeamMemberModel) {
 
-    console.log(member);
-
-    console.log(member.id)
-
     for (let i = 0; i < this.service.return_users.length; i++) {
 
       if (member.id == this.service.return_users[i].id) {
@@ -62,11 +58,6 @@ export class ManageUserViewComponent implements OnInit {
         member._role = this.service.return_users[i]._role
         member._innotas_id = this.service.return_users[i]._innotas_id
 
-        console.log(this.service.return_users[i]._role)
-        console.log(member._firstName)
-        console.log(member._lastName)
-        console.log(member.id)
-        console.log(member._innotas_id)
         window.scrollTo({ top: 80, behavior: 'smooth' })
 
 
@@ -83,7 +74,6 @@ export class ManageUserViewComponent implements OnInit {
     this.get_user_id = member.id
     this.update_role = member._role
     this.update_innotas = member._innotas_id
-    console.log(this.get_user_id)
     this.service.edit_manage_firstName = this.update_firstName
     this.service.edit_manage_lastName = this.update_lastName
     this.service.edit_manage_password = this.update_password
@@ -92,7 +82,6 @@ export class ManageUserViewComponent implements OnInit {
     this.service.get_user_id = this.get_user_id
     this.service.edit_manage_innotas_id = this.update_innotas
 
-    console.log(this.service.get_user_id)
     this.app.manageUsersEditsPage();
 
 
@@ -109,7 +98,6 @@ export class ManageUserViewComponent implements OnInit {
       }
     });
 
-    console.error("selectrole: ", this.members)
   }
 
   save() {

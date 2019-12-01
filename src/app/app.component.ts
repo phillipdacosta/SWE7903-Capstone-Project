@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from './service.service';
+import { ProjectComponent } from './project/project.component';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,8 @@ export class AppComponent {
 
     this.router.navigateByUrl("/login")
     console.log("Hello")
-    this.service.checkPassword();
+    this.service.getUsers();
+   
 
   }
 
@@ -86,7 +88,6 @@ export class AppComponent {
 
 
     this.router.navigateByUrl("/master-calendar")
-    this.service.getProjects();
     this.service.releaseDates();
     this.service.fetching();
 
@@ -96,19 +97,16 @@ export class AppComponent {
 
   yourProjectPage(){
 
-   
-    this.service.getProjects();
-     this.service.getProjectTeam();
+
     this.router.navigateByUrl("/yourproject")
     this.service.fetching();
-    console.log('i am: ' + this.service.get_user)
 
   }
 
   ngOnInit() { 
 
     
-    this.service.checkPassword()
+    this.service.getUsers()
     this.service.get_user = localStorage.getItem('username') 
 
     setTimeout(() => {

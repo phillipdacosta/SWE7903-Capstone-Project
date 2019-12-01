@@ -30,7 +30,6 @@ export class ManageUsersComponent implements OnInit {
   ngOnInit() {
    this.members = [];
    this.test = this.service.data_received;
-   console.error("Fetrching")
    this.service.fetching();
    this.get_token = localStorage.getItem("auth_token")
    if(this.service.jwtHelper.isTokenExpired(this.get_token)){
@@ -58,7 +57,6 @@ export class ManageUsersComponent implements OnInit {
 newProject(){
 
   let team = new Team();
-  //this.service.teamlist.push(team)
   console.log(this.service.teamlist)
   window.scrollTo({ top: 20000, behavior: 'smooth' })
 

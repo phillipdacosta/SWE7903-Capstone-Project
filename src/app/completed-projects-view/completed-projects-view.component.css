@@ -250,5 +250,8 @@ html {
     width: 100px;
    
   }
+
+  .clear { clear: both; height: 250px; }
+
   
   

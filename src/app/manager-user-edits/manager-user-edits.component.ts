@@ -66,11 +66,7 @@ export class ManagerUserEditsComponent implements OnInit {
     this.user._role = this.service.edit_manage_role
     this.user_id_edit = this.service.get_user_id 
     this.user._innotas_id = this.service.edit_manage_innotas_id;
-    console.log(this.user._innotas_id)
 
-    console.log(this.user_id_edit)
-    console.log(this.user._firstName)
-    console.log(this.user._lastName)
 
   }
   
@@ -111,8 +107,7 @@ export class ManagerUserEditsComponent implements OnInit {
   passwordMatch() {
 
     if (this.user._password !== this.retype_password && this.user._password.length == 0 && this.retype_password.length == 0) {
-      console.log(this.retype_password)
-      console.log(this.service.user_password)
+
 
       this.no_match = true;
       this.hide_save_button = true;
@@ -141,7 +136,6 @@ export class ManagerUserEditsComponent implements OnInit {
 
   saveNewUserProfile() {
 
-    console.log('*****' + this.user._innotas_id)
     this.service.updateUserProfile(this.user._firstName, this.user._lastName, this.user._email, this.user._password, this.user_id_edit, this.user._role, this.user._innotas_id);
     this.service.edit_manage_firstName = this.user._firstName;
     this.service.edit_manage_lastName = this.user._lastName;
@@ -151,15 +145,12 @@ export class ManagerUserEditsComponent implements OnInit {
 
     this.close_password_block = true;
     this.confirm_password = false;
-   // this.updateProfile();
 
   }
 
   deleteUserAccount(event, member){
  
-    console.log(event)
-   
-    console.log(this.user_id_edit)
+
     this.service.deleteUserProfile(this.user_id_edit);
 
 
@@ -169,7 +160,6 @@ export class ManagerUserEditsComponent implements OnInit {
 
     this.service.set_user_name = this.user._firstName
     this.service.set_user_lastname= this.user._lastName
-    console.log(this.service.set_user_lastname)
     this.service.get_user_email = this.user._email
     this.service.user_password = this.user._password
     this.service.user_innotas_id = this.user._innotas_id

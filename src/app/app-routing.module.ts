@@ -66,7 +66,6 @@ export class AppRoutingModule {
   constructor(private service : ServiceService){
 
 
-    this.email = this.service.email
   }
 
 

@@ -17,3 +17,15 @@
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
     Helvetica, Arial, "Lucida Grande", sans-serif, bold;
 }
+
+#width{
+  width: 25vw;
+  text-align:center;
+   
+ }
+
+ select {
+  display: block;
+  margin: 0 auto;
+  }
+
