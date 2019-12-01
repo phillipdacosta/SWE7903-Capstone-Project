@@ -194,7 +194,6 @@ export class ServiceService {
 
   getProjectTeam2(project) {
 
-    console.log(project)
     this.project_id_service = project
     this.https.post(this.uri + '/getprojectteam2', { project })
       .subscribe((response: any) => {
@@ -211,7 +210,6 @@ export class ServiceService {
       .subscribe((response: any) => {
 
         this.user_credentials = response.result;
-        console.log(this.user_credentials)
       })
   }
 
@@ -680,9 +678,7 @@ export class ServiceService {
 
   sendTeamToDB(team) {
 
-    console.log(team)
 
-    console.error(this.uri)
     this.https.post(this.uri + '/addprojectteam', { team })
       .subscribe((response: any) => {
 
@@ -803,7 +799,6 @@ export class ServiceService {
     let the_year = year
     this.serviceData = this.https.get(`https://calendarific.com/api/v2/holidays?api_key=d65691e92c9d3bbad833289369b3e6b8775ffee3&country=US&year=${the_year}`);
 
-    console.log(this.serviceData)
     return this.serviceData;
 
 
@@ -817,7 +812,6 @@ export class ServiceService {
     let the_year = year
     this.serviceData_india = this.https.get(`https://calendarific.com/api/v2/holidays?api_key=38fa84b459ed09740077aa5911ad3a762f195b50&country=IN&year=${the_year}`);
 
-    console.log(this.serviceData_india)
     return this.serviceData_india;
 
 
