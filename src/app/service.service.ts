@@ -16,11 +16,11 @@ import { verifyHostBindings } from '@angular/compiler';
 export class ServiceService {
 
 
-  uri = "http://localhost:5000"
+  // To run server locally, uncomment below.
+  //uri = "http://localhost:5000"
 
-  //uri = "https://pacific-thicket-17424.herokuapp.com"
-
-  // uri = "https://cors-anywhere.herokuapp.com/https://rmaserver.herokuapp.com"
+ // To run the cloud (hosted) version of the server, uncomment below if commented out.
+  uri = "https://cors-anywhere.herokuapp.com/https://rmaserver.herokuapp.com"
 
   endpoint = "";
   data_received: any;
@@ -273,14 +273,7 @@ export class ServiceService {
 
       this.checkPassword();
 
-      /*
-      
-             email: get_user_email,
-                  password: get_user_password,
-                  role: get_user_role,
-                  return_user_lastname: return_user_last_name,
-      */
-      //  this.router.navigate(['master-calendar']);
+
       console.log("is Auth is: " + this.isAuthenticated())
 
     })
