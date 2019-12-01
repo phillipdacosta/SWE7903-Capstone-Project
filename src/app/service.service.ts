@@ -211,6 +211,7 @@ export class ServiceService {
       .subscribe((response: any) => {
 
         this.user_credentials = response.result;
+        console.log(this.user_credentials)
       })
   }
 
