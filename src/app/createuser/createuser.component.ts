@@ -42,7 +42,6 @@ export class CreateuserComponent implements OnInit {
 
   onSubmit(){
 
-    console.error("USER", JSON.stringify(this.user))
     this.service.subscribe(this.user);
     this.service.fetching();
 

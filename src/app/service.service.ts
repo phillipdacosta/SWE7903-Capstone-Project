@@ -20,7 +20,7 @@ export class ServiceService {
   //uri = "http://localhost:5000"
 
  // To run the cloud (hosted) version of the server, uncomment below if commented out.
-  uri = "https://cors-anywhere.herokuapp.com/https://rmaserver.herokuapp.com"
+  uri = "https://rmaserver.herokuapp.com"
 
   endpoint = "";
   data_received: any;
@@ -285,8 +285,7 @@ export class ServiceService {
 
   subscribe(user: UserModel) {
 
-    console.log(user)
-    console.error(this.uri)
+
     this.https.post(this.uri + '/subscribe', { user })
       .subscribe((response: any) => {
 
@@ -294,13 +293,10 @@ export class ServiceService {
         console.log('User subscribed successfully!')
 
 
-        console.log('cred_exists is + ' + this.cred_already_exist)
         this.cred_already_exist = response.cred_error;
-        console.log('cred_exists is + ' + this.cred_already_exist)
         response.initial_message = "";
         this.initial_message = response.initial_message
         this.new_user_message = this.initial_message
-        console.log('User initial message is: ' + this.initial_message)
       })
 
     this.fetching();
@@ -363,8 +359,8 @@ export class ServiceService {
     this.https.post(this.uri + '/test', { test })
       .subscribe((response: any) => {
 
-        this.data_sent = response.message_user
-        console.log(this.data_sent)
+       // this.data_sent = response.message_user
+        //console.log(this.data_sent)
 
       })
   }

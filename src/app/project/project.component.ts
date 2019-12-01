@@ -179,7 +179,6 @@ export class ProjectComponent implements OnInit {
 
   getProjectDetails2(event, project) {
 
-    console.log(project)
     this.the_project_id = project
 
 
@@ -193,7 +192,6 @@ export class ProjectComponent implements OnInit {
 
   getProjectDetails3(event, project) {
 
-    console.log(project)
     this.the_project_id = project
 
 
@@ -211,9 +209,6 @@ export class ProjectComponent implements OnInit {
 
 
 
-    console.log(this.service.add_member_project_id)
-    console.log(this.service.team)
-    console.log(this.project)
     this.projectTeamArray = []
 
 
