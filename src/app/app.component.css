@@ -203,3 +203,8 @@ li:hover {
        text-align: center;
   
       }*/
+
+.modal-dialog{
+  height: 50%;
+  width: fit-content;
+}

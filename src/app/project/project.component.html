@@ -40,126 +40,143 @@
 
         <div class="col text-left">
 
+
           <div class="list-group-item" style="color: rgb(117, 115, 115)">
 
-            <div>
-              
-             <div class="release-name">Release Name: <br><span style="color: #D61A69">{{service.all_projects[index]?._project_Title}}</span> </div>
-              
-              <div class="project-start-date" *ngIf="service.all_projects[index]?._project_Start_Date">Release Start Date: <br><span style="color: #D61A69">{{service.all_projects[index]?._project_Start_Date}}</span></div>
+            <button type="button" class="btn btn-link" data-toggle="modal" [attr.data-target]=createId(service.all_projects[index]?._id) (click)="getProjectDetails3($event.target.value, service.all_projects[index]?._id)">Edit Team</button>
 
-              <div class="project-start-date" *ngIf="!service.all_projects[index]?._project_Start_Date">Release Start Date: <br><span style="color: #D61A69">TBD</span></div>
-              
-              <div class="go-live-date" *ngIf="service.all_projects[index]?._go_live_date">Go Live Date: <br><span style="color: #D61A69">{{service.all_projects[index]?._go_live_date}}</span></div>
-              
-              <div class="go-live-date" *ngIf="!service.all_projects[index]?._go_live_date">Go Live Date: <br><span style="color: #D61A69">TBD</span></div>            
-              
-              <div class="project-manager">Project Manager: <br><span style="color: #D61A69">{{service.all_projects[index]?._project_Manager}}</span></div>
-              
-              <div class="project-status">Project Status: <br><span style="color: #D61A69">{{service.all_projects[index]?._project_Status}}</span></div>
+            <div class="row">
+              <div class="column">
+                <div class="info" style="text-decoration: underline; color: #808080">Release Info</div>
 
-                                       
-              <div class="ryg-status" *ngIf="service.all_projects[index]?._groject_RYG_Color == 'Green'">RYG Status:
+                <div class="release-name">Release Name: <br><span style="color: #D61A69">{{service.all_projects[index]?._project_Title}}</span> </div>
 
-                <div class="foo green"></div>
-  </div>
-                <div class="ryg-status" *ngIf="service.all_projects[index]?._groject_RYG_Color == 'Yellow'" >RYG Status:
+                <div class="project-start-date" *ngIf="service.all_projects[index]?._project_Start_Date">Release Start Date: <br><span style="color: #D61A69">{{service.all_projects[index]?._project_Start_Date}}</span></div>
 
-                <div class="foo orange"></div>
-  </div>
-               <div class="ryg-status" *ngIf="service.all_projects[index]?._groject_RYG_Color == 'Red'">RYG Status:
+                <div class="project-start-date" *ngIf="!service.all_projects[index]?._project_Start_Date">Release Start Date: <br><span style="color: #D61A69">TBD</span></div>
 
-                <div class="foo red"></div>
-  </div>
-              
+                <div class="go-live-date" *ngIf="service.all_projects[index]?._go_live_date">Go Live Date: <br><span style="color: #D61A69">{{service.all_projects[index]?._go_live_date}}</span></div>
 
-              <br>
-              <br>
-
- 
-<!---   <button class = "btn btn-primary btn-lg"  (click) = "showTeam()"> View Team</button>-->
-            
-          
+                <div class="go-live-date" *ngIf="!service.all_projects[index]?._go_live_date">Go Live Date: <br><span style="color: #D61A69">TBD</span></div>
 
 
-                  
-                  <p style = "text-decoration: underline; color: #D61A69">PROJECT TEAM</p>
 
-                      {{exampleproject_id}}
+                <div class="project-status">Project Status: <br><span style="color: #D61A69">{{service.all_projects[index]?._project_Status}}</span></div>
+
+
+                <div class="ryg-status" *ngIf="service.all_projects[index]?._groject_RYG_Color == 'Green'">
+                  RYG Status:
                   <br>
-                  Project Manager: {{exampleinput}}
+                  <div class="foo green"></div>
+                </div>
+                <div class="ryg-status" *ngIf="service.all_projects[index]?._groject_RYG_Color == 'Yellow'">
+                  RYG Status:
                   <br>
-                     Product Owner:  {{exampleinput2}}
-                      <br>
-                      Business Analyst:  {{exampleinput3}}
-                      <br>
-                     QA: {{exampleinput4}}
-                    <br>
-                      Test Environment: {{exampleinput5}}
-                  
-                  </div>
-                  <button type="button" class="btn btn-link" data-toggle="modal" [attr.data-target]=createId(service.all_projects[index]?._id) (click)="getProjectDetails3($event.target.value, service.all_projects[index]?._id)">Edit Team</button>
+                  <div class="foo orange"></div>
+                </div>
+                <div class="ryg-status" *ngIf="service.all_projects[index]?._groject_RYG_Color == 'Red'">
+                  RYG Status:
+                  <br>
+                  <div class="foo red"></div>
+                </div>
+              </div>
 
-                  </div>
 
-                  <div id= {{service.all_projects[index]?._id}} class="modal" role="dialog">
-                      <div class="modal-dialog">
-                  
-                      
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title" style="color: rgb(151, 3, 3); font-size: 18pt">Team Builder</h4>
-                          </div>
-                          <div class="modal-body">
-                            <br>
-                  
-                            <div class="second">
-                              <div class="col-md-12 text-center">
-                                <form>
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                          <div class="col-md-12 text-center">
-                                        Project Manager  <input type="text" style="text-align:center;" placeholder="" [(ngModel)]="exampleinput" class="form-control" name = "example"/> 
-                                         Product Owner  <input type="text" style="text-align:center;" placeholder="" [(ngModel)]="exampleinput2" class="form-control" name = "example2"/> 
-                                          Business Analyst <input type="text" style="text-align:center;" placeholder="" [(ngModel)]="exampleinput3" class="form-control" name = "example3"/> 
-                                         QA <input type="text" style="text-align:center;" placeholder="" [(ngModel)]="exampleinput4" class="form-control" name = "example4"/>   
-                                          Test Environment  <input type="text" style="text-align:center;" placeholder="" [(ngModel)]="exampleinput5" class="form-control" name = "example5"/> 
-                                          <button (click) = "addProjectTeam($event.target.value, this.project_team_model, service.all_projects[index]?._id)" data-dismiss="modal"> Save</button>
-                        
-                                          </div>
-                                     
-                                        </div>
-                                
-                                      </div>
-                                  <button class="btn btn-primary btn-lg" data-dismiss="modal" type="submit">Cancel </button>
-                                </form>
+
+
+                <!---   <button class = "btn btn-primary btn-lg"  (click) = "showTeam()"> View Team</button>-->
+
+
+
+
+              <div class="column">
+                <p class="project-team" style="text-decoration: underline; color: #808080">Project Team</p>
+
+                {{exampleproject_id}}
+
+                <div class="project-manager">Project Manager: <br><span style="color: #D61A69">{{service.completedProjectsAddTeams[index]?.project_Manager}}</span></div>
+
+                <div class="product-owner">Product Owner:  <br><span style="color: #D61A69">{{exampleinput2}}</span></div>
+
+                <div class="ba">Business Analyst:  <br><span style="color: #D61A69">{{exampleinput3}}</span></div>
+
+                <div class="qa">QA:  <br><span style="color: #D61A69">{{exampleinput4}}</span></div>
+
+                <div class="test-env">Test Environment:  <br><span style="color: #D61A69">{{exampleinput5}}</span></div>
+
+              </div>
+             
+
+              </div>
+
+            <div id={{service.all_projects[index]?._id}} class="modal" role="dialog">
+              <div class="modal-dialog">
+
+
+                <!---<div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="color: rgb(151, 3, 3); font-size: 18pt">Team Builder</h4>
+                  </div>
+                  <div class="modal-body">
+                    <br>-->
+
+                    <div class="second">
+                      <div class="col-md-12 text-center">
+                        <form>
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <div class="col-md-12 text-center" style="font-weight: bold">
+                                <br>
+                                <div style="text-decoration: underline; font-weight: bold; color: #808080; font-size: 14pt;">Edit Team</div>
+                                <br>
+                                Product Owner  <input type="text" style="text-align:center;" placeholder="" [(ngModel)]="exampleinput2" class="form-control" name="example2" />
+                                <br>
+                                Business Analyst <input type="text" style="text-align:center;" placeholder="" [(ngModel)]="exampleinput3" class="form-control" name="example3" />
+                                <br>
+                                QA <input type="text" style="text-align:center;" placeholder="" [(ngModel)]="exampleinput4" class="form-control" name="example4" />
+                                <br>
+                                Test Environment  <input type="text" style="text-align:center;" placeholder="" [(ngModel)]="exampleinput5" class="form-control" name="example5" />
+                                <br>
+
+                                <button class="save" (click)="addProjectTeam($event.target.value, this.project_team_model, service.all_projects[index]?._id)" data-dismiss="modal"> Save</button>
+                                <br>
+                                <br>
+                                <button class="btn btn-primary btn-lg" data-dismiss="modal" type="submit">Cancel </button>
                               </div>
-                            </div>
+
+                              </div>
+
                           </div>
-                  
-                  
-                        </div>
-                  
+                          
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
             </div>
-          </div>
-        
-
-
-                
 
 
 
-           
-
-     
-
-                 
 
 
-              
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

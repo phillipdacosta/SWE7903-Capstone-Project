@@ -1,0 +1,35 @@
+ h1 {
+    font-weight: bold;
+    margin-top: 0;
+    font-size: 25pt;
+    text-align: center;
+    padding-top: 65px;
+    padding-bottom: 10px;
+    background: linear-gradient(to right, #FDB713 35%, #E95524 49%, #D61A69 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  h3{
+    color :rgb(97, 96, 96);
+    text-align: center;
+}
+
+ 
+
+  .footer {
+      position: static;
+      bottom: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 100%;
+      margin-top: 100px;
+      background: linear-gradient(to right, #FDB713 0%, #E95524 50%, #D61A69 100%);
+      color: white;
+      text-align: center;
+      margin-left: auto;
+    }
