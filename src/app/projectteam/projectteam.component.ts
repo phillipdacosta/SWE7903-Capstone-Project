@@ -27,7 +27,7 @@ export class ProjectteamComponent implements OnInit {
 
   ngOnInit() {
     this.service.show_spinner  = false;
-
+   
   }
 
   selectUser(event, member: TeamMemberModel){
@@ -68,13 +68,13 @@ export class ProjectteamComponent implements OnInit {
 
       
       name :  member.firstName + ' ' + member.lastName,
-      role : member.projectRole
+      role : member.projectRole,
+      project_id : this.service.project_id_service
       
 
     }
 
     this.team_member = team_member;
-    //this.service.team_member.push(this.team_member)
     console.log(this.service.team_member)
     console.log(team_member)
 
@@ -114,15 +114,5 @@ export class ProjectteamComponent implements OnInit {
  
   }
 
-  save(){
-/*
-    this.service.saveRoles(this.members, this.service.return_user_id);
-    this.service.show_spinner  = true;
-    this.service.fetching();
-    this.service.getProjects();
-
-*/
-
-  }
 
 }

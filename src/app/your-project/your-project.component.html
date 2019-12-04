@@ -39,13 +39,13 @@
 
       </div>
 
-      <div *ngIf="!service.project_count > 0">
+      <div *ngIf="!service.projectsAddTeams.length > 0">
         <br>
         <h4 class="no-projects" style="color: #E95524"> No projects to display.</h4>
       </div>
-      <div *ngIf="service.project_count >= 1">
+      <div *ngIf="service.projectsAddTeams.length >= 1">
         <br>
-        <h4 style="color: #E95524;"> Count: {{service.project_count}} Projects </h4>
+        <h4 style="color: #E95524;"> Count: {{service.projectsAddTeams.length}} Projects </h4>
       </div>
       <div *ngFor="let team of service.teamlist; let i = index">
 
@@ -76,6 +76,9 @@
               <h1 class="modal-title" style="color: rgb(218, 89, 3); font-size: 18pt">Team Builder</h1>
               <br>
               <button type="submit" (click)="addMember()" class="btn btn-primary btn-lg">Add team member</button>
+
+
+              
 
               <app-projectteam [members]=members></app-projectteam>
             </div>
@@ -115,7 +118,7 @@
       </button>
     </div>
 
-    <div *ngFor="let project of service.array_of_projects ; let i=index">
+    <div *ngFor="let project of service.projectsAddTeams ; let i=index">
       <br>
 
 

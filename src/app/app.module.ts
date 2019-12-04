@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
-import Calendar  from 'js-year-calendar';
-import 'js-year-calendar/dist/js-year-calendar.css';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +23,6 @@ import { ManagerUserEditsComponent } from './manager-user-edits/manager-user-edi
 import { ActiveProjectsViewComponent } from './active-projects-view/active-projects-view.component';
 import { CompletedProjectsViewComponent } from './completed-projects-view/completed-projects-view.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { YearViewComponent } from './year-view/year-view.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +44,6 @@ import { YearViewComponent } from './year-view/year-view.component';
     ActiveProjectsViewComponent,
     CompletedProjectsViewComponent,
     ForgotPasswordComponent,
-    YearViewComponent,
 
   ],
   imports: [
@@ -57,9 +53,7 @@ import { YearViewComponent } from './year-view/year-view.component';
     FullCalendarModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
-   
-    
+    ReactiveFormsModule
   ],
   providers: [ManageUserViewComponent, AppComponent, ManagerUserEditsComponent, ProfileComponent],
   bootstrap: [AppComponent]

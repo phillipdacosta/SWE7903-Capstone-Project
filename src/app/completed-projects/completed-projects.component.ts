@@ -22,13 +22,7 @@ export class CompletedProjectsComponent implements OnInit {
   ngOnInit() {
 
    this.service.fetching();
-   /*
-   this.get_token = localStorage.getItem("auth_token")
-   if(this.service.jwtHelper.isTokenExpired(this.get_token)){
-
-     this.show_expiration_flag = true;
-   }
-   */
+ 
 
   }
 
@@ -37,17 +31,5 @@ export class CompletedProjectsComponent implements OnInit {
     this.service.fromCompletedProjects(this.test)
 
 }
-
-display(){
-
- // this.test = this.service.data_received;
-  console.log(this.test)
- // this.display_data = localStorage.getItem('message')
-}
-
-
-
-
-
 
 }

@@ -17,17 +17,9 @@ export class ActiveProjectsComponent implements OnInit {
   ngOnInit() {
 
     this.service.fetching();
-    this.display = this.service.project.projectteam[0]._firstName
 
     this.time = this.service.time;
-     console.log( this.time)
-     /*
-     this.get_token = localStorage.getItem("auth_token")
-     if(this.service.jwtHelper.isTokenExpired(this.get_token)){
- 
-       this.show_expiration_flag = true;
-     }
-     */
+
     }
 
 }

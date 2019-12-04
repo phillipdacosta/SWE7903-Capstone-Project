@@ -1,6 +1,6 @@
 .app-calendar {
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 1250px;
   }
 
   h1 {
@@ -138,3 +138,12 @@ li:hover {
         -ms-appearance: checkbox;     /* not currently supported */
       }
 
+    .btn.btn-primary.btn-sm {
+      background: #D61A69;
+      border-color: #D61A69;
+    }
+
+      .btn.btn-primary.btn-sm:hover {
+        background: #212529;
+        border-color: #212529;
+      }

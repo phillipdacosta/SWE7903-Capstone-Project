@@ -22,17 +22,13 @@ export class ActiveProjectsViewComponent implements OnInit {
 
 
   constructor(private service : ServiceService) { 
-    //  this.project = new Project()
 
       this.projectlist = new Project()
     
   }
 
   ngOnInit() {
-    console.log(this.index)
     this.indexID = this.idFromIndex();
-    console.log(this.projectlist._go_live_date)
-    //this.service.getArrayCount();
 
   }
 

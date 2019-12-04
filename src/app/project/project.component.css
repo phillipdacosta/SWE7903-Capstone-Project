@@ -6,7 +6,6 @@ html {
   width: 70%;
   border-radius: 5px;
   display: initial;
-  
 }
 
 div.release-name {
@@ -22,6 +21,8 @@ div.release-name {
   margin-bottom: 10px;
   border-style: inset;
   margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 div.project-start-date {
@@ -36,6 +37,8 @@ div.project-start-date {
   font-weight: bold;
   margin-bottom: 10px;
   border-style: inset;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 div.go-live-date {
@@ -50,6 +53,8 @@ div.go-live-date {
   font-weight: bold;
   margin-bottom: 10px;
   border-style: inset;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 div.project-manager-id {
@@ -58,12 +63,14 @@ div.project-manager-id {
   text-align: center;
   border-spacing: 15px 15px;
   padding-bottom: 10px;
-  margin: auto;
+  margin-top: 30px;
   padding: 10px;
   background-color: white;
   font-weight: bold;
   margin-bottom: 10px;
   border-style: inset;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 div.project-manager {
@@ -78,6 +85,8 @@ div.project-manager {
   font-weight: bold;
   margin-bottom: 10px;
   border-style: inset;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 div.project-status {
@@ -92,25 +101,22 @@ div.project-status {
   font-weight: bold;
   margin-bottom: 10px;
   border-style: inset;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 div.ryg-status {
   padding-top: 30px;
   border: 2px solid white;
   text-align: center;
-  
   padding-bottom: 50px;
   margin: auto;
   padding: 10px;
   background-color: white;
   font-weight: bold;
-  
   border-style: inset;
-  display:inline-block;
-  width: 100%;
-
-  
-  
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 
@@ -129,7 +135,6 @@ li {
   background-color: #D1D1D1;
   border-left: 20;
   box-shadow: 7px 7px 7px grey;
-  
 }
 
 div {
@@ -144,24 +149,19 @@ div {
   background: #808080;
   color: white;
   box-shadow: 0 2px 16px -6px rgb(80, 75, 75);
-
 }
 
   .btn-default:hover {
     color: white;
     background-color: #E95524;
-    
     border-color: #E95524;
-    
   }
 
   .btn-default.active,
   .btn.btn-default:active {
     color: white;
     background-color: #E95524;
-    
     border-color: #E95524;
-    
   }
 
   .btn-default.focus,
@@ -181,7 +181,6 @@ h3 {
 
 li.list-group-item {
   color: grey;
-    
 }
 
 
@@ -190,7 +189,6 @@ li.list-group-item {
   margin: 0 auto; /* Added */
   float: none; /* Added */
   margin-bottom: 5px; /* Added */
-  
 }
 
 .loader {
@@ -226,45 +224,171 @@ li.list-group-item {
 
 .blue {
   background: #13b4ff;
- 
- 
 }
 
 .orange {
   background: #e79b0d;
-  display:inline-block;
+  display: inline-block;
   width: 100px;
- 
 }
 
 .green {
   background-color: green;
-  display:inline-block;
+  display: inline-block;
   width: 100px;
- 
 }
 
 .red {
   background: red;
-  display:inline-block;
+  display: inline-block;
   width: 100px;
- 
 }
 
-.clear { clear: both; height: 60px; }
-
-
-.square {
-  height: 200px;
-  width: 200px;
-  background-color: #555;
+.clear {
+  clear: both;
+  height: 250px;
 }
 
-.deleteUser{
-
-    width:15px;
-    height:15px;
+.column {
+  float: left;
+  width: 50%;
 }
 
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
+div.product-owner {
+  padding-top: 30px;
+  border: 2px solid white;
+  text-align: center;
+  border-spacing: 15px 15px;
+  padding-bottom: 10px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-style: inset;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 77px;
+}
 
+div.ba {
+  padding-top: 30px;
+  border: 2px solid white;
+  text-align: center;
+  border-spacing: 15px 15px;
+  padding-bottom: 10px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-style: inset;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 77px;
+}
+
+div.qa {
+  padding-top: 30px;
+  border: 2px solid white;
+  text-align: center;
+  border-spacing: 15px 15px;
+  padding-bottom: 10px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-style: inset;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 77px;
+}
+
+div.test-env {
+  padding-top: 30px;
+  border: 2px solid white;
+  text-align: center;
+  border-spacing: 15px 15px;
+  padding-bottom: 10px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-style: inset;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 77px;
+}
+
+p.project-team {
+  font-size: 20pt;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+div.info {
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+  button.btn.btn-link {
+    background: #E95524;
+    border-color: #E95524;
+    color: white;
+    font-size: 12pt;
+  }
+
+    button.btn.btn-link:hover {
+      background: #D61A69;
+      border-color: #D61A69;
+      color: white;
+      font-size: 12pt;
+    }
+
+    
+
+    button.save {
+      background: #E95524;
+      border-color: #E95524;
+      color: white;
+      font-size: 12pt;
+      border: none;
+      
+      width: 85px;
+      height: 45px;
+      border-radius: 8px;
+    }
+
+      button.save:hover {
+        background: #D61A69;
+        border-color: #D61A69;
+        color: white;
+        font-size: 12pt;
+        border: none;
+        width: 85x;
+        height: 45px;
+        border-radius: 8px;
+      }
+
+    button.btn.btn-primary.btn-lg {
+      background: #FDB713;
+      border-color: #FDB713;
+      color: white;
+      font-size: 12pt;
+    }
+
+      button.btn.btn-primary.btn-lg:hover {
+        background: #D61A69;
+        border-color: #D61A69;
+        color: white;
+        font-size: 12pt;
+      }

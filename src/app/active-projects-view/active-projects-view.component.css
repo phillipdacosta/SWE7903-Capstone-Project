@@ -22,6 +22,8 @@ html {
     margin-bottom: 10px;
     border-style: inset;
     margin-top: 20px;
+    margin-left: 5px;
+      margin-right: 5px;
   }
   
   div.project-start-date {
@@ -36,6 +38,8 @@ html {
     font-weight: bold;
     margin-bottom: 10px;
     border-style: inset;
+    margin-left: 5px;
+      margin-right: 5px;
   }
   
   div.go-live-date {
@@ -50,6 +54,8 @@ html {
     font-weight: bold;
     margin-bottom: 10px;
     border-style: inset;
+    margin-left: 5px;
+      margin-right: 5px;
   }
   
   div.project-manager-id {
@@ -64,6 +70,8 @@ html {
     font-weight: bold;
     margin-bottom: 10px;
     border-style: inset;
+    margin-left: 5px;
+      margin-right: 5px;
   }
   
   div.project-manager {
@@ -78,6 +86,8 @@ html {
     font-weight: bold;
     margin-bottom: 10px;
     border-style: inset;
+    margin-left: 5px;
+      margin-right: 5px;
   }
   
   div.project-status {
@@ -92,6 +102,8 @@ html {
     font-weight: bold;
     margin-bottom: 10px;
     border-style: inset;
+    margin-left: 5px;
+      margin-right: 5px;
   }
   
   div.ryg-status {
@@ -106,8 +118,9 @@ html {
     font-weight: bold;
     
     border-style: inset;
-    display:inline-block;
-    width: 100%;
+    
+    margin-left: 5px;
+      margin-right: 5px;
   
     
     
@@ -252,3 +265,93 @@ html {
   }
   
   
+  .column {
+      float: left;
+      width: 50%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    div.product-owner {
+      padding-top: 30px;
+      border: 2px solid white;
+      text-align: center;
+      border-spacing: 15px 15px;
+      padding-bottom: 10px;
+      margin: auto;
+      padding: 10px;
+      background-color: white;
+      font-weight: bold;
+      margin-bottom: 10px;
+      border-style: inset;
+      margin-left: 5px;
+      margin-right: 5px;
+      height: 77px;
+    }
+
+    div.ba {
+      padding-top: 30px;
+      border: 2px solid white;
+      text-align: center;
+      border-spacing: 15px 15px;
+      padding-bottom: 10px;
+      margin: auto;
+      padding: 10px;
+      background-color: white;
+      font-weight: bold;
+      margin-bottom: 10px;
+      border-style: inset;
+      margin-left: 5px;
+      margin-right: 5px;
+      height: 77px;
+    }
+
+    div.qa {
+      padding-top: 30px;
+      border: 2px solid white;
+      text-align: center;
+      border-spacing: 15px 15px;
+      padding-bottom: 10px;
+      margin: auto;
+      padding: 10px;
+      background-color: white;
+      font-weight: bold;
+      margin-bottom: 10px;
+      border-style: inset;
+      margin-left: 5px;
+      margin-right: 5px;
+      height: 77px;
+    }
+
+    div.test-env {
+      padding-top: 30px;
+      border: 2px solid white;
+      text-align: center;
+      border-spacing: 15px 15px;
+      padding-bottom: 10px;
+      margin: auto;
+      padding: 10px;
+      background-color: white;
+      font-weight: bold;
+      margin-bottom: 10px;
+      border-style: inset;
+      margin-left: 5px;
+      margin-right: 5px;
+      height: 77px;
+    }
+
+    p.project-team{
+        font-size: 20pt;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    div.info{
+        font-size: 20pt;
+        font-weight: bold;
+    }

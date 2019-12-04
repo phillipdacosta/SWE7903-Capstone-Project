@@ -3,6 +3,7 @@ import { Team } from '../team.model';
 import { ServiceService } from '../service.service';
 import { HttpClient } from '@angular/common/http';
 import { TeamMemberModel } from '../team-member.model';
+import { ProjectComponent } from '../project/project.component';
 
 
 
@@ -24,13 +25,18 @@ export class YourProjectComponent implements OnInit {
   indexID: string;
   show_spinner : boolean = false;
 project_count : any;
-  constructor(private service : ServiceService, public http: HttpClient) { }
+
+  constructor(private service : ServiceService, public http: HttpClient) { 
+
+  }
 
   ngOnInit() {
 
    this.members = [];
    this.test = this.service.data_received;
    this.service.fetching();
+
+ 
    
    this.get_token = localStorage.getItem("auth_token")
 

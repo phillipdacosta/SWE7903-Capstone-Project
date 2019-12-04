@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import { EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -14,7 +14,7 @@ import googleCalendarPlugin from '@fullcalendar/google-calendar';
   templateUrl: './master-calendar.component.html',
   styleUrls: ['./master-calendar.component.css']
 })
-export class MasterCalendarComponent {
+export class MasterCalendarComponent implements OnInit {
 
   get_token: any;
   show_expiration_flag: Boolean = false;
@@ -264,7 +264,10 @@ export class MasterCalendarComponent {
   hide_US_holiday: boolean = false;
   hide_INDIAN_holiday: boolean = false;
 
-  date : any;
+  date: any;
+
+  isShowReleases = false;
+
 
 
 
@@ -290,7 +293,7 @@ export class MasterCalendarComponent {
 
   calendarEvents2: EventInput[] = [
 
- 
+
   ];
 
   toggleVisible() {
@@ -313,7 +316,6 @@ export class MasterCalendarComponent {
 
   delete() {
 
-    //  this.calendarEvents.fullCalendar('removeEvents');             
 
 
   }
@@ -325,11 +327,7 @@ export class MasterCalendarComponent {
     var el = document.getElementsByTagName('h2')[0].innerHTML // or some other element reference
     let new_year = el;
     let year = el.substring(new_year.length - 4)
-    console.log("THIS IS THE YEAR " + year)
 
-    console.log(el)
-
-    console.log(this.calendarComponent);
 
     let holiday_date = "";
     let holiday_name = ""
@@ -344,7 +342,6 @@ export class MasterCalendarComponent {
         holiday_name = data.response.holidays[i].name
 
 
-        //console.log(holiday_name)
 
         if (holiday_name == "New Year's Day") {
 
@@ -363,7 +360,6 @@ export class MasterCalendarComponent {
 
           this.valentines_day = holiday_name;
           this.valentines_date = holiday_date
-          console.log("VALENTINES" + this.valentines_date)
 
         }
         /*
@@ -380,8 +376,7 @@ export class MasterCalendarComponent {
 
           this.daylight_start = holiday_name;
           this.daylight_start_date = holiday_date
-          console.log('daylight_start ' + this.daylight_start)
-          console.log('daylight_start ' + this.daylight_start_date)
+
 
         }
 
@@ -492,9 +487,7 @@ export class MasterCalendarComponent {
           this.ny_eve_day = holiday_name;
           this.ny_eve_date = holiday_date
 
-          console.log("NEW YEAR EVE " + this.ny_eve_day)
 
-          console.log("NEW YEAR EVE " + this.ny_eve_date)
         }
 
 
@@ -558,9 +551,7 @@ export class MasterCalendarComponent {
 
       ];
 
-      
-
-  
+      this.isShowReleases = false;
 
     })
   }
@@ -579,56 +570,26 @@ export class MasterCalendarComponent {
 
         this.date = this.calendarEvents2[key].date
 
-  
+
       }
 
-     
+
 
     }
 
 
 
-/*
 
-
-  for (let a = 0 ; a < this.calendarEvents2.length; a++) {
-
-    console.log(this.calendarEvents2[a].date)
-  
-    
-    this.date = this.calendarEvents2[a].date
-
-  this.calendarEvents2 = [
-
-    {
-      title : "test",
-      date : this.date,
-    }
-  ]
- 
-
- 
-  
-  }
-
-  */
-
-  
-  
     var el = document.getElementsByTagName('h2')[0].innerHTML // or some other element reference
     let new_year = el;
     let year = el.substring(new_year.length - 4)
-    console.log("THIS IS THE YEAR " + year)
-    //var text = el.innerText || el.textContent;  
-
-    console.log(el)
-
 
     let holiday_date_india = "";
     let holiday_name_india = ""
 
     let observable_india = this.service.apiCallIndian(year)
     observable_india.subscribe(data_india => {
+      this.calendarEvents = [];
 
 
       for (let i = 0; i < data_india.response.holidays.length; i++) {
@@ -637,7 +598,7 @@ export class MasterCalendarComponent {
         holiday_name_india = data_india.response.holidays[i].name
 
 
-       // console.log(holiday_name_india)
+        // console.log(holiday_name_india)
 
         if (holiday_name_india == "New Year's Day") {
 
@@ -1126,43 +1087,9 @@ export class MasterCalendarComponent {
 
       ];
 
-      //  this.service.releaseDates();
-    console.log(this.service.project_go_live_array)
-    for (let t = 0; t < this.service.every_single_project.length; t++){
-
-      
-      this.service.test_date = this.service.every_single_project[t]['project']['go_Live_Date'];
-      this.service.test_name = this.service.every_single_project[t]['project']['project_Title'];
-      
-      const proj = this.service.every_single_project[t];
-    //  console.log(proj["_id"], ' ', proj['project']['project_Title'], ' ', proj['project']['go_Live_Date'])
-        //console.log(this.service.test_date)
+      this.isShowReleases = false;
 
 
-   
-
-        var title = this.service.test_name;
-        var date =  this.service.test_date ;
-
-      //  object[title] = date;
-
-      if( date != null){
-
-        
-     this.calendarEvents.push(
-
-      {
-        title: title, start: new Date(date), allDay: true, color: '#FFA500',   // an option!
-        textColor: 'white'
-      }
-     )
-
-    }
-    
-    }
-
-    //console.log(this.service.every_single_project)
-    
     })
   }
 
@@ -1180,9 +1107,56 @@ export class MasterCalendarComponent {
 
     this.get_token = localStorage.getItem("auth_token")
 
-    console.log('WL' + this.service.jwtHelper.isTokenExpired(this.get_token));
+    const fetchingsub = this.service.fetching()
+    fetchingsub.subscribe((val) => {
+
+      this.showReleases();
+    })
 
 
+  }
+
+
+  showReleases() {
+    this.isShowReleases = true;
+    this.calendarEvents = [];
+
+
+    this.calendarEvents.push({
+      title: "Today ", start: new Date(), allDay: true, color: '#D61A69',   // an option!
+      textColor: 'white'
+    })
+    for (let t = 0; t < this.service.every_single_project.length; t++) {
+
+
+      this.service.test_date = this.service.every_single_project[t]['project']['go_Live_Date'];
+      this.service.test_name = this.service.every_single_project[t]['project']['project_Title'];
+
+      const proj = this.service.every_single_project[t];
+
+
+
+
+
+      var title = this.service.test_name;
+      var date = this.service.test_date;
+
+
+      if (date != null) {
+
+
+        this.calendarEvents.push(
+
+          {
+
+            title: title, start: new Date(date), allDay: true, color: '#337ab7',   // an option!
+            textColor: 'white'
+          },
+        )
+
+      }
+
+    }
   }
 
 }
