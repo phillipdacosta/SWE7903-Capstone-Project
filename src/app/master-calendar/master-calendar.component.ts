@@ -1123,7 +1123,9 @@ export class MasterCalendarComponent implements OnInit {
 
 
     this.calendarEvents.push({
+
       title: "Today ", start: new Date(), allDay: true, color: '#D61A69',   // an option!
+
       textColor: 'white'
     })
     for (let t = 0; t < this.service.every_single_project.length; t++) {
@@ -1149,7 +1151,9 @@ export class MasterCalendarComponent implements OnInit {
 
           {
 
+
             title: title, start: new Date(date), allDay: true, color: '#337ab7',   // an option!
+
             textColor: 'white'
           },
         )

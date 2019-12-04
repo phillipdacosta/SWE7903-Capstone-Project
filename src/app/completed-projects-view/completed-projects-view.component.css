@@ -265,6 +265,7 @@ html {
 
   .clear { clear: both; height: 250px; }
 
+
     .column {
       float: left;
       width: 50%;
@@ -355,3 +356,4 @@ html {
         font-size: 20pt;
         font-weight: bold;
     }
+
