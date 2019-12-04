@@ -29,9 +29,24 @@
   border-radius: 3px;
   border: 1px solid #E95524;
   background-color: #E95524;
+  
 }
 
 .fc-button-group > .fc-button {
      text-transform: capitalize;
 }
 
+.fc-event-time, .fc-event-title {
+  padding: 0 1px;
+  white-space: nowrap;
+  }
+  
+  .fc-title {
+  white-space: normal;
+  }
+
+.fc-row .fc-content-skeleton {
+  
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
