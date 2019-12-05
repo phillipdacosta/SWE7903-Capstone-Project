@@ -116,5 +116,33 @@
 
 .clear { clear: both; height: 250px; }
 
+.btn.btn-success.btn-lg{
+      color: white;
+       width: 20%;
+      height: 20%;
+      border: 2px;
+      background-color: #E95524;
+      border-color: #E95524;
+  }
+
+   .btn.btn-success.btn-lg:hover {
+    color: white;
+    background-color: #D61A69;
+    border-color: #D61A69;
+  }
+
+   .btn.btn-success.btn-lg.active,
+   .btn.btn-success.btn-lg:active {
+    color: white;
+    background-color: #D61A69;
+    border-color: #D61A69;
+  }
+
+  .btn.btn-success.btn-lg.focus,
+   .btn.btn-success.btn-lg:focus {
+    color: white;
+    background-color: #E95524;
+    border-color: #E95524;
+  }
 
   
