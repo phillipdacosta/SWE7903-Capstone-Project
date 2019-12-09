@@ -144,7 +144,7 @@ export class ServiceService {
   exampleinput4: any;
   exampleinput5: any;
   exampleproject_id: any;
-
+  project_db_active : Project
   the_project_team: any;
 
   final_team_array = []
@@ -449,7 +449,6 @@ export class ServiceService {
 
       this.created_user_id = response.result;
       this.every_project = response.result
-
       this.Project_Manager_ID = response.result.project_Manager_ID
       this.getProjectTeam();
       let array_of_projects = [];
@@ -469,8 +468,7 @@ export class ServiceService {
             this.array_of_projects = array_of_projects
             this.project_go_live_array.push(this.created_user_id[v].go_Live_Date)
 
-            //all your projects
-            //  console.log("Projects", this.array_of_projects)
+    
 
           }
 
@@ -490,7 +488,7 @@ export class ServiceService {
         //get ID from your projects
         let all_projects_id = this.array_of_projects[g]._id
         let all_projects = this.array_of_projects[g]
-
+        
         this.all_team_projects = all_projects_id
 
       }
@@ -571,7 +569,8 @@ export class ServiceService {
 
           every_completed_project.forEach(project => {
 
-
+            const project_db_active = new Project(project.go_Live_Date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project._id);
+            this.project_db_active = project_db_active
             const project_db_completed = new Project(project.go_Live_Date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project._id);
 
             this.project_live_date = project.go_Live_Date;
@@ -589,7 +588,6 @@ export class ServiceService {
           this.getTheProjectTeam();
 
         })
-      //  console.log(this.list_of_projects)
     }
     )
     return observable;
@@ -606,13 +604,15 @@ export class ServiceService {
     }
   }
 
+
   private filterActiveProjects(active_projects: any[]) {
+
     this.every_project.forEach(project => {
-      const project_db = new Project(project.go_live_date, project.groject_RYG_Color, project.last_Updated, project.project_Manager, project.project_Manager_ID, project.project_Start_Date, project.project_Status, project.project_Title, project.project_Work_Type, project.id);
       if (project.project_Status == 'Open' || project.project_Status == 'Hold') {
         this.show_flag = true;
-        active_projects.push(project_db);
+        active_projects.push(project);
         this.active_projects = active_projects;
+
         this.active_projects_count = this.active_projects.length;
       }
     });

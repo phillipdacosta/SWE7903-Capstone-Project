@@ -24,9 +24,9 @@
   <button class="btn btn-default btn-md btn-block" type="button" data-toggle="collapse" [attr.data-target]=idFromIndex()
           aria-expanded="false" aria-controls="footwear" style="color: rgb(255, 255, 255); font-size: 20pt;">
 
-    {{service.active_projects[index]._project_Title}} <p style="font-size: 12pt">
+    {{service.active_projects[index].project_Title}} <p style="font-size: 12pt">
       Last updated:
-      {{service.active_projects[index]._last_Updated}}
+      {{service.active_projects[index].last_Updated}}
     </p>
 
   </button>
@@ -47,41 +47,41 @@
               <div class="column">
                 <div class="info" style="text-decoration: underline; color: #808080">Release Info</div>
                 <div class="release-name">
-                  Release Name: <br><span style="color: #D61A69">{{service.active_projects[index]._project_Title}}</span>
+                  Release Name: <br><span style="color: #D61A69">{{service.active_projects[index].project_Title}}</span>
                 </div>
 
-                <div class="project-start-date" *ngIf="service.active_projects[index]._project_Start_Date">
+                <div class="project-start-date" *ngIf="service.active_projects[index].project_Start_Date">
                   Release Start
-                  Date: <br><span style="color: #D61A69">{{service.active_projects[index]._project_Start_Date}}</span>
+                  Date: <br><span style="color: #D61A69">{{service.active_projects[index].project_Start_Date}}</span>
                 </div>
 
-                <div class="project-start-date" *ngIf="!service.active_projects[index]._project_Start_Date">
+                <div class="project-start-date" *ngIf="!service.active_projects[index].project_Start_Date">
                   Release Start
                   Date: <br><span style="color: #D61A69">TBD</span>
                 </div>
 
-                <div class="go-live-date" *ngIf="service.active_projects[index]._go_live_date">
-                  Go Live Date: <br><span style="color: #D61A69">{{service.active_projects[index]._go_live_date}}</span>
+                <div class="go-live-date" *ngIf="service.active_projects[index].go_Live_Date">
+                  Go Live Date: <br><span style="color: #D61A69">{{service.active_projects[index].go_Live_Date}}</span>
                 </div>
 
-                <div class="go-live-date" *ngIf="!service.active_projects[index]._go_live_date">
+                <div class="go-live-date" *ngIf="!service.active_projects[index].project.go_Live_Date">
                   Go Live Date: <br><span style="color: #D61A69">TBD</span>
                 </div>
 
-                <div class="project-status">Project Status: <br><span style="color: #D61A69">{{service.active_projects[index]._project_Status}}</span></div>
+                <div class="project-status">Project Status: <br><span style="color: #D61A69">{{service.active_projects[index].project_Status}}</span></div>
 
 
-                <div class="ryg-status" *ngIf="service.active_projects[index]._groject_RYG_Color == 'Green'">
+                <div class="ryg-status" *ngIf="service.active_projects[index].groject_RYG_Color == 'Green'">
                   RYG Status:
                   <br>
                   <div class="foo green"></div>
                 </div>
-                <div class="ryg-status" *ngIf="service.active_projects[index]._groject_RYG_Color == 'Yellow'">
+                <div class="ryg-status" *ngIf="service.active_projects[index].groject_RYG_Color == 'Yellow'">
                   RYG Status:
                   <br>
                   <div class="foo orange"></div>
                 </div>
-                <div class="ryg-status" *ngIf="service.active_projects[index]._groject_RYG_Color == 'Red'">
+                <div class="ryg-status" *ngIf="service.active_projects[index].groject_RYG_Color == 'Red'">
                   RYG Status:
                   <br>
                   <div class="foo red"></div>
